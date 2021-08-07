@@ -60,6 +60,14 @@ public class Gruppe {
 		return ret;
 	}
 /*------------------------------------------------------------*/
+	public Benutzer getMitarbeiter(int index) {
+		return Mitarbeiter.get(index);
+	}
+	public int getAnzahl()
+	{
+		return Mitarbeiter.size();
+	}
+/*------------------------------------------------------------*/
 	public boolean hatMitarbeiter(Benutzer m) {
 		if(!Mitarbeiter.contains(m))
 		{
