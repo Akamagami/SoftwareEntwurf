@@ -1,12 +1,14 @@
 package backend.benutzer;
 
 import java.util.ArrayList;
-
+import constants.Rollen;
 public abstract class Rolle {
 /* abstract Klasse für Rollen, 
  * Berechtigung in Liste vorhanden = true
  * */
-	private ArrayList<Berechtigung> berechtigungList = new ArrayList<Berechtigung>();
+	
+	public ArrayList<Berechtigung> berechtigungList = new ArrayList<Berechtigung>();
+	public Rollen rollenName;
 	
 	public boolean hatBerechtigung(Berechtigung be) {
 		if(berechtigungList.contains(be)) {
@@ -15,4 +17,9 @@ public abstract class Rolle {
 			return false;
 		}
 	}
+/*------------------------------------------------------------------------------*/
+	public Rollen getRollenName() {
+		return rollenName;
+	}
+	
 }

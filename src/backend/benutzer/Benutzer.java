@@ -27,5 +27,9 @@ public class Benutzer {
 	public void kontaktInfosHinzufuegen(Kontaktinformation ki) {
 		kontaktInfo = ki;
 	}
-	
+/*------------------------------------------------------------------------------*/	
+	public Rolle getRolle()
+	{
+		return rolle;
+	}
 }
