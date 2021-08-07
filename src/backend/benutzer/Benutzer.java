@@ -1,12 +1,14 @@
 package backend.benutzer;
 
+import backend.utils.Picture;
+
 public class Benutzer {
 /*------------------------------------------------------------------------------//
  * Die Klasse Benutzer beschreibt einen Mitarbeiter des Unternehmens
  /------------------------------------------------------------------------------*/
 	private String vorname; 
 	private String nachname;
-	private String bildUrl;
+	private Picture picture;
 	private String id; // id word von ElementFactory bestimmt
 	
 	private Kontaktinformation kontaktInfo; // kontaktinfo enthält Name, Email und telkefon
@@ -27,9 +29,23 @@ public class Benutzer {
 	public void kontaktInfosHinzufuegen(Kontaktinformation ki) {
 		kontaktInfo = ki;
 	}
+	public void addBild(Picture p) {
+		picture = p;
+	}
+	
 /*------------------------------------------------------------------------------*/	
 	public Rolle getRolle()
 	{
 		return rolle;
 	}
+	public Picture getPicture() {
+		return picture;
+	}
+	public String getId() {
+		return id;
+	}
+	public Kontaktinformation getKontaktInfo() {
+		return kontaktInfo;
+	}
+
 }

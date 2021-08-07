@@ -33,10 +33,18 @@ public class Beschaffungsgruppe extends Gruppe{
 			return false;
 		}	
 	}
-	
+//------------------------------------------------------------------------------//	
 	public boolean ernenneGruppenleiter(Benutzer m) {
 		if(this.hatMitarbeiter(m)) {
 			Gruppenleiter = m;
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean ernenneGruppenleiter(int index) {
+		if(index < this.getAnzahl()) {
+			Gruppenleiter = this.getMitarbeiter(index);
 			return true;
 		} else {
 			return false;

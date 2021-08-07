@@ -29,6 +29,16 @@ public class Gruppe {
 			return false;
 		}
 	}
+	public boolean deleteMitarbeiter(int index)
+	{
+		if(index < Mitarbeiter.size())
+		{
+			Mitarbeiter.remove(index);
+			return true;
+		} else {
+			return false;
+		}
+	}
 /*------------------------------------------------------------*/
 	public Gruppe(String name) {
 		super();
@@ -48,6 +58,14 @@ public class Gruppe {
 			cnt++;
 		}
 		return ret;
+	}
+/*------------------------------------------------------------*/
+	public Benutzer getMitarbeiter(int index) {
+		return Mitarbeiter.get(index);
+	}
+	public int getAnzahl()
+	{
+		return Mitarbeiter.size();
 	}
 /*------------------------------------------------------------*/
 	public boolean hatMitarbeiter(Benutzer m) {
