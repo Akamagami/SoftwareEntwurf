@@ -1,9 +1,45 @@
 package backend.benutzer;
 
-public class Beschaffungsgruppe {
+import java.util.ArrayList;
+
+import constants.Rollen;
+
+public class Beschaffungsgruppe extends Gruppe{
 /*------------------------------------------------------------------------------//
  * Sind Teilevents uigeteilt, kann einen Gruppenleiter haben
- * Gruppenleiter wird auch als Mitarbeiter extra gelistet
- /------------------------------------------------------------------------------*/
-	private ArrayList<Mitarbeiter> //TODO
+ * Gruppenleiter wird auch als Mitarbeiter extra gelistet 
+ * Nur Beschaffungspersonal
+//------------------------------------------------------------------------------*/
+	
+	
+//------------------------------------------------------------------------------//
+	
+	
+	private Benutzer Gruppenleiter;
+	
+	public Beschaffungsgruppe(String name) {
+		super(name);
+	}
+	public Benutzer getGruppenleiter() {
+		return Gruppenleiter;
+	}
+//------------------------------------------------------------------------------//
+	@Override
+	public boolean addMitarbeiter(Benutzer m)
+	{
+		if(m.getRolle().getRollenName() == Rollen.B ) {
+			return super.addMitarbeiter(m);
+		} else {
+			return false;
+		}	
+	}
+	
+	public boolean ernenneGruppenleiter(Benutzer m) {
+		if(this.hatMitarbeiter(m)) {
+			Gruppenleiter = m;
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
