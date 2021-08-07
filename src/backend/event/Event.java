@@ -123,5 +123,45 @@ public class Event {
 		}
 	}
 /*------------------------------------------------------------------*/
+
+	public String getTitel() {
+		return titel;
+	}
+
+	public String getBeschreibung() {
+		return beschreibung;
+	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
+
+	public int getBesucher() {
+		return besucher;
+	}
+
+	public String getKunde() {
+		return kunde;
+	}
+
+	public double getBudget() {
+		return budget;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public EventKategorie getKategorie() {
+		return kategorie;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
 	
 }
