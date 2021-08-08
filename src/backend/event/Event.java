@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import backend.benutzer.Kontaktinformation;
+import backend.utils.KontaktInfoList;
 import backend.utils.Picture;
+import backend.utils.PictureList;
 import constants.*;
 
 public class Event {
@@ -21,8 +23,8 @@ public class Event {
 	private EventKategorie kategorie;
 	private Status status;
 	
-	ArrayList<Picture> bildList = new ArrayList<Picture>();
-	ArrayList<Kontaktinformation> kontaktInfoList = new ArrayList<Kontaktinformation>();
+	PictureList pictureList = new PictureList();
+	KontaktInfoList kontaktInfoList = new KontaktInfoList();
 	ArrayList<TeilEvent> TeilEventList = new ArrayList<TeilEvent>();
 /*------------------------------------------------------------------*/	
 
@@ -49,59 +51,11 @@ public class Event {
 	}
 
 /*------------------------------------------------------------------*/	
-	public void addPictureUrl(Picture p)
-	{
-		bildList.add(p);
-	}
-	public void addKontaktInfo(Kontaktinformation info)
-	{
-		kontaktInfoList.add(info);
-	}
 	public void addTeilEvent(TeilEvent ev)
 	{
 		TeilEventList.add(ev);
 	}
 /*------------------------------------------------------------------*/		
-	public boolean removePicture(Picture p)
-	{
-		if(bildList.contains(p))
-		{
-			bildList.remove(p);
-			return true;
-		} else {
-			return false;
-		}
-	}
-	public boolean removePicture(int index)
-	{
-		if(index < bildList.size())
-		{
-			bildList.remove(index);
-			return true;
-		} else {
-			return false;
-		}
-	}
-	public boolean removeKontakt(Kontaktinformation info)
-	{
-		if(kontaktInfoList.contains(info))
-		{
-			kontaktInfoList.remove(info);
-			return true;
-		} else {
-			return false;
-		}
-	}
-	public boolean removeKontakt(int index)
-	{
-		if(index < kontaktInfoList.size())
-		{
-			kontaktInfoList.remove(index);
-			return true;
-		} else {
-			return false;
-		}
-	}
 	public boolean removeTeilEvent(TeilEvent ev)
 	{
 		if(TeilEventList.contains(ev))
@@ -164,4 +118,25 @@ public class Event {
 		return status;
 	}
 	
+	public PictureList getPictureList() {
+		return pictureList;
+	}
+
+	public KontaktInfoList getKontaktInfoList() {
+		return kontaktInfoList;
+	}
+
+	/*------------------------------------------------------------------*/	
+	public void update(String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
+			 EventKategorie kategorie, Status status) {
+		this.titel = titel;
+		this.beschreibung = beschreibung;
+		this.start = start;
+		this.end = end;
+		this.besucher = besucher;
+		this.kunde = kunde;
+		this.budget = budget;
+		this.kategorie = kategorie;
+		this.status = status;
+	}
 }

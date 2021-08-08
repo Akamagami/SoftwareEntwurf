@@ -18,7 +18,7 @@ public class TeilEvent {
 
 	ArrayList<Gruppe> GruppenList = new ArrayList<Gruppe>(); //kann normale oder Beschaffungsgruppen enthalten
 /*-----------------------------------------------------------------------------*/
-	public TeilEvent(String id, Date start, Date ende, String name, Status status) {
+	public TeilEvent(String id, Date start, Date ende, String name) {
 		super();
 		this.id = id;
 		this.start = start;
@@ -65,4 +65,34 @@ public class TeilEvent {
 		}
 	}
 /*-----------------------------------------------------------------------------*/
+	public void addEventElement(EventElement ev) {
+		element = ev;
+	}
+/*-----------------------------------------------------------------------------*/	
+	public String getId() {
+		return id;
+	}
+	public Date getStart() {
+		return start;
+	}
+	public Date getEnde() {
+		return ende;
+	}
+	public String getName() {
+		return name;
+	}
+	public Status getStatus() {
+		return status;
+	}
+	public EventElement getElement() {
+		return element;
+	}
+/*-----------------------------------------------------------------------------*/
+	public void update(Date start, Date ende, String name, Status status,EventElement ev) {
+		this.start = start;
+		this.ende = ende;
+		this.name = name;
+		this.status = status;
+		element = ev;
+	}
 }
