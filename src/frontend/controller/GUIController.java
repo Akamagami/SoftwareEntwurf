@@ -1,4 +1,4 @@
 package frontend.controller;
 
-public class ControllerBase {
+public class GUIController {
 }
