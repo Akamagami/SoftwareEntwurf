@@ -47,5 +47,9 @@ public class Benutzer {
 	public Kontaktinformation getKontaktInfo() {
 		return kontaktInfo;
 	}
-
+/*------------------------------------------------------------------------------*/
+	public void update()
+	{
+		
+	}
 }
