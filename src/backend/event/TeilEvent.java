@@ -88,11 +88,10 @@ public class TeilEvent {
 		return element;
 	}
 /*-----------------------------------------------------------------------------*/
-	public void update(Date start, Date ende, String name, Status status,EventElement ev) {
+	public void update(Date start, Date ende, String name, Status status) {
 		this.start = start;
 		this.ende = ende;
 		this.name = name;
 		this.status = status;
-		element = ev;
 	}
 }

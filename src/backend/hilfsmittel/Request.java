@@ -33,6 +33,8 @@ public class Request {
 		return hilfsmittel;
 	}
 	
-	
+	public void update(int anzahl) {
+		this.anzahl = anzahl;
+	}
 	
 }

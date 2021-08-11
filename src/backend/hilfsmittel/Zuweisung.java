@@ -22,4 +22,8 @@ public class Zuweisung {
 		return id;
 	}	
 	
+	public void update(int menge) {
+		this.menge = menge;
+	}
+	
 }

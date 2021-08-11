@@ -7,9 +7,11 @@ public class Kontaktinformation {
 	private String name;
 	private String email;
 	private String tele;
+	private String id;
 /*------------------------------------------------------------------------------*/
-	public Kontaktinformation(String name, String email, String tele) {
+	public Kontaktinformation(String name, String email, String tele,String id) {
 		super();
+		this.id = id;
 		update(name,email,tele);
 	}
 /*------------------------------------------------------------------------------*/
@@ -21,6 +23,9 @@ public class Kontaktinformation {
 	}
 	public String getTele() {
 		return tele;
+	}	
+	public String getId() {
+		return id;
 	}	
 /*------------------------------------------------------------------------------*/
 	public void update(String name, String email, String tele) {

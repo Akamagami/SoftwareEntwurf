@@ -1,20 +1,22 @@
 package backend.datenbasis.Manager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import backend.benutzer.Benutzer;
 import backend.datenbasis.EntityManager;
+import backend.hilfsmittel.Zuweisung;
+import constants.Status;
 
-public class BenutzerManager implements EntityManager<Benutzer> {
-
-	private HashMap<String,Benutzer> list = new HashMap<String,Benutzer>();
+public class ZuweisungManager implements EntityManager<Zuweisung> {
 	
+	private HashMap<String,Zuweisung> list = new HashMap<String,Zuweisung>();
+
 	@Override
-	public Optional<Benutzer> get(String id) {
+	public Optional<Zuweisung> get(String id) {
 		return Optional.of(list.get(id));
 	}
 
@@ -25,15 +27,15 @@ public class BenutzerManager implements EntityManager<Benutzer> {
 	}
 
 	@Override
-	public void save(Benutzer e) {
+	public void save(Zuweisung e) {
 		list.put(e.getId(), e);
 		
 	}
 
 	@Override
-	public List<Benutzer> getAll() {
-		List<Benutzer> ret = new ArrayList<Benutzer>();
-			for(Map.Entry<String, Benutzer> entry : list.entrySet()) {
+	public List<Zuweisung> getAll() {
+		List<Zuweisung> ret = new ArrayList<Zuweisung>();
+			for(Map.Entry<String, Zuweisung> entry : list.entrySet()) {
 				ret.add(entry.getValue());
 			}
 		return ret;
@@ -41,7 +43,8 @@ public class BenutzerManager implements EntityManager<Benutzer> {
 
 	@Override
 	public void update(String id, Object[] params) {
-		// nothing		
+		list.get(id).update((int) params[0]);
 	}
-
 }
+
+
