@@ -52,4 +52,11 @@ public class Benutzer {
 	{
 		
 	}
+/*------------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		return "Benutzer [vorname=" + vorname + ", nachname=" + nachname + ", picture=" + picture + ", id=" + id
+				+ ", kontaktInfo=" + kontaktInfo + ", rolle=" + rolle + "]";
+	}
+
 }

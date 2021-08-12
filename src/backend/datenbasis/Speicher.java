@@ -2,6 +2,7 @@ package backend.datenbasis;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import backend.benutzer.Benutzer;
 import backend.benutzer.Gruppe;
@@ -23,7 +24,7 @@ import backend.hilfsmittel.Request;
 import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 
-public class Speicher<E> {
+public class Speicher {
 	ElementFactory creator = new ElementFactory();
 	
 	private HashMap<ClassType,EntityManager> managers = new HashMap<ClassType,EntityManager>();
@@ -31,6 +32,7 @@ public class Speicher<E> {
 
 	public Speicher() {
 		super();
+		init();
 	}
 	
 	private void init() {
@@ -62,7 +64,7 @@ public class Speicher<E> {
 		EntityManager<Zuweisung> zuweisungManager = new ZuweisungManager();
 		managers.put(ClassType.ZUWEISUNG,zuweisungManager);
 	}
-	
+/*--------------------------------------------------------------------------------------------------------------*/	
 	public void save(ClassType type, Object o) {
 		managers.get(type).save(o);
 	}
@@ -72,9 +74,20 @@ public class Speicher<E> {
 	public Object getObject(ClassType type, String id) {
 		return managers.get(type).get(id);
 	}
-	public List<Object> getAll(ClassType type, String id) {
+	public List<Object> getAll(ClassType type) {
 		return managers.get(type).getAll();
 	}
-	
-	
+/*--------------------------------------------------------------------------------------------------------------*/	
+	private Object createObject(ClassType c, Object[] params, Optional<String> optId) {
+		Object ret = null;
+		switch(c) {
+			case BENUTZER: ret = creator.createBenutzer(params,optId);
+		}
+		this.save(c, ret);
+		return ret;	
+	}
+/*--------------------------------------------------------------------------------------------------------------*/
+	public Object createObject(ClassType c,Object[] params) {
+		return this.createObject(c, params,Optional.empty());
+	}
 }

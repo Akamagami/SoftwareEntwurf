@@ -21,5 +21,9 @@ public abstract class Rolle {
 	public Rollen getRollenName() {
 		return rollenName;
 	}
+	@Override
+	public String toString() {
+		return "Rolle [berechtigungList=" + berechtigungList + ", rollenName=" + rollenName + "]";
+	}
 	
 }

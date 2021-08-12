@@ -27,13 +27,13 @@ public class TeilEvent {
 		status = Status.E;
 	}
 /*-----------------------------------------------------------------------------*/	
-	public void addGruppe(String name) {
-		Gruppe add = new Gruppe(name);
-		GruppenList.add(add);
+	public void addGruppe(Gruppe g) {
+		
+		GruppenList.add(g);
 	}
-	public void addBeschaffungsGruppe(String name) {
-		Gruppe add = new Beschaffungsgruppe(name);
-		GruppenList.add(add);
+	public void addBeschaffungsGruppe(Beschaffungsgruppe g) {
+		
+		GruppenList.add(g);
 	}
 	public void deleteGruppe(int index) {
 		GruppenList.remove(index);

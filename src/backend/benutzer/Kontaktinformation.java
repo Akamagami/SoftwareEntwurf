@@ -33,4 +33,10 @@ public class Kontaktinformation {
 		this.email = email;
 		this.tele = tele;
 	}
+/*------------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		return "Kontaktinformation [name=" + name + ", email=" + email + ", tele=" + tele + ", id=" + id + "]";
+	}
+	
 }
