@@ -10,4 +10,5 @@ public enum ClassType {
 	HILFSMITTEL,
 	ZUWEISUNG,
 	REQUEST,
+	BGRUPPE,
 }

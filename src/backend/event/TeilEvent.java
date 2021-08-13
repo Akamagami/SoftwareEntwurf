@@ -18,7 +18,7 @@ public class TeilEvent {
 
 	ArrayList<Gruppe> GruppenList = new ArrayList<Gruppe>(); //kann normale oder Beschaffungsgruppen enthalten
 /*-----------------------------------------------------------------------------*/
-	public TeilEvent(String id, Date start, Date ende, String name) {
+	public TeilEvent( Date start, Date ende, String name, String id) {
 		super();
 		this.id = id;
 		this.start = start;

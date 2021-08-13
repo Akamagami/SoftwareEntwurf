@@ -11,7 +11,7 @@ public interface EntityManager<E> {
 	
 	public void save(E e);
 	
-	public void update(String id, Object [] params);
+	public void update(String id, Object[] params);
 	
 	List<E> getAll();
 }

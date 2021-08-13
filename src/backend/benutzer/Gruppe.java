@@ -74,11 +74,17 @@ public class Gruppe {
 	}
 /*------------------------------------------------------------*/
 	public boolean hatMitarbeiter(Benutzer m) {
-		if(!Mitarbeiter.contains(m))
+		if(Mitarbeiter.contains(m))
 		{
 			return true;
 		} else {
 			return false;
 		}
 	}
+/*------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		return "Gruppe [name=" + name + ", id=" + id + ", Mitarbeiter=" + Mitarbeiter + "]";
+	}
+	
 }

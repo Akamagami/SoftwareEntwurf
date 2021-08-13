@@ -68,20 +68,33 @@ public class Speicher {
 	public void save(ClassType type, Object o) {
 		managers.get(type).save(o);
 	}
-	public void update(ClassType type, String id,String[] params) {
+	public void update(ClassType type, String id,Object[] params) {
 		managers.get(type).update(id,params);
 	}
 	public Object getObject(ClassType type, String id) {
-		return managers.get(type).get(id);
+		Optional ret =  managers.get(type).get(id);
+		return ret.get();
 	}
 	public List<Object> getAll(ClassType type) {
 		return managers.get(type).getAll();
+	}
+	public void delete(ClassType type, String id) {
+		managers.get(type).delete(id);
 	}
 /*--------------------------------------------------------------------------------------------------------------*/	
 	private Object createObject(ClassType c, Object[] params, Optional<String> optId) {
 		Object ret = null;
 		switch(c) {
-			case BENUTZER: ret = creator.createBenutzer(params,optId);
+			case BENUTZER: ret = creator.createBenutzer(params,optId); break;
+			case KONTAKTINFORMATION: ret = creator.createKontaktinformation(params, optId); break ;
+			case GRUPPE: ret = creator.createGruppe(params, optId); break ;
+			case EVENT: ret = creator.createEvent(params, optId); break ;
+			case TEILEVENT: ret = creator.createTeilEvent(params, optId); break ;
+			case EVENTELEMENT: ret = creator.createEventElement(params, optId); break ;
+			case HILFSMITTEL: ret = creator.createHilfsmittel(params, optId); break ;
+			case REQUEST: ret = creator.createRequest(params, optId); break ;
+			case ZUWEISUNG: ret = creator.createZuweisung(params, optId); break ;
+			case BGRUPPE: ret = creator.createBGruppe(params, optId);c = ClassType.GRUPPE; break ;
 		}
 		this.save(c, ret);
 		return ret;	

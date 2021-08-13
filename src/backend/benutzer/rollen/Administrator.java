@@ -4,7 +4,8 @@ import backend.benutzer.Rolle;
 import constants.Rollen;
 
 public class Administrator extends Rolle {
-	public void Montageleiter() {
+	public Administrator() {
+		super();
 		rollenName = Rollen.A;
 	}
 }

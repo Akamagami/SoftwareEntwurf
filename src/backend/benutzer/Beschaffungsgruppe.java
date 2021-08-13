@@ -50,4 +50,11 @@ public class Beschaffungsgruppe extends Gruppe{
 			return false;
 		}
 	}
+//------------------------------------------------------------------------------//	
+	@Override
+	public String toString() {
+		
+		return "Beschaffungsgruppe [Gruppenleiter=" + Gruppenleiter + "]"+super.toString();
+	}
+	
 }
