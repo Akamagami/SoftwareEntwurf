@@ -16,6 +16,8 @@ import backend.datenbasis.Manager.KontaktinformationManager;
 import backend.datenbasis.Manager.RequestManager;
 import backend.datenbasis.Manager.TeilEventManager;
 import backend.datenbasis.Manager.ZuweisungManager;
+import backend.datenbasis.factory.BenutzerFactory;
+import backend.datenbasis.factory.KontaktInfoFactory;
 import backend.event.Event;
 import backend.event.EventElement;
 import backend.event.TeilEvent;
@@ -25,10 +27,9 @@ import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 
 public class Speicher {
-	ElementFactory creator = new ElementFactory();
 	
 	private HashMap<ClassType,EntityManager> managers = new HashMap<ClassType,EntityManager>();
-	
+	private HashMap<ClassType,ElementFactory> factories = new HashMap<ClassType,ElementFactory>();
 
 	public Speicher() {
 		super();
@@ -36,7 +37,7 @@ public class Speicher {
 	}
 	
 	private void init() {
-		
+		//---------------------------------Manager-------------------------------------------//
 		EntityManager<Benutzer> userManager = new BenutzerManager();
 		managers.put(ClassType.BENUTZER,userManager);
 		
@@ -45,6 +46,7 @@ public class Speicher {
 		
 		EntityManager<Gruppe> gruppeManager = new GruppeManager();
 		managers.put(ClassType.GRUPPE,gruppeManager);
+		managers.put(ClassType.BGRUPPE,gruppeManager);
 		
 		EntityManager<Event> eventManager = new EventManager();
 		managers.put(ClassType.EVENT,eventManager);
@@ -63,6 +65,15 @@ public class Speicher {
 		
 		EntityManager<Zuweisung> zuweisungManager = new ZuweisungManager();
 		managers.put(ClassType.ZUWEISUNG,zuweisungManager);
+		//---------------------------------Factories-------------------------------------------//
+		ElementFactory userFactory = new BenutzerFactory();
+		factories.put(ClassType.BENUTZER,userFactory);
+		
+		ElementFactory kontaktInfoFactory = new KontaktInfoFactory();
+		factories.put(ClassType.KONTAKTINFORMATION,kontaktInfoFactory);
+		
+		
+		
 	}
 /*--------------------------------------------------------------------------------------------------------------*/	
 	public void save(ClassType type, Object o) {
@@ -83,19 +94,7 @@ public class Speicher {
 	}
 /*--------------------------------------------------------------------------------------------------------------*/	
 	private Object createObject(ClassType c, Object[] params, Optional<String> optId) {
-		Object ret = null;
-		switch(c) {
-			case BENUTZER: ret = creator.createBenutzer(params,optId); break;
-			case KONTAKTINFORMATION: ret = creator.createKontaktinformation(params, optId); break ;
-			case GRUPPE: ret = creator.createGruppe(params, optId); break ;
-			case EVENT: ret = creator.createEvent(params, optId); break ;
-			case TEILEVENT: ret = creator.createTeilEvent(params, optId); break ;
-			case EVENTELEMENT: ret = creator.createEventElement(params, optId); break ;
-			case HILFSMITTEL: ret = creator.createHilfsmittel(params, optId); break ;
-			case REQUEST: ret = creator.createRequest(params, optId); break ;
-			case ZUWEISUNG: ret = creator.createZuweisung(params, optId); break ;
-			case BGRUPPE: ret = creator.createBGruppe(params, optId);c = ClassType.GRUPPE; break ;
-		}
+		Object ret = factories.get(c).create(params, optId);
 		this.save(c, ret);
 		return ret;	
 	}

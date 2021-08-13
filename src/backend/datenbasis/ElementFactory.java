@@ -16,44 +16,15 @@ import constants.ClassType;
 import constants.EventKategorie;
 import constants.Status;
 
-public class ElementFactory {
+public interface ElementFactory {
 	
-	private HashMap<ClassType,Integer> indexList = new HashMap<ClassType,Integer>();
+	public int getIndex();
 	
-	Rolle leer = new LeereRolle();
-
-	public ElementFactory() {
-		super();
-		init();
-	}
+	public void setIndex(String id);
 	
-	private void init() {
-		for(ClassType c: ClassType.values()) {
-			indexList.put(c,1);
-		}
-	}
+	public Object create(Object[] params,Optional<String> optId);
 	
-	public void updateIndexList(String[] index) {
-		int cnt = 0;
-		for(ClassType c: ClassType.values()) {
-			indexList.put(c,Integer.parseInt(index[cnt]));
-			cnt++;
-		}
-	}
-	public Integer[] getIndexList() {
-		Integer[] ret = new Integer[indexList.size()];
-		int cnt = 0;
-		
-		for(ClassType c: ClassType.values()) {
-			ret[cnt] = indexList.get(c);
-		}
-		return ret;
-	}	
-	private void upId(ClassType c) {
-		indexList.put(c, indexList.get(c)+1);
-	}
-	
-/*--------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------------------------------
 	public Benutzer createBenutzer(Object[] params,Optional<String> optId) {
 		String newIndex = "0";
 		if(optId.isPresent()) {
@@ -149,6 +120,6 @@ public class ElementFactory {
 
 
 	
-	
+*/	
 	
 }
