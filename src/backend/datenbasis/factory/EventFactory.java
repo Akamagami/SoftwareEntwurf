@@ -1,15 +1,19 @@
 package backend.datenbasis.factory;
 
+import java.util.Date;
 import java.util.Optional;
 
 import backend.benutzer.Benutzer;
+import backend.benutzer.Gruppe;
 import backend.benutzer.Kontaktinformation;
 import backend.benutzer.Rolle;
 import backend.benutzer.rollen.LeereRolle;
 import backend.datenbasis.ElementFactory;
+import backend.event.Event;
 import constants.ClassType;
+import constants.EventKategorie;
 
-public class KontaktInfoFactory implements ElementFactory {
+public class EventFactory implements ElementFactory {
 
 	int index = 1;
 	
@@ -33,7 +37,7 @@ public class KontaktInfoFactory implements ElementFactory {
 			newIndex = index+"";
 			index++;
 		}
-		Kontaktinformation ret = new Kontaktinformation((String) params[0],(String) params[1],(String) params [2],newIndex);
+		Event ret = new Event((String) params[0], (String) params[1],(Date) params[2],(Date) params[3],(int) params[4],(String) params[5],(double) params[6],(EventKategorie) params[7],newIndex);
 		return ret;
 	}
 

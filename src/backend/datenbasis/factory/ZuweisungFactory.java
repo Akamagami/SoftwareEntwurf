@@ -3,13 +3,17 @@ package backend.datenbasis.factory;
 import java.util.Optional;
 
 import backend.benutzer.Benutzer;
+import backend.benutzer.Gruppe;
 import backend.benutzer.Kontaktinformation;
 import backend.benutzer.Rolle;
 import backend.benutzer.rollen.LeereRolle;
 import backend.datenbasis.ElementFactory;
+import backend.event.TeilEvent;
+import backend.hilfsmittel.Hilfsmittel;
+import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 
-public class KontaktInfoFactory implements ElementFactory {
+public class ZuweisungFactory implements ElementFactory {
 
 	int index = 1;
 	
@@ -33,7 +37,7 @@ public class KontaktInfoFactory implements ElementFactory {
 			newIndex = index+"";
 			index++;
 		}
-		Kontaktinformation ret = new Kontaktinformation((String) params[0],(String) params[1],(String) params [2],newIndex);
+		Zuweisung ret = new Zuweisung((TeilEvent) params[0],(Hilfsmittel) params[1], (int) params[2], newIndex);
 		return ret;
 	}
 

@@ -10,7 +10,7 @@ import constants.ClassType;
 
 public class BenutzerFactory implements ElementFactory {
 
-	int index;
+	int index = 1;
 	Rolle leer = new LeereRolle();
 	
 	@Override

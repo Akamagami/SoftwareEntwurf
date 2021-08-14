@@ -16,8 +16,16 @@ import backend.datenbasis.Manager.KontaktinformationManager;
 import backend.datenbasis.Manager.RequestManager;
 import backend.datenbasis.Manager.TeilEventManager;
 import backend.datenbasis.Manager.ZuweisungManager;
+import backend.datenbasis.factory.BGruppeFactory;
 import backend.datenbasis.factory.BenutzerFactory;
+import backend.datenbasis.factory.EventElementFactory;
+import backend.datenbasis.factory.EventFactory;
+import backend.datenbasis.factory.GruppeFactory;
+import backend.datenbasis.factory.HilfsmittelFactory;
 import backend.datenbasis.factory.KontaktInfoFactory;
+import backend.datenbasis.factory.RequestFactory;
+import backend.datenbasis.factory.TeilEventFactory;
+import backend.datenbasis.factory.ZuweisungFactory;
 import backend.event.Event;
 import backend.event.EventElement;
 import backend.event.TeilEvent;
@@ -72,8 +80,30 @@ public class Speicher {
 		ElementFactory kontaktInfoFactory = new KontaktInfoFactory();
 		factories.put(ClassType.KONTAKTINFORMATION,kontaktInfoFactory);
 		
+		ElementFactory gruppeFactory = new GruppeFactory();
+		factories.put(ClassType.GRUPPE,gruppeFactory);
+		
+		ElementFactory bGruppeFactory = new BGruppeFactory();
+		factories.put(ClassType.BGRUPPE,bGruppeFactory);
 		
 		
+		ElementFactory eventFactory = new EventFactory();
+		factories.put(ClassType.EVENT,eventFactory);
+		
+		ElementFactory teilEventFactory = new TeilEventFactory();
+		factories.put(ClassType.TEILEVENT,teilEventFactory);
+		
+		ElementFactory eventElementFactory = new EventElementFactory();
+		factories.put(ClassType.EVENTELEMENT,eventElementFactory);
+		
+		ElementFactory hilfsmittelFactory = new HilfsmittelFactory();
+		factories.put(ClassType.HILFSMITTEL,hilfsmittelFactory);
+		
+		ElementFactory zuweisungFactory = new ZuweisungFactory();
+		factories.put(ClassType.ZUWEISUNG,zuweisungFactory);
+		
+		ElementFactory requestFactory = new RequestFactory();
+		factories.put(ClassType.REQUEST,requestFactory);
 	}
 /*--------------------------------------------------------------------------------------------------------------*/	
 	public void save(ClassType type, Object o) {
