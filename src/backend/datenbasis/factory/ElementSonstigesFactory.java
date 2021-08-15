@@ -9,9 +9,10 @@ import backend.benutzer.Rolle;
 import backend.benutzer.rollen.LeereRolle;
 import backend.datenbasis.ElementFactory;
 import backend.event.EventElement;
+import backend.event.eventelement.Sonstiges;
 import constants.ClassType;
 
-public class EventElementFactory implements ElementFactory {
+public class ElementSonstigesFactory implements ElementFactory {
 
 	int index = 1;
 	
@@ -28,14 +29,15 @@ public class EventElementFactory implements ElementFactory {
 
 	@Override
 	public Object create(Object[] params, Optional<String> optId) {
+		
 		String newIndex = "0";
 		if(optId.isPresent()) {
 			newIndex = optId.get();
 		} else {
 			newIndex = index+"";
 			index++;
-		}
-		EventElement ret = new EventElement((String) params[0],(String) params[1],(double) params[2],newIndex);
+		}	
+		Sonstiges ret = new Sonstiges((String) params[0],(String) params[1],(double) params[2],(String) params[3],newIndex);
 		return ret;
 	}
 

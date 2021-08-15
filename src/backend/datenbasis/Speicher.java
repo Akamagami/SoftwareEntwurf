@@ -8,7 +8,10 @@ import backend.benutzer.Benutzer;
 import backend.benutzer.Gruppe;
 import backend.benutzer.Kontaktinformation;
 import backend.datenbasis.Manager.BenutzerManager;
-import backend.datenbasis.Manager.EventElementManager;
+import backend.datenbasis.Manager.ElementCateringManager;
+import backend.datenbasis.Manager.ElementLocationManager;
+import backend.datenbasis.Manager.ElementMusikManager;
+import backend.datenbasis.Manager.ElementSonstigesManager;
 import backend.datenbasis.Manager.EventManager;
 import backend.datenbasis.Manager.GruppeManager;
 import backend.datenbasis.Manager.HilfsmittelManager;
@@ -18,7 +21,10 @@ import backend.datenbasis.Manager.TeilEventManager;
 import backend.datenbasis.Manager.ZuweisungManager;
 import backend.datenbasis.factory.BGruppeFactory;
 import backend.datenbasis.factory.BenutzerFactory;
-import backend.datenbasis.factory.EventElementFactory;
+import backend.datenbasis.factory.ElementCateringFactory;
+import backend.datenbasis.factory.ElementLocationFactory;
+import backend.datenbasis.factory.ElementMusikFactory;
+import backend.datenbasis.factory.ElementSonstigesFactory;
 import backend.datenbasis.factory.EventFactory;
 import backend.datenbasis.factory.GruppeFactory;
 import backend.datenbasis.factory.HilfsmittelFactory;
@@ -29,6 +35,10 @@ import backend.datenbasis.factory.ZuweisungFactory;
 import backend.event.Event;
 import backend.event.EventElement;
 import backend.event.TeilEvent;
+import backend.event.eventelement.Catering;
+import backend.event.eventelement.Location;
+import backend.event.eventelement.Musik;
+import backend.event.eventelement.Sonstiges;
 import backend.hilfsmittel.Hilfsmittel;
 import backend.hilfsmittel.Request;
 import backend.hilfsmittel.Zuweisung;
@@ -44,6 +54,7 @@ public class Speicher {
 		init();
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void init() {
 		//---------------------------------Manager-------------------------------------------//
 		EntityManager<Benutzer> userManager = new BenutzerManager();
@@ -62,8 +73,17 @@ public class Speicher {
 		EntityManager<TeilEvent> teilEventManager = new TeilEventManager();
 		managers.put(ClassType.TEILEVENT,teilEventManager);
 		
-		EntityManager<EventElement> eventElementManager = new EventElementManager();
-		managers.put(ClassType.EVENTELEMENT,eventElementManager);
+		EntityManager<Sonstiges> elementSonstigesManager = new ElementSonstigesManager();
+		managers.put(ClassType.ELEMENTSONTIGES,elementSonstigesManager);
+		
+		EntityManager<Catering> elementCateringManager = new ElementCateringManager();
+		managers.put(ClassType.ELEMENTCATERING,elementCateringManager);
+		
+		EntityManager<Musik> elementMusikManager = new ElementMusikManager();
+		managers.put(ClassType.ELEMENTMUSIK,elementMusikManager);
+		
+		EntityManager<Location> elementLocationManager = new ElementLocationManager();
+		managers.put(ClassType.ELEMENTLOCATION,elementLocationManager);
 		
 		EntityManager<Hilfsmittel> hilfsmittelManager = new HilfsmittelManager();
 		managers.put(ClassType.HILFSMITTEL,hilfsmittelManager);
@@ -86,15 +106,23 @@ public class Speicher {
 		ElementFactory bGruppeFactory = new BGruppeFactory();
 		factories.put(ClassType.BGRUPPE,bGruppeFactory);
 		
-		
 		ElementFactory eventFactory = new EventFactory();
 		factories.put(ClassType.EVENT,eventFactory);
 		
 		ElementFactory teilEventFactory = new TeilEventFactory();
 		factories.put(ClassType.TEILEVENT,teilEventFactory);
 		
-		ElementFactory eventElementFactory = new EventElementFactory();
-		factories.put(ClassType.EVENTELEMENT,eventElementFactory);
+		ElementFactory elementSonstigesFactory = new ElementSonstigesFactory();
+		factories.put(ClassType.ELEMENTSONTIGES,elementSonstigesFactory);
+		
+		ElementFactory elementCateringFactory = new ElementCateringFactory();
+		factories.put(ClassType.ELEMENTCATERING,elementCateringFactory);
+		
+		ElementFactory elementMusikFactory = new ElementMusikFactory();
+		factories.put(ClassType.ELEMENTMUSIK,elementMusikFactory);
+		
+		ElementFactory elementLocationFactory = new ElementLocationFactory();
+		factories.put(ClassType.ELEMENTLOCATION,elementLocationFactory);
 		
 		ElementFactory hilfsmittelFactory = new HilfsmittelFactory();
 		factories.put(ClassType.HILFSMITTEL,hilfsmittelFactory);

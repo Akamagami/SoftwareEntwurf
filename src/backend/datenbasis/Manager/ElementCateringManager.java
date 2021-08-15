@@ -8,15 +8,15 @@ import java.util.Map;
 import java.util.Optional;
 
 import backend.datenbasis.EntityManager;
-import backend.event.EventElement;
+import backend.event.eventelement.Catering;
 import constants.Status;
 
-public class EventElementManager implements EntityManager<EventElement> {
+public class ElementCateringManager implements EntityManager<Catering> {
 	
-	private HashMap<String,EventElement> list = new HashMap<String,EventElement>();
+	private HashMap<String,Catering> list = new HashMap<String,Catering>();
 
 	@Override
-	public Optional<EventElement> get(String id) {
+	public Optional<Catering> get(String id) {
 		return Optional.of(list.get(id));
 	}
 
@@ -27,15 +27,15 @@ public class EventElementManager implements EntityManager<EventElement> {
 	}
 
 	@Override
-	public void save(EventElement e) {
+	public void save(Catering e) {
 		list.put(e.getId(), e);
 		
 	}
 
 	@Override
-	public List<EventElement> getAll() {
-		List<EventElement> ret = new ArrayList<EventElement>();
-			for(Map.Entry<String, EventElement> entry : list.entrySet()) {
+	public List<Catering> getAll() {
+		List<Catering> ret = new ArrayList<Catering>();
+			for(Map.Entry<String, Catering> entry : list.entrySet()) {
 				ret.add(entry.getValue());
 			}
 		return ret;
@@ -43,7 +43,7 @@ public class EventElementManager implements EntityManager<EventElement> {
 
 	@Override
 	public void update(String id, Object[] params) {
-		list.get(id).update((String) params[0],(String) params[1],(double) params[2]);
+		list.get(id).update((String) params[0],(String) params[1],(double) params[2],(String) params[3],(String) params[4]);
 	}
 }
 
