@@ -17,8 +17,8 @@ public class Beschaffungsgruppe extends Gruppe{
 	
 	private Benutzer Gruppenleiter;
 	
-	public Beschaffungsgruppe(String name) {
-		super(name);
+	public Beschaffungsgruppe(String name,String id) {
+		super(name,id);
 	}
 	public Benutzer getGruppenleiter() {
 		return Gruppenleiter;
@@ -50,4 +50,11 @@ public class Beschaffungsgruppe extends Gruppe{
 			return false;
 		}
 	}
+//------------------------------------------------------------------------------//	
+	@Override
+	public String toString() {
+		
+		return "Beschaffungsgruppe [Gruppenleiter=" + Gruppenleiter + "]"+super.toString();
+	}
+	
 }

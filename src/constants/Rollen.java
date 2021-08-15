@@ -5,7 +5,8 @@ public enum Rollen {
 	A ("Administrator"),
 	M ("Montageleiter"),
 	P ("Personalmitarbeiter"),
-	O ("Organisator");
+	O ("Organisator"),
+	N ("none");
 	
 	private String displayName;
 	
@@ -17,4 +18,5 @@ public enum Rollen {
 	public String getDisplayName() {
 		return displayName;
 	}
+	
 }

@@ -16,7 +16,6 @@ public class Catering extends EventElement {
 
 	public void update(String name, String beschreibung, double kosten,String speisseangebot,
 			String menueBeschreibung) {
-		// TODO Auto-generated method stub
 		this.speisseangebot = speisseangebot;
 		this.menueBeschreibung = menueBeschreibung;
 		super.update(name, beschreibung, kosten);

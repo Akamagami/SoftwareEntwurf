@@ -7,6 +7,7 @@ import constants.Rollen;
 public class Gruppe {
 //normale Gruppe von MItarbeitern die Event hinzugefügt werden kann	
 	private String name;
+	private String id;
 	private ArrayList<Benutzer> Mitarbeiter = new ArrayList<Benutzer>();//TODO
 /*------------------------------------------------------------*/	
 	public boolean addMitarbeiter(Benutzer m)
@@ -40,13 +41,17 @@ public class Gruppe {
 		}
 	}
 /*------------------------------------------------------------*/
-	public Gruppe(String name) {
+	public Gruppe(String name,String id) {
 		super();
 		this.name = name;
+		this.id = id;
 	}	
 /*------------------------------------------------------------*/
 	public String getName() {
 		return name;
+	}
+	public String getId() {
+		return id;
 	}
 /*------------------------------------------------------------*/
 	public Benutzer[] getMitarbeiterArray() {
@@ -69,11 +74,17 @@ public class Gruppe {
 	}
 /*------------------------------------------------------------*/
 	public boolean hatMitarbeiter(Benutzer m) {
-		if(!Mitarbeiter.contains(m))
+		if(Mitarbeiter.contains(m))
 		{
 			return true;
 		} else {
 			return false;
 		}
 	}
+/*------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		return "Gruppe [name=" + name + ", id=" + id + ", Mitarbeiter=" + Mitarbeiter + "]";
+	}
+	
 }

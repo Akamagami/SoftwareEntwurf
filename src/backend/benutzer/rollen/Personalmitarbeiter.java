@@ -4,7 +4,8 @@ import backend.benutzer.Rolle;
 import constants.Rollen;
 
 public class Personalmitarbeiter extends Rolle {
-	public void Personalmitarbeiter() {
+	public  Personalmitarbeiter() {
+		super();
 		rollenName = Rollen.P;
 	}
 }

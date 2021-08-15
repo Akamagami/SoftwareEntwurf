@@ -17,9 +17,18 @@ public abstract class Rolle {
 			return false;
 		}
 	}
+/*------------------------------------------------------------------------------*/	
+	public Rolle() {
+		super();
+	}
 /*------------------------------------------------------------------------------*/
 	public Rollen getRollenName() {
 		return rollenName;
+	}
+
+	@Override
+	public String toString() {
+		return "Rolle [berechtigungList=" + berechtigungList + ", rollenName=" + rollenName + "]";
 	}
 	
 }
