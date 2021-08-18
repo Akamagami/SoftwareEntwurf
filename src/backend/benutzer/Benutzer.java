@@ -19,6 +19,7 @@ public class Benutzer {
 		super();
 		this.vorname = vorname;
 		this.nachname = nachname;
+		this.id = id;
 }
 /*------------------------------------------------------------------------------*/
 	public String[] fullName() {
@@ -26,13 +27,15 @@ public class Benutzer {
 		return ret;
 	};
 /*------------------------------------------------------------------------------*/
-	public void kontaktInfosHinzufuegen(Kontaktinformation ki) {
+	public void addKontakt(Kontaktinformation ki) {
 		kontaktInfo = ki;
 	}
 	public void addBild(Picture p) {
 		picture = p;
 	}
-	
+	public void setRolle(Rolle r) {
+		rolle = r;
+	}
 /*------------------------------------------------------------------------------*/	
 	public Rolle getRolle()
 	{
@@ -46,6 +49,17 @@ public class Benutzer {
 	}
 	public Kontaktinformation getKontaktInfo() {
 		return kontaktInfo;
+	}
+/*------------------------------------------------------------------------------*/
+	public void update()
+	{
+		
+	}
+/*------------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		return "Benutzer [vorname=" + vorname + ", nachname=" + nachname + ", picture=" + picture + ", id=" + id
+				+ ", kontaktInfo=" + kontaktInfo + ", rolle=" + rolle + "]";
 	}
 
 }

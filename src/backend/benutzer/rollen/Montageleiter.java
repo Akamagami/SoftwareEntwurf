@@ -4,7 +4,8 @@ import backend.benutzer.Rolle;
 import constants.Rollen;
 
 public class Montageleiter extends Rolle {
-	public void Montageleiter() {
+	public Montageleiter() {
+		super();
 		rollenName = Rollen.M;
 	}
 }

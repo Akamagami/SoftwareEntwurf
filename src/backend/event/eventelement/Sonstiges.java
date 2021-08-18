@@ -5,7 +5,7 @@ import backend.event.EventElement;
 public class Sonstiges extends EventElement {
 	private String Zustaendiger;
 	
-	public Sonstiges(String name, String beschreibung, double kosten, String id, String Zustaendiger) {
+	public Sonstiges(String name, String beschreibung, double kosten, String Zustaendiger, String id) {
 		super(name, beschreibung, kosten, id);
 		this.Zustaendiger = Zustaendiger;
 	}

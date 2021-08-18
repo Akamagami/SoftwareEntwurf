@@ -4,7 +4,8 @@ import backend.benutzer.Rolle;
 import constants.Rollen;
 
 public class Beschaffungspersonal extends Rolle {
-	public void Beschaffungspersonal() {
+	public Beschaffungspersonal() {
+		super();
 		rollenName = Rollen.B;
 	}
 }

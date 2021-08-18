@@ -29,7 +29,7 @@ public class Event {
 /*------------------------------------------------------------------*/	
 
 	public Event(String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
-			String id, EventKategorie kategorie) {
+			 EventKategorie kategorie, String id) {
 		super();
 		this.titel = titel;
 		this.beschreibung = beschreibung;

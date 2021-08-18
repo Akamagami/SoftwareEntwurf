@@ -3,9 +3,9 @@ package backend.benutzer.rollen;
 import backend.benutzer.Rolle;
 import constants.Rollen;
 
-public class Organisator extends Rolle {
-	public  Organisator() {
+public class LeereRolle extends Rolle {
+	public  LeereRolle() {
 		super();
-		rollenName = Rollen.O;
+		rollenName = Rollen.N;
 	}
 }

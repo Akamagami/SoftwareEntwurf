@@ -9,7 +9,7 @@ public class Request {
 	private String id;
 	private Hilfsmittel hilfsmittel;
 	
-	public Request(int anzahl, Date bis, String id, Hilfsmittel hilfsmittel) {
+	public Request(int anzahl, Date bis, Hilfsmittel hilfsmittel, String id) {
 		super();
 		this.anzahl = anzahl;
 		this.bis = bis;
@@ -33,6 +33,8 @@ public class Request {
 		return hilfsmittel;
 	}
 	
-	
+	public void update(int anzahl) {
+		this.anzahl = anzahl;
+	}
 	
 }
