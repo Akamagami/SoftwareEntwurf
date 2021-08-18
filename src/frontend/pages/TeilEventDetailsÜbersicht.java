@@ -5,9 +5,14 @@ import frontend.controller.IGUIEventListener;
 
 import javax.swing.*;
 
-public class TeilEventDetailsÜbersicht extends JComponent implements IUpdateEventListener {
+public class TeilEventDetailsÜbersicht extends JComponent implements IUpdateEventListener, IGUIEventSender {
     @Override
     public void update(GUIEvent ue) {
+
+    }
+
+    @Override
+    public void fireGUIEvent(GUIEvent ce) {
 
     }
 }

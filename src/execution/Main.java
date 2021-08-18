@@ -1,9 +1,11 @@
 package execution;
 
+import frontend.MainGUI;
+
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("wooooohhhweeeeeeee");
+		MainGUI main = new MainGUI();
 
 	}
 
