@@ -1,6 +1,7 @@
 package backend.event.eventelement;
 
 import backend.event.EventElement;
+import constants.ClassType;
 
 public class Location extends EventElement {
 	
@@ -9,7 +10,7 @@ public class Location extends EventElement {
 	
 	public Location(String name, String beschreibung, double kosten, String id, String adresse,
 			String groesse) {
-		super(name, beschreibung, kosten, id);
+		super(name, beschreibung, kosten, id,ClassType.ELEMENTLOCATION);
 		this.adresse = adresse;
 		this.groesse = groesse;
 	}

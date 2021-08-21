@@ -94,4 +94,11 @@ public class TeilEvent {
 		this.name = name;
 		this.status = status;
 	}
+/*-----------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+	
+		return builder.toString();
+	}
+	
 }

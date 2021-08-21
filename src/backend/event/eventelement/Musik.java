@@ -1,6 +1,7 @@
 package backend.event.eventelement;
 
 import backend.event.EventElement;
+import constants.ClassType;
 
 public class Musik extends EventElement {
 	
@@ -9,7 +10,7 @@ public class Musik extends EventElement {
 	
 	public Musik(String name, String beschreibung, double kosten, String id, String kuenstlername,
 			String genre) {
-		super(name, beschreibung, kosten, id);
+		super(name, beschreibung, kosten, id,ClassType.ELEMENTMUSIK);
 		this.kuenstlername = kuenstlername;
 		this.genre = genre;
 	}

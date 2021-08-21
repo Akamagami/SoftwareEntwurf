@@ -1,12 +1,13 @@
 package backend.event.eventelement;
 
 import backend.event.EventElement;
+import constants.ClassType;
 
 public class Sonstiges extends EventElement {
 	private String Zustaendiger;
 	
 	public Sonstiges(String name, String beschreibung, double kosten, String Zustaendiger, String id) {
-		super(name, beschreibung, kosten, id);
+		super(name, beschreibung, kosten, id,ClassType.ELEMENTSONTIGES);
 		this.Zustaendiger = Zustaendiger;
 	}
 

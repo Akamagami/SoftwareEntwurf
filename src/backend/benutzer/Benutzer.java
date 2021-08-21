@@ -60,12 +60,12 @@ public class Benutzer {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = "|";
+		String p = d + "|" + d;
 		
-		String ret = ClassType.BENUTZER.getDisplayName() + d + id + d + vorname + d + nachname + p;
-		ret += ClassType.KONTAKTINFORMATION + d + kontaktInfo.getId() + p;
-		ret += rolle.getRollenName().getDisplayName() + p;
-		ret += picture.getName() + d + picture.getUrl() + p;		
+		String ret = ClassType.BENUTZER + d + id + d + vorname + d + nachname;
+		ret += ((kontaktInfo == null) ? "" : p + ClassType.KONTAKTINFORMATION + d + kontaktInfo.getId());
+		ret += ((rolle == null) ? "" : p+ rolle.getRollenName());
+		ret += ((picture == null ) ? "" : p + picture.getName() + d + picture.getUrl());		
 		return ret;
-
+	}
 }

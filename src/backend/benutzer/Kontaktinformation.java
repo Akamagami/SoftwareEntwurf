@@ -39,9 +39,9 @@ public class Kontaktinformation {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = "|";
+		String p = d + "|" + d;
 		
-		String ret = ClassType.KONTAKTINFORMATION.getDisplayName() + d + id + d + name + d + email + tele + p;
+		String ret = ClassType.KONTAKTINFORMATION + d + id + d + name + d + email + d + tele;
 		
 		return ret;
 	}

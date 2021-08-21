@@ -12,7 +12,7 @@ import constants.ClassType;
 
 public class GruppeFactory implements ElementFactory {
 
-	int index = 1;
+	int index = 2;
 	
 	@Override
 	public int getIndex() {
@@ -32,7 +32,7 @@ public class GruppeFactory implements ElementFactory {
 			newIndex = optId.get();
 		} else {
 			newIndex = index+"";
-			index++;
+			index+=2;
 		}
 		Gruppe ret = new Gruppe((String) params[0],newIndex);
 		return ret;

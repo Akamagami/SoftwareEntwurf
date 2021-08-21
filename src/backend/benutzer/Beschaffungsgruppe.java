@@ -55,9 +55,10 @@ public class Beschaffungsgruppe extends Gruppe{
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = "|";
+		String p = d + "|" + d;
 		
-		String ret = ClassType.KONTAKTINFORMATION.getDisplayName() + 
+		String ret = ClassType.BGRUPPE + super.toString() + ((Gruppenleiter == null) ? "" :  p + Gruppenleiter.getId());
+		return ret;
 	}
 	
 }

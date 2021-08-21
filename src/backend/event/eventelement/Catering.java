@@ -1,6 +1,7 @@
 package backend.event.eventelement;
 
 import backend.event.EventElement;
+import constants.ClassType;
 
 public class Catering extends EventElement {
 	
@@ -9,9 +10,10 @@ public class Catering extends EventElement {
 	
 	public Catering(String name, String beschreibung, double kosten, String id, String speisseangebot,
 			String menueBeschreibung) {
-		super(name, beschreibung, kosten, id);
+		super(name, beschreibung, kosten, id,ClassType.ELEMENTCATERING);
 		this.speisseangebot = speisseangebot;
 		this.menueBeschreibung = menueBeschreibung;
+		
 	}
 
 	public void update(String name, String beschreibung, double kosten,String speisseangebot,
