@@ -1,6 +1,7 @@
 package backend.benutzer;
 
 import backend.utils.Picture;
+import constants.ClassType;
 
 public class Benutzer {
 /*------------------------------------------------------------------------------//
@@ -58,8 +59,13 @@ public class Benutzer {
 /*------------------------------------------------------------------------------*/
 	@Override
 	public String toString() {
-		return "Benutzer [vorname=" + vorname + ", nachname=" + nachname + ", picture=" + picture + ", id=" + id
-				+ ", kontaktInfo=" + kontaktInfo + ", rolle=" + rolle + "]";
-	}
+		String d = ",";
+		String p = "|";
+		
+		String ret = ClassType.BENUTZER.getDisplayName() + d + id + d + vorname + d + nachname + p;
+		ret += ClassType.KONTAKTINFORMATION + d + kontaktInfo.getId() + p;
+		ret += rolle.getRollenName().getDisplayName() + p;
+		ret += picture.getName() + d + picture.getUrl() + p;		
+		return ret;
 
 }

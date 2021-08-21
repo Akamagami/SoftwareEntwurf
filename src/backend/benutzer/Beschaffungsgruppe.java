@@ -2,6 +2,7 @@ package backend.benutzer;
 
 import java.util.ArrayList;
 
+import constants.ClassType;
 import constants.Rollen;
 
 public class Beschaffungsgruppe extends Gruppe{
@@ -53,8 +54,10 @@ public class Beschaffungsgruppe extends Gruppe{
 //------------------------------------------------------------------------------//	
 	@Override
 	public String toString() {
+		String d = ",";
+		String p = "|";
 		
-		return "Beschaffungsgruppe [Gruppenleiter=" + Gruppenleiter + "]"+super.toString();
+		String ret = ClassType.KONTAKTINFORMATION.getDisplayName() + 
 	}
 	
 }

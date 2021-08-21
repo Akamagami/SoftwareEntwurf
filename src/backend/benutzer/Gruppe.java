@@ -2,6 +2,7 @@ package backend.benutzer;
 
 import java.util.ArrayList;
 
+import constants.ClassType;
 import constants.Rollen;
 
 public class Gruppe {
@@ -84,7 +85,14 @@ public class Gruppe {
 /*------------------------------------------------------------*/
 	@Override
 	public String toString() {
-		return "Gruppe [name=" + name + ", id=" + id + ", Mitarbeiter=" + Mitarbeiter + "]";
+		String d = ",";
+		String p = "|";
+		
+		String ret = ClassType.GRUPPE.getDisplayName() + d + id + d + name + p;
+		ret += ClassType.BENUTZER.getDisplayName();
+		for(Benutzer b: Mitarbeiter) {
+			ret += d + b.getId();
+		}
+		return ret;
 	}
-	
 }
