@@ -49,9 +49,9 @@ public class Hilfsmittel {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.HILFSMITTEL + d + id + d + beschreibung + d + gesamtAnzahl;
+		String ret = ClassType.HILFSMITTEL.getDisplayName() + d + id + d + name + d + beschreibung + d + gesamtAnzahl;
 		ret+= this.getPictureList().toString();
 		return ret;
 	}		

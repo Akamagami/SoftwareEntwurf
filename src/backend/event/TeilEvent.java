@@ -32,10 +32,7 @@ public class TeilEvent {
 		
 		GruppenList.add(g);
 	}
-	public void addBeschaffungsGruppe(Beschaffungsgruppe g) {
-		
-		GruppenList.add(g);
-	}
+
 	public void deleteGruppe(int index) {
 		GruppenList.remove(index);
 	}
@@ -88,6 +85,9 @@ public class TeilEvent {
 	public EventElement getElement() {
 		return element;
 	}
+	public void setStatus(Status s) {
+		status = s;
+	}
 /*-----------------------------------------------------------------------------*/
 	public void update(Date start, Date ende, String name, Status status) {
 		this.start = start;
@@ -99,13 +99,14 @@ public class TeilEvent {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.TEILEVENT + d + id + start + d + ende + d + status;
-		ret += p+ element.getType() + d + element.getId();
+		String ret = ClassType.TEILEVENT.getDisplayName() + d + id + d + name + d + start + d + ende + d + status;
+		ret += p+ "Element" + d + element.getType() + d + element.getId();
 		if(!GruppenList.isEmpty()) {
-			ret += p + ClassType.GRUPPE; 
+			
 			for(Gruppe g:GruppenList) {
+				ret += p + ClassType.GRUPPE.getDisplayName(); 
 				ret+= d + g.getId();
 			}
 		}

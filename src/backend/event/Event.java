@@ -126,6 +126,11 @@ public class Event {
 		return kontaktInfoList;
 	}
 
+	public void setStatus(Status status) {
+		this.status = status;
+		
+	}
+
 	/*------------------------------------------------------------------*/	
 	public void update(String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
 			 EventKategorie kategorie, Status status) {
@@ -143,16 +148,18 @@ public class Event {
 	 @Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.EVENT + d + id + d + titel + d + beschreibung + d + start + d + end + d + besucher + d + kunde + d + budget + d + kategorie + d + status;
+		String ret = ClassType.EVENT.getDisplayName() + d + id + d + titel + d + beschreibung + d + start + d + end + d + besucher + d + kunde + d + budget + d + kategorie + d + status;
 		if(!TeilEventList.isEmpty()) {
-			ret+= p + ClassType.TEILEVENT;
+			
 			for(TeilEvent e:TeilEventList) {
+				ret+= p + ClassType.TEILEVENT.getDisplayName();
 				ret+= d + e.getId();
 			}		
 		}
 		ret+= kontaktInfoList.toString() + pictureList.toString();
 		return ret;
 	}
+
 }

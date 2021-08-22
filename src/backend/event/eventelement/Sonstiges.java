@@ -18,9 +18,9 @@ public class Sonstiges extends EventElement {
 	}
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.ELEMENTSONTIGES + d + super.toString() + d + Zustaendiger ;
+		String ret = ClassType.ELEMENTSONTIGES.getDisplayName() + d + super.toString() + d + Zustaendiger ;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
 	}	

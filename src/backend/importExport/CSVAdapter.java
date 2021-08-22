@@ -23,7 +23,14 @@ public class CSVAdapter implements IReadWrite {
 			csvReader = new BufferedReader(new FileReader("I:\\test.csv"));
 			 while ((row = csvReader.readLine()) != null) {
 			     String[] data = row.split(",");
-			     ObjectData temp = new ObjectData(ClassType.valueOf(data[0]),row);
+			     ObjectData temp = null;
+			     for(ClassType c: ClassType.values()) {
+			    	 if(data[0].equals(c.getDisplayName()) )
+			    	 {
+			    		temp = new ObjectData(c,row);
+			    	 }
+			     }
+			     
 			     ret.add(temp);
 			 }
 			 csvReader.close();

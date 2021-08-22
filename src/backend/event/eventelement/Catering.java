@@ -9,8 +9,8 @@ public class Catering extends EventElement {
 	private String speisseangebot;
 	private String menueBeschreibung;
 	
-	public Catering(String name, String beschreibung, double kosten, String id, String speisseangebot,
-			String menueBeschreibung) {
+	public Catering(String name, String beschreibung, double kosten, String speisseangebot,
+			String menueBeschreibung, String id) {
 		super(name, beschreibung, kosten, id,ClassType.ELEMENTCATERING);
 		this.speisseangebot = speisseangebot;
 		this.menueBeschreibung = menueBeschreibung;
@@ -26,9 +26,9 @@ public class Catering extends EventElement {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.ELEMENTCATERING + d + super.toString() + d + speisseangebot + d + menueBeschreibung;
+		String ret = ClassType.ELEMENTCATERING.getDisplayName() + d + super.toString() + d + speisseangebot + d + menueBeschreibung;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
 	}	

@@ -51,14 +51,15 @@ public class PictureList {
 	public String toString()
 	{
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
 		String ret = "";
 		if(!bildList.isEmpty()) {
 			
-			ret+= p;
+			
 			for(Picture b: bildList) {
-				ret += d + b.getName() + d + b.getUrl();
+				ret+= p;
+				ret += "Picture" + d + b.getUrl() + d + b.getName();
 			}
 		}
 		return ret;

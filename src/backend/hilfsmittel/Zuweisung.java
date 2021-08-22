@@ -39,9 +39,9 @@ public Zuweisung(TeilEvent teilevent, Hilfsmittel hilfsmittel, int menge, String
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.ZUWEISUNG + d + id + d + menge +  p + ClassType.HILFSMITTEL + d + hilfsmittel.getId() + p + ClassType.TEILEVENT + d + teilevent.getId();
+		String ret = ClassType.ZUWEISUNG.getDisplayName() + d + id  +  d +  hilfsmittel.getId() +  d + teilevent.getId()+ d + menge;
 		
 		return ret;
 	}		
