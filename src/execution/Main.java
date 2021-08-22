@@ -6,12 +6,16 @@ import backend.benutzer.*;
 import backend.benutzer.rollen.*;
 import backend.datenbasis.*;
 import constants.ClassType;
+import frontend.MainGUI;
+import frontend.panes.EventDetailsPane;
 
 public class Main {
 
 	public static void main(String[] args) {
-		
-		Speicher sp = new Speicher();
+
+		MainGUI mainGUI = new MainGUI();
+
+		/*Speicher sp = new Speicher();
 		
 		Rolle besch = new Beschaffungspersonal();
 
@@ -63,7 +67,7 @@ public class Main {
 		
 		for(Gruppe b:(List<Gruppe>)(List<?>) sp.getAll(ClassType.GRUPPE)) {
 			System.out.println(b.toString());
-		}
+		}*/
 	}
 	
 	
