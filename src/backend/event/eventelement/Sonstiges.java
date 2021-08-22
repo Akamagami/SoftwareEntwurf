@@ -16,4 +16,12 @@ public class Sonstiges extends EventElement {
 		this.Zustaendiger = Zustaendiger;
 		super.update(name, beschreibung, kosten);
 	}
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.ELEMENTSONTIGES + d + super.toString() + d + Zustaendiger ;
+		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
+		return ret;
+	}	
 }

@@ -22,4 +22,13 @@ public class Location extends EventElement {
 		this.groesse = groesse;
 		super.update(name, beschreibung, kosten);
 	}
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.ELEMENTLOCATION + d + super.toString() + d + adresse + d + groesse;
+		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
+		return ret;
+	}	
 }

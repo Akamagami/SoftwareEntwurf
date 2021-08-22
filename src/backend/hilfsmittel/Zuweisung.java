@@ -1,6 +1,7 @@
 package backend.hilfsmittel;
 
 import backend.event.TeilEvent;
+import constants.ClassType;
 
 public class Zuweisung {
 	
@@ -35,5 +36,14 @@ public Zuweisung(TeilEvent teilevent, Hilfsmittel hilfsmittel, int menge, String
 		this.menge = menge;
 	}
 	
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.ZUWEISUNG + d + id + d + menge +  p + ClassType.HILFSMITTEL + d + hilfsmittel.getId() + p + ClassType.TEILEVENT + d + teilevent.getId();
+		
+		return ret;
+	}		
 	
 }

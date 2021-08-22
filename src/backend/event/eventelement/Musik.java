@@ -22,4 +22,13 @@ public class Musik extends EventElement {
 		this.genre = genre;
 		super.update(name, beschreibung, kosten);
 	}
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.ELEMENTMUSIK + d + super.toString() + d + kuenstlername + d + genre;
+		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
+		return ret;
+	}	
 }

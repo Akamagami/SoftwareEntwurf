@@ -2,6 +2,7 @@ package backend.event;
 
 import java.util.ArrayList;
 
+import backend.benutzer.Gruppe;
 import backend.utils.KontaktInfoList;
 import backend.utils.Picture;
 import backend.utils.PictureList;
@@ -59,5 +60,15 @@ public abstract class EventElement {
 		this.name = name;
 		this.beschreibung = beschreibung;
 		this.kosten = kosten;
+	}
+/*------------------------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = id + d + beschreibung + d + kosten;
+		
+		return ret;
 	}
 }

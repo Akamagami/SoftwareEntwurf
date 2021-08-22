@@ -1,5 +1,6 @@
 package backend.event.eventelement;
 
+import backend.benutzer.Gruppe;
 import backend.event.EventElement;
 import constants.ClassType;
 
@@ -22,5 +23,13 @@ public class Catering extends EventElement {
 		this.menueBeschreibung = menueBeschreibung;
 		super.update(name, beschreibung, kosten);
 	}
-	
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.ELEMENTCATERING + d + super.toString() + d + speisseangebot + d + menueBeschreibung;
+		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
+		return ret;
+	}	
 }
