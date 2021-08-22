@@ -7,6 +7,7 @@ import backend.benutzer.*;
 import backend.benutzer.rollen.*;
 import backend.datenbasis.*;
 import backend.event.EventElement;
+import backend.event.TeilEvent;
 import backend.hilfsmittel.Hilfsmittel;
 import backend.utils.Picture;
 import constants.ClassType;
@@ -22,7 +23,7 @@ public class Main {
 		Speicher sp = new Speicher();
 		sp.load();
 		Rolle besch = new Beschaffungspersonal();
-		Object[] params1 = {324324,Date.valueOf("2018-05-06"),sp.getObject(ClassType.HILFSMITTEL, "1")};
+		Object[] params = {Date.valueOf("2018-05-06"),Date.valueOf("2038-04-06"),"flotter baeqweqweqweeeefwfe"};
 		System.out.println("--------------------------------Kontaktinfoamtion-----------------------------///?/");
 		
 		
@@ -96,7 +97,11 @@ public class Main {
 		tmp.getPictureList().addPicture(new Picture("dhhd","kkk"));*/
 		/*Object[] params1 = {324324,Date.valueOf("2018-05-05"),sp.getObject(ClassType.HILFSMITTEL, "1")};
 		sp.createObject(ClassType.REQUEST, params1);*/
-		sp.createObject(ClassType.REQUEST, params1);
+		//sp.createObject(ClassType.REQUEST, params1);
+		TeilEvent te = (TeilEvent) sp.createObject(ClassType.TEILEVENT, params);
+		te.addEventElement((EventElement) sp.getObject(ClassType.ELEMENTLOCATION, "1"));
+		te.addGruppe((Gruppe) sp.getObject(ClassType.GRUPPE, "4"));
+		te.addGruppe((Gruppe) sp.getObject(ClassType.GRUPPE, "1"));
 		sp.save();
 	}
 	

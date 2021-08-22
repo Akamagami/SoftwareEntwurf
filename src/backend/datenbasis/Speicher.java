@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+
+
 import backend.benutzer.Benutzer;
 import backend.benutzer.Beschaffungsgruppe;
 import backend.benutzer.Gruppe;
@@ -50,7 +52,9 @@ import backend.importExport.IReadWrite;
 import backend.importExport.ObjectData;
 import backend.utils.Picture;
 import constants.ClassType;
+import constants.EventKategorie;
 import constants.Rollen;
+import constants.Status;
 
 public class Speicher {
 	
@@ -205,7 +209,7 @@ public class Speicher {
 				break;
 			case REQUEST: createFromDataRequest(data);
 				break;
-			case TEILEVENT:
+			case TEILEVENT: createFromDataTeilEvent(data);
 				break;
 			case ZUWEISUNG: createFromDataZuweisung(data);
 				break;
@@ -362,6 +366,46 @@ public class Speicher {
 		Object[] params = {Integer.parseInt(mainData[2]),Date.valueOf(mainData[3]),this.getObject(ClassType.HILFSMITTEL, mainData [4])};
 		Request tmp = (Request) this.createObject(ClassType.REQUEST,params,mainData[1]);	
 	}
+	private void createFromDataTeilEvent(String data[]) {
+		//create
+		String[] mainData = data[0].split(",");
+		Object[] params = {Date.valueOf(mainData[3]),Date.valueOf(mainData[4]),mainData[2]};
+		TeilEvent tmp = (TeilEvent) this.createObject(ClassType.TEILEVENT,params,mainData[1]);	
+		//config
+		tmp.setStatus(Status.valueOf(mainData[5]));
+		for(String s:data) {
+			String[] confData = s.split(",");
+	    	 if(confData[0].equals("Element"))
+	    	 {
+	    		tmp.addEventElement((EventElement) this.getObject(ClassType.valueOf(confData[1]), confData[2]));
+	    	 }
+			 if(confData[0].equals(ClassType.GRUPPE.getDisplayName())) {
+				 tmp.addGruppe((Gruppe) this.getObject(ClassType.GRUPPE,confData[1]));
+			 }
+		}
+	}
+	private void createFromDataEvent(String data[]) {
+		//create
+		String[] mainData = data[0].split(",");
+		Object[] params = {Date.valueOf(mainData[3]),Date.valueOf(mainData[4]),mainData[2]};
+		TeilEvent tmp = (TeilEvent) this.createObject(ClassType.TEILEVENT,params,mainData[1]);	
+		//config
+		tmp.setStatus(Status.valueOf(mainData[5]));
+		for(String s:data) {
+			String[] confData = s.split(",");
+	    	 if(confData[0].equals("Element"))
+	    	 {
+	    		tmp.addEventElement((EventElement) this.getObject(ClassType.valueOf(confData[1]), confData[2]));
+	    	 }
+			 if(confData[0].equals(ClassType.GRUPPE.getDisplayName())) {
+				 tmp.addGruppe((Gruppe) this.getObject(ClassType.GRUPPE,confData[1]));
+			 }
+		}
+	}
+	
+	
+	String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
+	 EventKategorie kategorie, String id
 /*--------------------------------------------------------------------------------------------------------------*/	
 
 	public Object createObject(ClassType c,Object[] params) {
