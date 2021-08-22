@@ -57,7 +57,7 @@ public class Beschaffungsgruppe extends Gruppe{
 		String d = ",";
 		String p = d + "|" + d;
 		
-		String ret = ClassType.BGRUPPE + super.toString() + ((Gruppenleiter == null) ? "" :  p + Gruppenleiter.getId());
+		String ret = ClassType.BGRUPPE + d + super.toString() + ((Gruppenleiter == null) ? "" :  p + Gruppenleiter.getId());
 		return ret;
 	}
 	

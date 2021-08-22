@@ -64,8 +64,8 @@ public class Benutzer {
 		
 		String ret = ClassType.BENUTZER + d + id + d + vorname + d + nachname;
 		ret += ((kontaktInfo == null) ? "" : p + ClassType.KONTAKTINFORMATION + d + kontaktInfo.getId());
-		ret += ((rolle == null) ? "" : p+ rolle.getRollenName());
-		ret += ((picture == null ) ? "" : p + picture.getName() + d + picture.getUrl());		
+		ret += ((rolle == null) ? "" : p + "Rolle" + d + rolle.getRollenName());
+		ret += ((picture == null ) ? "" : p + "Picture" + d +  picture.getName() + d + picture.getUrl());		
 		return ret;
 	}
 }

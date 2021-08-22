@@ -6,6 +6,6 @@ public interface IReadWrite {
 	
 public ArrayList<ObjectData> initRead();
 
-public void saveAll(ArrayList<ObjectData> data);
+public void saveAll(ArrayList<String> data);
 
 }

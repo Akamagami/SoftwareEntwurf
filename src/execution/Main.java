@@ -74,6 +74,7 @@ public class Main {
 		for(Gruppe b:(List<Gruppe>)(List<?>) sp.getAll(ClassType.GRUPPE)) {
 			System.out.println(b.toString());
 		}
+		sp.save();
 	}
 	
 	

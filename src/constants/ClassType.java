@@ -1,19 +1,20 @@
 package constants;
 
 public enum ClassType {
-	BENUTZER("Benutzer"),
 	KONTAKTINFORMATION("Kontaktinfo"),
+	BENUTZER("Benutzer"),	
+	BGRUPPE("Beschaffungsgruppe"),
 	GRUPPE("Gruppe"),
-	EVENT("Event"),
-	TEILEVENT("Teilevent"),
 	ELEMENTSONTIGES("Sonstiges"),
 	ELEMENTCATERING("Catering"),
 	ELEMENTLOCATION("Location"),
 	ELEMENTMUSIK("Musik"),
+	TEILEVENT("Teilevent"),
+	EVENT("Event"),
 	HILFSMITTEL("Hilfsmittel"),
 	ZUWEISUNG("Zuweisung"),
-	REQUEST("Auftrag"),
-	BGRUPPE("Beschaffungsgruppe");
+	REQUEST("Auftrag");
+	
 	
 	private String displayName;
 	
