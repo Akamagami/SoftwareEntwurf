@@ -86,12 +86,13 @@ public class Gruppe {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.GRUPPE + d + id + d + name + p;
+		String ret = ClassType.GRUPPE.getDisplayName() + d + id + d + name;
 		if(!Mitarbeiter.isEmpty()) {
-			ret += ClassType.BENUTZER;
+			
 			for(Benutzer b: Mitarbeiter) {
+				ret += p + ClassType.BENUTZER.getDisplayName();
 				ret += d + b.getId();
 			}
 		}	

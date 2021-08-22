@@ -42,9 +42,9 @@ public class Request {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.REQUEST + d + id + d + bis + d + anzahl + p + ClassType.HILFSMITTEL + d + hilfsmittel.getId();
+		String ret = ClassType.REQUEST.getDisplayName() + d + id + d + anzahl + d + bis +  d + hilfsmittel.getId();
 		
 		return ret;
 	}		

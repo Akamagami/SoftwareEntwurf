@@ -1,10 +1,14 @@
 package execution;
 
+import java.sql.Date;
 import java.util.List;
 
 import backend.benutzer.*;
 import backend.benutzer.rollen.*;
 import backend.datenbasis.*;
+import backend.event.EventElement;
+import backend.hilfsmittel.Hilfsmittel;
+import backend.utils.Picture;
 import constants.ClassType;
 
 public class Main {
@@ -16,24 +20,24 @@ public class Main {
 		
 		
 		Speicher sp = new Speicher();
-		
+		sp.load();
 		Rolle besch = new Beschaffungspersonal();
-
+		Object[] params1 = {324324,Date.valueOf("2018-05-06"),sp.getObject(ClassType.HILFSMITTEL, "1")};
 		System.out.println("--------------------------------Kontaktinfoamtion-----------------------------///?/");
-		Object[] params1 = {"Email","adresse idk","+7889846546 654 966 5847 6 8"};
 		
-		Kontaktinformation ktk1 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
+		
+		/*Kontaktinformation ktk1 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
 		Kontaktinformation ktk2 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
 		System.out.println(sp.getObject(ClassType.KONTAKTINFORMATION, "1").toString());
 		System.out.println(sp.getObject(ClassType.KONTAKTINFORMATION, "2").toString());
 		sp.delete(ClassType.KONTAKTINFORMATION,"1");
 		params1[2] = "hat kein phone zu arm";
-		sp.update(ClassType.KONTAKTINFORMATION, "2", params1);
+		sp.update(ClassType.KONTAKTINFORMATION, "2", params1);*/
 		for(Kontaktinformation b:(List<Kontaktinformation>)(List<?>) sp.getAll(ClassType.KONTAKTINFORMATION)) {
 			System.out.println(b.toString());
 		}
 		System.out.println("--------------------------------Benutzer--------------------------------------///?/");
-		
+		/*
 		Object[] params = {"Felix","Radermacher"};
 		Benutzer felix = (Benutzer) sp.createObject(ClassType.BENUTZER,params);
 		Benutzer felix2 = (Benutzer) sp.createObject(ClassType.BENUTZER,params);
@@ -47,8 +51,10 @@ public class Main {
 		System.out.println(sp.getObject(ClassType.BENUTZER, "2").toString());
 		System.out.println(sp.getObject(ClassType.BENUTZER, "3").toString());
 		sp.delete(ClassType.BENUTZER,"2");
-		
+		*/
 		Benutzer change = (Benutzer) sp.getObject(ClassType.BENUTZER, "3");
+		change.addBild(new Picture("hurrrr","ijlk"));
+		/*
 		change.addKontakt((Kontaktinformation) sp.getObject(ClassType.KONTAKTINFORMATION, "2"));
 		
 		Benutzer felix4 = (Benutzer) sp.createObject(ClassType.BENUTZER,params);
@@ -56,7 +62,7 @@ public class Main {
 			System.out.println(b.toString());
 		}
 		System.out.println("--------------------------------Gruppe--------------------------------------///?/");
-		Object[] paramsGruppe = {"DeinErnst yryr"};
+		/*Object[] paramsGruppe = {"DeinErnst yryr"};
 		sp.createObject(ClassType.GRUPPE, paramsGruppe);
 		sp.createObject(ClassType.GRUPPE, paramsGruppe);
 		sp.createObject(ClassType.BGRUPPE, paramsGruppe);
@@ -70,10 +76,27 @@ public class Main {
 			g2.addMitarbeiter(b);
 		}
 		g1.ernenneGruppenleiter((Benutzer) (sp.getObject(ClassType.BENUTZER, "1")));
-		
+		*/
 		for(Gruppe b:(List<Gruppe>)(List<?>) sp.getAll(ClassType.GRUPPE)) {
 			System.out.println(b.toString());
 		}
+		
+		/*String[] parrr = {"name", "besch", "3.2" , "speissse", "menuuu"};
+		EventElement tmp =(EventElement) sp.createObject(ClassType.ELEMENTCATERING, parrr);
+		sp.createObject(ClassType.ELEMENTLOCATION, parrr);
+		sp.createObject(ClassType.ELEMENTMUSIK, parrr);
+		sp.createObject(ClassType.ELEMENTSONTIGES, parrr);
+		
+		tmp.getKontaktInfoList().addKontaktInfo((Kontaktinformation) sp.getObject(ClassType.KONTAKTINFORMATION, "2"));
+		tmp.getKontaktInfoList().addKontaktInfo((Kontaktinformation) sp.getObject(ClassType.KONTAKTINFORMATION, "1"));
+		tmp.getPictureList().addPicture(new Picture("dhhd","kkk"));
+		tmp.getPictureList().addPicture(new Picture("dhhd","kk234234k"));*/
+		/*String[] parrr = {"name", "besch", "30" };
+		Hilfsmittel tmp = (Hilfsmittel) sp.createObject(ClassType.HILFSMITTEL, parrr);
+		tmp.getPictureList().addPicture(new Picture("dhhd","kkk"));*/
+		/*Object[] params1 = {324324,Date.valueOf("2018-05-05"),sp.getObject(ClassType.HILFSMITTEL, "1")};
+		sp.createObject(ClassType.REQUEST, params1);*/
+		sp.createObject(ClassType.REQUEST, params1);
 		sp.save();
 	}
 	

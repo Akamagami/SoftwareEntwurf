@@ -25,7 +25,6 @@ public class RollenVerwaltung {
 		case P: return personalmitarbeiter;
 		default:
 			return leereRolle;
-		
 		}
 		
 	}

@@ -43,7 +43,7 @@ public class HilfsmittelManager implements EntityManager<Hilfsmittel> {
 
 	@Override
 	public void update(String id, Object[] params) {
-		list.get(id).update((String) params[0],(String) params[1],(int) params[2]);
+		list.get(id).update((String) params[0],(String) params[1],(int) Integer.parseInt((String) params[2]));
 	}
 }
 

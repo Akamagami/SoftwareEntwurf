@@ -43,7 +43,7 @@ public class ElementMusikManager implements EntityManager<Musik> {
 
 	@Override
 	public void update(String id, Object[] params) {
-		list.get(id).update((String) params[0],(String) params[1],(double) params[2],(String) params[3],(String) params[4]);
+		list.get(id).update((String) params[0],(String) params[1],(double)  params[2],(String) params[3],(String) params[4]);
 	}
 }
 

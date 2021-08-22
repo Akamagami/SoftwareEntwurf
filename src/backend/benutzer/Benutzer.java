@@ -60,10 +60,10 @@ public class Benutzer {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.BENUTZER + d + id + d + vorname + d + nachname;
-		ret += ((kontaktInfo == null) ? "" : p + ClassType.KONTAKTINFORMATION + d + kontaktInfo.getId());
+		String ret = ClassType.BENUTZER.getDisplayName() + d + id + d + vorname + d + nachname;
+		ret += ((kontaktInfo == null) ? "" : p + ClassType.KONTAKTINFORMATION.getDisplayName() + d + kontaktInfo.getId());
 		ret += ((rolle == null) ? "" : p + "Rolle" + d + rolle.getRollenName());
 		ret += ((picture == null ) ? "" : p + "Picture" + d +  picture.getName() + d + picture.getUrl());		
 		return ret;

@@ -65,9 +65,9 @@ public abstract class EventElement {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = id + d + beschreibung + d + kosten;
+		String ret = id + d + name + d + beschreibung + d + kosten;
 		
 		return ret;
 	}

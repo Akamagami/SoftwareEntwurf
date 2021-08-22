@@ -50,13 +50,14 @@ public class KontaktInfoList {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
 		String ret = "";
 		if(!kontaktInfoList.isEmpty()) {
 			
-			ret+= p + ClassType.KONTAKTINFORMATION;
+			
 			for(Kontaktinformation k: kontaktInfoList) {
+				ret+= p + ClassType.KONTAKTINFORMATION.getDisplayName();
 				ret += d + k.getId();
 			}
 		}

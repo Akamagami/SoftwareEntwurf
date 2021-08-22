@@ -19,7 +19,7 @@ public class ObjectData {
 		return data;
 	}
 	public String[] splitData() {
-		return data.split("|");
+		return data.split("%,");
 	}
 	@Override
 	public String toString() {

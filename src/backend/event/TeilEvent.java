@@ -99,13 +99,14 @@ public class TeilEvent {
 	@Override
 	public String toString() {
 		String d = ",";
-		String p = d + "|" + d;
+		String p = d + "%" + d;
 		
-		String ret = ClassType.TEILEVENT + d + id + start + d + ende + d + status;
+		String ret = ClassType.TEILEVENT.getDisplayName() + d + id + start + d + ende + d + status;
 		ret += p+ element.getType() + d + element.getId();
 		if(!GruppenList.isEmpty()) {
-			ret += p + ClassType.GRUPPE; 
+			
 			for(Gruppe g:GruppenList) {
+				ret += p + ClassType.GRUPPE.getDisplayName(); 
 				ret+= d + g.getId();
 			}
 		}
