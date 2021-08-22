@@ -2,6 +2,9 @@ package backend.utils;
 
 import java.util.ArrayList;
 
+import backend.benutzer.Kontaktinformation;
+import constants.ClassType;
+
 public class PictureList {
 	
 	ArrayList<Picture> bildList = new ArrayList<Picture>();
@@ -40,6 +43,23 @@ public class PictureList {
 		{
 			ret[cnt] = p;
 			cnt++;
+		}
+		return ret;
+	}
+/*----------------------------------------------------------*/	
+	@Override
+	public String toString()
+	{
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = "";
+		if(!bildList.isEmpty()) {
+			
+			ret+= p;
+			for(Picture b: bildList) {
+				ret += d + b.getName() + d + b.getUrl();
+			}
 		}
 		return ret;
 	}

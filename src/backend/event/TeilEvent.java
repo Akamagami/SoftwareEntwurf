@@ -6,6 +6,7 @@ import java.util.Date;
 import backend.benutzer.Benutzer;
 import backend.benutzer.Beschaffungsgruppe;
 import backend.benutzer.Gruppe;
+import constants.ClassType;
 import constants.Status;
 
 public class TeilEvent {
@@ -94,4 +95,21 @@ public class TeilEvent {
 		this.name = name;
 		this.status = status;
 	}
+/*-----------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.TEILEVENT + d + id + start + d + ende + d + status;
+		ret += p+ element.getType() + d + element.getId();
+		if(!GruppenList.isEmpty()) {
+			ret += p + ClassType.GRUPPE; 
+			for(Gruppe g:GruppenList) {
+				ret+= d + g.getId();
+			}
+		}
+		return ret;
+	}
+	
 }

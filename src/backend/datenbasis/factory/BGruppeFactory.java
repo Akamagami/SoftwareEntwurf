@@ -33,7 +33,7 @@ public class BGruppeFactory implements ElementFactory {
 			newIndex = optId.get();
 		} else {
 			newIndex = index+"";
-			index++;
+			index+=2;
 		}
 		Beschaffungsgruppe ret = new Beschaffungsgruppe((String) params[0],newIndex);
 		return ret;

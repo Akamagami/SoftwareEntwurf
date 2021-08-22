@@ -1,5 +1,6 @@
 package backend.datenbasis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -42,16 +43,25 @@ import backend.event.eventelement.Sonstiges;
 import backend.hilfsmittel.Hilfsmittel;
 import backend.hilfsmittel.Request;
 import backend.hilfsmittel.Zuweisung;
+import backend.importExport.CSVAdapter;
+import backend.importExport.IReadWrite;
+import backend.importExport.ObjectData;
+import backend.utils.Picture;
 import constants.ClassType;
+import constants.Rollen;
 
 public class Speicher {
 	
 	private HashMap<ClassType,EntityManager> managers = new HashMap<ClassType,EntityManager>();
 	private HashMap<ClassType,ElementFactory> factories = new HashMap<ClassType,ElementFactory>();
+	
+	private IReadWrite csv = new CSVAdapter();
+	private RollenVerwaltung rv = new RollenVerwaltung();
 
 	public Speicher() {
 		super();
 		init();
+		load();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -157,6 +167,73 @@ public class Speicher {
 		return ret;	
 	}
 /*--------------------------------------------------------------------------------------------------------------*/
+	public void save() {
+		ArrayList<String> ret = new ArrayList<String>();
+		for(ClassType t:ClassType.values()) {
+			for(Object o:this.getAll(t)) {
+				ret.add(o.toString());
+			}
+		}
+		csv.saveAll(ret);
+	}
+	public void load() {
+		for(ObjectData o:csv.initRead()) {
+			String[] data = o.splitData();
+			switch(o.getType()) {
+			case BENUTZER: this.createFromDataBenutzer(data); 
+				break;
+			case BGRUPPE:
+				break;
+			case ELEMENTCATERING:
+				break;
+			case ELEMENTLOCATION:
+				break;
+			case ELEMENTMUSIK:
+				break;
+			case ELEMENTSONTIGES:
+				break;
+			case EVENT:
+				break;
+			case GRUPPE:
+				break;
+			case HILFSMITTEL:
+				break;
+			case KONTAKTINFORMATION:
+				break;
+			case REQUEST:
+				break;
+			case TEILEVENT:
+				break;
+			case ZUWEISUNG:
+				break;
+			default:
+				break;
+
+			}
+		}
+	}
+/*--------------------------------------------------------------------------------------------------------------*/
+	private void createFromDataBenutzer(String data[]) {
+		//create
+		String[] mainData = data[0].split(",");
+		String[] params = {mainData [2],mainData[3],mainData[1]};
+		Benutzer tmp = (Benutzer) this.createObject(ClassType.BENUTZER,params);
+		//config 
+		for(String s:data) {
+			String[] confData = s.split(",");
+			if(ClassType.valueOf(confData[0]) == ClassType.KONTAKTINFORMATION) {
+				tmp.addKontakt((Kontaktinformation) this.getObject(ClassType.KONTAKTINFORMATION, confData[1]));
+			} else if (confData[0] == "Rolle") {
+				tmp.setRolle(rv.getRolle(Rollen.valueOf(confData[1])));
+			} else if (confData[0] == "Picture"){
+				Picture p = new Picture(confData[1],confData[2]);
+				tmp.addBild(p);
+			}
+		}	
+	}
+	private void createFromDataKontaktinformation
+/*--------------------------------------------------------------------------------------------------------------*/	
+
 	public Object createObject(ClassType c,Object[] params) {
 		return this.createObject(c, params,Optional.empty());
 	}

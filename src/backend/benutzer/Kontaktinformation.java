@@ -1,5 +1,7 @@
 package backend.benutzer;
 
+import constants.ClassType;
+
 public class Kontaktinformation {
 /*------------------------------------------------------------------------------//
  * Kontaktinfos können, müssen aber nicht an Benutzer gebunden sein
@@ -36,7 +38,12 @@ public class Kontaktinformation {
 /*------------------------------------------------------------------------------*/
 	@Override
 	public String toString() {
-		return "Kontaktinformation [name=" + name + ", email=" + email + ", tele=" + tele + ", id=" + id + "]";
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.KONTAKTINFORMATION + d + id + d + name + d + email + d + tele;
+		
+		return ret;
 	}
 	
 }

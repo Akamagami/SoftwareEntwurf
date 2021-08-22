@@ -1,6 +1,7 @@
 package backend.hilfsmittel;
 
 import backend.utils.PictureList;
+import constants.ClassType;
 
 public class Hilfsmittel {
 	
@@ -44,4 +45,14 @@ public class Hilfsmittel {
 		this.beschreibung = beschreibung;
 		this.gesamtAnzahl = gesamtAnzahl;
 	}
+	
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = ClassType.HILFSMITTEL + d + id + d + beschreibung + d + gesamtAnzahl;
+		ret+= this.getPictureList().toString();
+		return ret;
+	}		
 }

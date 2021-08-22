@@ -9,7 +9,11 @@ import constants.ClassType;
 
 public class Main {
 
+	
 	public static void main(String[] args) {
+		
+		
+		
 		
 		Speicher sp = new Speicher();
 		
@@ -54,16 +58,23 @@ public class Main {
 		System.out.println("--------------------------------Gruppe--------------------------------------///?/");
 		Object[] paramsGruppe = {"DeinErnst yryr"};
 		sp.createObject(ClassType.GRUPPE, paramsGruppe);
+		sp.createObject(ClassType.GRUPPE, paramsGruppe);
 		sp.createObject(ClassType.BGRUPPE, paramsGruppe);
-		Beschaffungsgruppe g1 = (Beschaffungsgruppe) sp.getObject(ClassType.GRUPPE, "2");
+		Beschaffungsgruppe g1 = (Beschaffungsgruppe) sp.getObject(ClassType.BGRUPPE, "1");
 		for(Benutzer b:(List<Benutzer>)(List<?>) sp.getAll(ClassType.BENUTZER)) {
 			g1.addMitarbeiter(b);
+		}
+		Gruppe g2 = (Gruppe) sp.getObject(ClassType.GRUPPE, "4");
+		
+		for(Benutzer b:(List<Benutzer>)(List<?>) sp.getAll(ClassType.BENUTZER)) {
+			g2.addMitarbeiter(b);
 		}
 		g1.ernenneGruppenleiter((Benutzer) (sp.getObject(ClassType.BENUTZER, "1")));
 		
 		for(Gruppe b:(List<Gruppe>)(List<?>) sp.getAll(ClassType.GRUPPE)) {
 			System.out.println(b.toString());
 		}
+		sp.save();
 	}
 	
 	

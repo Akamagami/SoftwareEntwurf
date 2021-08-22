@@ -2,9 +2,11 @@ package backend.event;
 
 import java.util.ArrayList;
 
+import backend.benutzer.Gruppe;
 import backend.utils.KontaktInfoList;
 import backend.utils.Picture;
 import backend.utils.PictureList;
+import constants.ClassType;
 
 public abstract class EventElement {
 	/*
@@ -16,13 +18,16 @@ public abstract class EventElement {
 	private String beschreibung;
 	private double kosten;
 	private String id;//assigned by element factory
+	private ClassType type;
 	
-	public EventElement(String name, String beschreibung, double kosten, String id) {
+
+	public EventElement(String name, String beschreibung, double kosten, String id,ClassType t) {
 		super();
 		this.name = name;
 		this.beschreibung = beschreibung;
 		this.kosten = kosten;
 		this.id = id;
+		type = t;
 	}
 	
 	PictureList pictureList = new PictureList();
@@ -47,11 +52,23 @@ public abstract class EventElement {
 	public KontaktInfoList getKontaktInfoList() {
 		return kontaktInfoList;
 	}
-
+	public ClassType getType() {
+		return type;
+	}
 /*------------------------------------------------------------------------------------------*/	
 	public void update(String name, String beschreibung, double kosten) {
 		this.name = name;
 		this.beschreibung = beschreibung;
 		this.kosten = kosten;
+	}
+/*------------------------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "|" + d;
+		
+		String ret = id + d + beschreibung + d + kosten;
+		
+		return ret;
 	}
 }
