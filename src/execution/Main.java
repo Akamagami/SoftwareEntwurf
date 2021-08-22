@@ -6,11 +6,14 @@ import java.util.List;
 import backend.benutzer.*;
 import backend.benutzer.rollen.*;
 import backend.datenbasis.*;
+import backend.event.Event;
 import backend.event.EventElement;
 import backend.event.TeilEvent;
 import backend.hilfsmittel.Hilfsmittel;
+import backend.hilfsmittel.Zuweisung;
 import backend.utils.Picture;
 import constants.ClassType;
+import constants.EventKategorie;
 
 public class Main {
 
@@ -23,11 +26,13 @@ public class Main {
 		Speicher sp = new Speicher();
 		sp.load();
 		Rolle besch = new Beschaffungspersonal();
-		Object[] params = {Date.valueOf("2018-05-06"),Date.valueOf("2038-04-06"),"flotter baeqweqweqweeeefwfe"};
+		Object[] params = {"titttlel","bebeb",Date.valueOf("2018-05-06"),Date.valueOf("2038-04-06"),23,"mein dad",3.3,EventKategorie.H};
 		System.out.println("--------------------------------Kontaktinfoamtion-----------------------------///?/");
 		
 		
-		/*Kontaktinformation ktk1 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
+		/*String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
+		 EventKategorie kategorie, String id*
+		 * Kontaktinformation ktk1 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
 		Kontaktinformation ktk2 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);
 		System.out.println(sp.getObject(ClassType.KONTAKTINFORMATION, "1").toString());
 		System.out.println(sp.getObject(ClassType.KONTAKTINFORMATION, "2").toString());
@@ -96,12 +101,22 @@ public class Main {
 		Hilfsmittel tmp = (Hilfsmittel) sp.createObject(ClassType.HILFSMITTEL, parrr);
 		tmp.getPictureList().addPicture(new Picture("dhhd","kkk"));*/
 		/*Object[] params1 = {324324,Date.valueOf("2018-05-05"),sp.getObject(ClassType.HILFSMITTEL, "1")};
-		sp.createObject(ClassType.REQUEST, params1);*/
+		sp.createObject(ClassType.REQUEST, params1);
 		//sp.createObject(ClassType.REQUEST, params1);
 		TeilEvent te = (TeilEvent) sp.createObject(ClassType.TEILEVENT, params);
 		te.addEventElement((EventElement) sp.getObject(ClassType.ELEMENTLOCATION, "1"));
 		te.addGruppe((Gruppe) sp.getObject(ClassType.GRUPPE, "4"));
 		te.addGruppe((Gruppe) sp.getObject(ClassType.GRUPPE, "1"));
+		*/
+		Event ev = (Event) sp.createObject(ClassType.EVENT, params);
+		ev.addTeilEvent((TeilEvent) sp.getObject(ClassType.TEILEVENT, "1"));
+		ev.addTeilEvent((TeilEvent) sp.getObject(ClassType.TEILEVENT, "4"));
+		ev.getKontaktInfoList().addKontaktInfo((Kontaktinformation) sp.getObject(ClassType.KONTAKTINFORMATION, "2"));
+		ev.getKontaktInfoList().addKontaktInfo((Kontaktinformation) sp.getObject(ClassType.KONTAKTINFORMATION, "1"));
+		ev.getPictureList().addPicture(new Picture("dhhd","kkk"));
+		ev.getPictureList().addPicture(new Picture("dhhd","kk234234k"));
+		Object[] params2 = {(TeilEvent) sp.getObject(ClassType.TEILEVENT, "4"),sp.getObject(ClassType.HILFSMITTEL, "1"),43234};
+		Zuweisung zu = (Zuweisung) sp.createObject(ClassType.ZUWEISUNG, params2);
 		sp.save();
 	}
 	

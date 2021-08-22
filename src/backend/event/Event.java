@@ -126,6 +126,11 @@ public class Event {
 		return kontaktInfoList;
 	}
 
+	public void setStatus(Status status) {
+		this.status = status;
+		
+	}
+
 	/*------------------------------------------------------------------*/	
 	public void update(String titel, String beschreibung, Date start, Date end, int besucher, String kunde, double budget,
 			 EventKategorie kategorie, Status status) {
@@ -156,4 +161,5 @@ public class Event {
 		ret+= kontaktInfoList.toString() + pictureList.toString();
 		return ret;
 	}
+
 }
