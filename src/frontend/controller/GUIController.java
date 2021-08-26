@@ -1,8 +1,8 @@
 package frontend.controller;
 
-import frontend.GUIEvent;
+import de.dhbwka.swe.utils.event.*;
 
-public class GUIController implements IUpdateEventSender, IGUIEventListener {
+public class GUIController implements IGUIEventListener {
     @Override
     public void processGUIEvent(GUIEvent ge) {
 

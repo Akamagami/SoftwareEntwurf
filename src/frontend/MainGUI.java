@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.datenbasis.factory.HilfsmittelFactory;
+import frontend.controller.*;
 import frontend.pages.*;
 import frontend.panes.EventDetailsPane;
 import frontend.panes.LagerDetailsPane;
@@ -33,12 +35,12 @@ public class MainGUI extends JComponent {
         overviewpane = new OverviewPane();
         teileventspane = new TeilEventDetailsPane();
 
-        EventDetailsÜbersicht übersicht = new EventDetailsÜbersicht();
-        EventDetailsTeilevent teilevent = new EventDetailsTeilevent();
-        EventDetailsKosten kosten = new EventDetailsKosten();
-        eventpane.addTab("Übersicht", übersicht);
-        eventpane.addTab("Teilevents", teilevent);
-        eventpane.addTab("Kosten", kosten);
+        EventDetailsÜbersicht eventDetailsÜbersicht = new EventDetailsÜbersicht();
+        EventDetailsTeilevent eventDetailsTeilevent = new EventDetailsTeilevent();
+        EventDetailsKosten eventDetailsKosten = new EventDetailsKosten();
+        eventpane.addTab("Übersicht", eventDetailsÜbersicht);
+        eventpane.addTab("Teilevents", eventDetailsTeilevent);
+        eventpane.addTab("Kosten", eventDetailsKosten);
 
         HilfsmittelDetails hilfsmittelDetails = new HilfsmittelDetails();
         lagerpane.addTab("Hilfsmittel", hilfsmittelDetails);
@@ -56,6 +58,24 @@ public class MainGUI extends JComponent {
         teileventspane.addTab("Übersicht", teilEventDetailsÜbersicht);
         teileventspane.addTab("Mitarbeiter", teilEventDetailsMitarbeiter);
         teileventspane.addTab("Hilfsmittel", teilEventDetailsHilfsmittel);
+
+        EventDetailsController eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten);
+        EventListGUIController eventListGUIController = new EventListGUIController(eventListGUI);
+        HilfsmittelDetailsController hilfsmittelDetailsController = new HilfsmittelDetailsController(hilfsmittelDetails);
+        KalenderGUIConroller kalenderGUIConroller = new KalenderGUIConroller(kalenderGUI);
+        LagerListGUIController lagerListGUIController = new LagerListGUIController(lagerListGUI);
+        TeilEventDetailsController teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsÜbersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel);
+
+        eventDetailsÜbersicht.setController(eventDetailsController);
+        eventDetailsTeilevent.setController(eventDetailsController);
+        eventDetailsKosten.setController(eventDetailsController);
+        eventListGUI.setController(eventListGUIController);
+        hilfsmittelDetails.setController(hilfsmittelDetailsController);
+        kalenderGUI.setController(kalenderGUIConroller);
+        lagerListGUI.setController(lagerListGUIController);
+        teilEventDetailsÜbersicht.setController(teilEventDetailsController);
+        teilEventDetailsMitarbeiter.setController(teilEventDetailsController);
+        teilEventDetailsHilfsmittel.setController(teilEventDetailsController);
 
 
         jTabbedPane.addTab("Übersicht", overviewpane);

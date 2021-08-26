@@ -1,18 +1,31 @@
 package frontend.pages;
 
-import frontend.GUIEvent;
-import frontend.controller.IGUIEventListener;
+import de.dhbwka.swe.utils.event.*;
+import frontend.controller.GUIController;
 
 import javax.swing.*;
+import java.util.EventListener;
 
-public class EventListGUI extends JComponent implements IUpdateEventListener, IGUIEventSender {
+public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEventSender {
+
+    GUIController controller;
+
     @Override
-    public void update(GUIEvent ue) {
-
+    public boolean addObserver(EventListener eventListener) {
+        return false;
     }
 
     @Override
-    public void fireGUIEvent(GUIEvent ce) {
+    public boolean removeObserver(EventListener eventListener) {
+        return false;
+    }
 
+    @Override
+    public void processUpdateEvent(UpdateEvent updateEvent) {
+
+    }
+
+    public void setController(GUIController controller) {
+        this.controller = controller;
     }
 }

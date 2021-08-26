@@ -7,6 +7,7 @@ import backend.benutzer.rollen.*;
 import backend.datenbasis.*;
 import constants.ClassType;
 import frontend.MainGUI;
+import frontend.pages.EventDetailsKosten;
 import frontend.panes.EventDetailsPane;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		MainGUI mainGUI = new MainGUI();
+
 
 		/*Speicher sp = new Speicher();
 		
