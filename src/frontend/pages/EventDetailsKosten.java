@@ -6,6 +6,7 @@ import de.dhbwka.swe.utils.model.IDepictable;
 import de.dhbwka.swe.utils.model.Person;
 import frontend.controller.GUIController;
 
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
     private ButtonElement button1;
     private GUIController controller;
     private ButtonElement returnButton;
+
 
     public EventDetailsKosten() {
 
@@ -38,16 +40,12 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
         simpleListComponent.setListElements(elems);
         simpleListComponent.setVisible(true);
 
-        button1 = ButtonElement.builder("BTN-1").buttonText("Auswählen").type(ButtonElement.Type.BUTTON).build();
+        button1 = ButtonElement.builder("EDK-BTN").buttonText("Auswählen").type(ButtonElement.Type.BUTTON).build();
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(button1);
 
-        JPanel listPane = new JPanel();
-        listPane.setLayout(new BoxLayout(listPane, BoxLayout.PAGE_AXIS));
-        listPane.add(simpleListComponent, BorderLayout.EAST);
-        listPane.add(button1, BorderLayout.SOUTH);
-
-        returnButton = ButtonElement.builder("BTN-RETURN").buttonText("Zurück").build();
-        this.add(returnButton);
-        this.add(listPane, BorderLayout.EAST);
+        this.add(simpleListComponent, BorderLayout.CENTER);
+        this.add(buttonPanel, BorderLayout.SOUTH);
         this.setVisible(true);
 
 

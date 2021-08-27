@@ -5,6 +5,7 @@ import de.dhbwka.swe.utils.gui.CalendarComponent;
 import frontend.controller.GUIController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.EventListener;
 
 public class KalenderGUI extends JPanel implements IUpdateEventListener, IGUIEventSender {
@@ -14,7 +15,8 @@ public class KalenderGUI extends JPanel implements IUpdateEventListener, IGUIEve
 
     public KalenderGUI() {
         calendarComponent = CalendarComponent.builder("KC").build();
-        this.add(calendarComponent);
+        this.setLayout(new BorderLayout());
+        this.add(calendarComponent, BorderLayout.CENTER);
     }
 
     @Override

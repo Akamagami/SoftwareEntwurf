@@ -5,7 +5,9 @@ import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import frontend.controller.GUIController;
 
+
 import javax.swing.*;
+import java.awt.*;
 import java.util.EventListener;
 
 public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, IGUIEventSender {
@@ -14,14 +16,13 @@ public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, 
     private ButtonElement returnButton;
     private SimpleListComponent simpleListComponent;
 
+
     public HilfsmittelDetails() {
+
 
         simpleListComponent = SimpleListComponent.builder("SLC").build();
 
-
-        returnButton = ButtonElement.builder("BTN-RETURN").buttonText("Zurück").build();
-
-        this.add(returnButton);
+        this.setLayout(new GridLayout(2,2));
         this.add(simpleListComponent);
     }
 

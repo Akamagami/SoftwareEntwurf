@@ -13,10 +13,10 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
     private SimpleListComponent simpleListComponent;
     private ButtonElement buttonElement;
     private GUIController controller;
+    private JTextArea textField;
 
     public EventListGUI() {
 
-        JPanel listPanel = new JPanel();
 
         simpleListComponent = SimpleListComponent.builder("SLC")
                 .font(new Font("SansSerif", Font.ITALIC,10))
@@ -25,9 +25,18 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
 
         buttonElement = ButtonElement.builder("BTN-CREATE-EVENT").buttonText("Event erstellen").build();
 
-        listPanel.add(simpleListComponent);
-        listPanel.add(buttonElement);
-        this.add(listPanel);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(buttonElement);
+
+        textField = new JTextArea("Suchen...");
+        textField.setBorder( BorderFactory.createLineBorder(Color.BLACK));
+        textField.setMargin(new Insets(10, 10, 10, 10));
+
+        this.setLayout(new BorderLayout());
+
+        this.add(textField, BorderLayout.NORTH);
+        this.add(simpleListComponent, BorderLayout.CENTER);
+        this.add(buttonPanel, BorderLayout.SOUTH);
     }
 
     @Override
@@ -47,5 +56,7 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
 
     public void setController(GUIController controller) {
         this.controller = controller;
+        buttonElement.addObserver(controller);
+        simpleListComponent.addObserver(controller);
     }
 }

@@ -18,6 +18,31 @@ public class MainGUI extends JComponent {
     private LagerDetailsPane lagerpane;
     private OverviewPane overviewpane;
     private TeilEventDetailsPane teileventspane;
+    private MainGUIController mainGUIController;
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public EventDetailsPane getEventpane() {
+        return eventpane;
+    }
+
+    public LagerDetailsPane getLagerpane() {
+        return lagerpane;
+    }
+
+    public OverviewPane getOverviewpane() {
+        return overviewpane;
+    }
+
+    public TeilEventDetailsPane getTeileventspane() {
+        return teileventspane;
+    }
+
+    public MainGUIController getMainGUIController() {
+        return mainGUIController;
+    }
 
     public MainGUI() {
         frame = new JFrame();
@@ -26,6 +51,7 @@ public class MainGUI extends JComponent {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(1, 1));
 
+        mainGUIController = new MainGUIController(this);
 
         eventpane = new EventDetailsPane();
         lagerpane = new LagerDetailsPane();
@@ -56,8 +82,8 @@ public class MainGUI extends JComponent {
         teileventspane.addTab("Mitarbeiter", teilEventDetailsMitarbeiter);
         teileventspane.addTab("Hilfsmittel", teilEventDetailsHilfsmittel);
 
-        EventDetailsController eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten);
-        EventListGUIController eventListGUIController = new EventListGUIController(eventListGUI);
+        EventDetailsController eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten, mainGUIController);
+        EventListGUIController eventListGUIController = new EventListGUIController(eventListGUI, mainGUIController);
         HilfsmittelDetailsController hilfsmittelDetailsController = new HilfsmittelDetailsController(hilfsmittelDetails);
         KalenderGUIConroller kalenderGUIConroller = new KalenderGUIConroller(kalenderGUI);
         LagerListGUIController lagerListGUIController = new LagerListGUIController(lagerListGUI);
@@ -78,9 +104,11 @@ public class MainGUI extends JComponent {
 
 
 
-        //frame.add(overviewpane);
+        frame.add(overviewpane);
 
-        frame.add(lagerpane);
+        //frame.add(eventpane);
+        //frame.add(teileventspane);
+
 
         frame.setVisible(true);
 
