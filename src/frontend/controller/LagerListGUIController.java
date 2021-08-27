@@ -6,7 +6,7 @@ import frontend.pages.LagerListGUI;
 
 public class LagerListGUIController extends GUIController {
 
-    LagerListGUI lagerListGUI;
+    private LagerListGUI lagerListGUI;
 
     public LagerListGUIController(LagerListGUI lagerListGUI) {
         this.lagerListGUI = lagerListGUI;

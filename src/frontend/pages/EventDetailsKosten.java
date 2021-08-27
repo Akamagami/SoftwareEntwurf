@@ -7,6 +7,7 @@ import de.dhbwka.swe.utils.model.Person;
 import frontend.controller.GUIController;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -17,8 +18,11 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
     private SimpleListComponent simpleListComponent;
     private ButtonElement button1;
     private GUIController controller;
+    private ButtonElement returnButton;
 
     public EventDetailsKosten() {
+
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         List<IDepictable> elems = new ArrayList<>();
         elems.add(new Person("Willi", "Bald"));
@@ -36,10 +40,14 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
 
         button1 = ButtonElement.builder("BTN-1").buttonText("Auswählen").type(ButtonElement.Type.BUTTON).build();
 
+        JPanel listPane = new JPanel();
+        listPane.setLayout(new BoxLayout(listPane, BoxLayout.PAGE_AXIS));
+        listPane.add(simpleListComponent, BorderLayout.EAST);
+        listPane.add(button1, BorderLayout.SOUTH);
 
-
-        this.add(button1);
-
+        returnButton = ButtonElement.builder("BTN-RETURN").buttonText("Zurück").build();
+        this.add(returnButton);
+        this.add(listPane, BorderLayout.EAST);
         this.setVisible(true);
 
 

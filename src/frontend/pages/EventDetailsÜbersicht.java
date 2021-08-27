@@ -9,8 +9,10 @@ import java.awt.*;
 import java.util.EventListener;
 
 public class EventDetailsÜbersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
-    GUIController controller;
-    SimpleListComponent simpleListComponent;
+
+    private GUIController controller;
+    private SimpleListComponent simpleListComponent;
+    private ButtonElement returnButton;
 
     public EventDetailsÜbersicht() {
         simpleListComponent = SimpleListComponent.builder("SLC")
@@ -18,7 +20,10 @@ public class EventDetailsÜbersicht extends JPanel implements IUpdateEventListen
                                 .selectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION)
                                 .build();
 
+        returnButton = ButtonElement.builder("BTN-RETURN").buttonText("Zurück").build();
 
+        this.add(returnButton);
+        this.add(simpleListComponent);
     }
 
     @Override

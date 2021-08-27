@@ -14,7 +14,6 @@ import java.awt.*;
 public class MainGUI extends JComponent {
 
     private JFrame frame;
-    private JTabbedPane jTabbedPane;
     private EventDetailsPane eventpane;
     private LagerDetailsPane lagerpane;
     private OverviewPane overviewpane;
@@ -26,8 +25,6 @@ public class MainGUI extends JComponent {
         frame.setTitle("EventPlaner");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(1, 1));
-
-        JTabbedPane jTabbedPane = new JTabbedPane(1);
 
 
         eventpane = new EventDetailsPane();
@@ -78,13 +75,12 @@ public class MainGUI extends JComponent {
         teilEventDetailsHilfsmittel.setController(teilEventDetailsController);
 
 
-        jTabbedPane.addTab("Übersicht", overviewpane);
-        jTabbedPane.addTab("EventDetails", eventpane);
-        jTabbedPane.addTab("TeileventDetails", teileventspane);
-        jTabbedPane.addTab("Lager", lagerpane);
 
 
-        frame.add(jTabbedPane);
+
+        //frame.add(overviewpane);
+
+        frame.add(lagerpane);
 
         frame.setVisible(true);
 

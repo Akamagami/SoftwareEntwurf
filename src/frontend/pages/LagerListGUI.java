@@ -8,7 +8,7 @@ import java.util.EventListener;
 
 public class LagerListGUI extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
-    GUIController controller;
+    private GUIController controller;
 
     @Override
     public boolean addObserver(EventListener eventListener) {
