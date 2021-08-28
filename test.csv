@@ -1,17 +1,17 @@
-Kontaktinfo,88,ASDasd,asdasd,11212
-Kontaktinfo,89,asdas,asdasd,112
-Kontaktinfo,90,asdas,asdasd,112
-Kontaktinfo,91,asdas,asdasd,112
-Kontaktinfo,92,asdas,asdasd,112
-Kontaktinfo,93,asdas,asdasd,112
-Kontaktinfo,94,asdas,asdasd,112
-Kontaktinfo,95,asdas,asdasd,112
-Kontaktinfo,96,asdas,asdasd,112
-Kontaktinfo,97,asdas,asdasd,112
+Kontaktinfo,88,zrt,zrtz,rtz
+Kontaktinfo,89,zrt,zrtz,rtz
+Kontaktinfo,90,56g3456,g3456g4,35g345
+Kontaktinfo,91,56g3456,g3456g4,35g345
+Kontaktinfo,92,56g3456,g3456g4,35g345
+Kontaktinfo,93,56g3456,g3456g4,35g345
+Kontaktinfo,94,56g3456,g3456g4,35g345
+Kontaktinfo,95,56g3456,g3456g4,35g345
+Kontaktinfo,96,56g3456,g3456g4,35g345
+Kontaktinfo,97,56g3456,g3456g4,35g345
 Kontaktinfo,10,asdasdas,asdasdasd,1010230123
-Kontaktinfo,98,asdas,asdasd,112
+Kontaktinfo,98,56g3456,g3456g4,35g345
 Kontaktinfo,11,asdasdas,asdasdasd,1010230123
-Kontaktinfo,99,asdasd,asdasd1,121
+Kontaktinfo,99,56g3456,g3456g4,35g345
 Kontaktinfo,12,asdasdas,asdasdasd,1010230123
 Kontaktinfo,13,asdasdas,asdasdasd,1010230123
 Kontaktinfo,14,asdasdas,asdasdasd,1010230123
@@ -89,8 +89,11 @@ Kontaktinfo,76,1asdasdasd,asdasdasd,112
 Kontaktinfo,77,1asdasdasd,asdasdasd,112
 Kontaktinfo,78,1asdasdasd,asdasdasd,112
 Kontaktinfo,79,1asdasdasd,asdasdasd,112
-Kontaktinfo,100,asdasd,asdasd1,121
+Kontaktinfo,100,56g3456,g3456g4,35g345
 Kontaktinfo,101,asdasd,asdasd1,121
+Kontaktinfo,102,zrt,zrtz,rtz
+Kontaktinfo,103,ert,vertv,er
+Kontaktinfo,104,ert,vertv,er
 Kontaktinfo,80,1asdasdasd,asdasdasd,112
 Kontaktinfo,81,1asdasdasd,asdasdasd,112
 Kontaktinfo,82,1asdasdasd,asdasdasd,112
@@ -100,13 +103,16 @@ Kontaktinfo,85,1asdasdasd,asdasdasd,112
 Kontaktinfo,86,1asdasdasd,asdasdasd,112
 Kontaktinfo,87,1asdasdasd,asdasdasd,112
 Benutzer,1,Felix,Radermacher,%,Kontaktinfo,2,%,Rolle,B
-Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,hurrrr,ijlk
+Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,ijlk,hurrrr
 Benutzer,4,Relix,Fadermacher,%,Rolle,N
 Beschaffungsgruppe,Gruppe,1,nTREGTRE,%,Benutzer,1,%,Leiter,1
 Gruppe,4,DeinErnst yryr,%,Benutzer,1,%,Benutzer,3,%,Benutzer,4
 Sonstiges,1,name,besch,3.2,speissse
 Sonstiges,2,Giraffe2,asda,100.0,Weil du Hund dein Maul halten sollst,%,Kontaktinfo,88
-Catering,11,asdf,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,89
+Sonstiges,3,45gtz45435345,eduzt,10.0,rw,%,Kontaktinfo,89
+Sonstiges,4,rtfghret,ertvger,213.0,tvrevt,%,Kontaktinfo,103
+Sonstiges,5,rtfghret,ertvger,213.0,tvrevt,%,Kontaktinfo,104
+Catering,11,neu ahaha54564,zrtzrt,21.0,zrtz,rtzrt,%,Kontaktinfo,89
 Catering,12,Pferd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,90
 Catering,13,Pferd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,91
 Catering,14,sdfsdf,sdfsdfsdf,100.0,asdasd,asdasd,%,Kontaktinfo,99
@@ -124,15 +130,21 @@ Catering,9,sdfsdf,sdfsdfsdf,100.0,asdasd,asdasd,%,Kontaktinfo,94
 Catering,10,sdfsdf,sdfsdfsdf,100.0,asdasd,asdasd,%,Kontaktinfo,95
 Location,1,name,besch,3.2,speissse,menuuu
 Location,2,Location1,asd,100.0,adsas,asdasd,%,Kontaktinfo,89
+Musik,11,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,92
+Musik,12,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,93
+Musik,13,566,6g4536g45,1.045645E7,456g3456,g3456g43,%,Kontaktinfo,94
 Musik,1,name,besch,3.2,speissse,menuuu
 Musik,2,dfgdf,dfgg,100.0,asdasd,asdas,%,Kontaktinfo,88
 Musik,3,Musik3,asdas,100.0,awdlöjkasd,asdasd,%,Kontaktinfo,88
 Musik,4,Hund1,asd,100.0,asdas,asda,%,Kontaktinfo,89
-Musik,5,Löwe,asdas,100.0,asd,asd,%,Kontaktinfo,90
+Musik,5,Lwe56756,asdas,100.0,asd,asd,%,Kontaktinfo,90
 Musik,6,Wolf1,asdsad,100.0,asdas,asdasd,%,Kontaktinfo,88
-Musik,7,asdasd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,88
-Teilevent,11,asdasd,2021-12-11,2021-12-11,E,%,Element,ELEMENTMUSIK,7
-Teilevent,12,Löwe,2021-12-11,2021-12-13,E,%,Element,ELEMENTMUSIK,5
+Musik,7,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,88
+Musik,8,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,89
+Musik,9,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,90
+Musik,10,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,91
+Teilevent,11,neu ahaha54564,1000-10-10,1000-10-10,E,%,Element,ELEMENTCATERING,11
+Teilevent,12,Lwe56756,2021-12-11,2021-12-13,E,%,Element,ELEMENTMUSIK,5
 Teilevent,13,Pferd,2021-12-11,2021-12-11,E,%,Element,ELEMENTCATERING,13
 Teilevent,14,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,10
 Teilevent,15,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,11
@@ -151,7 +163,8 @@ Teilevent,8,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,4
 Teilevent,9,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,5
 Teilevent,20,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,16
 Teilevent,10,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,6
-Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,12,%,Teilevent,11,%,Kontaktinfo,98
+Teilevent,21,rtfghret,1000-02-02,1000-02-02,E,%,Element,ELEMENTSONTIGES,5
+Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,11,%,Teilevent,21,%,Kontaktinfo,102
 Event,2,asdasdaasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,89
 Event,3,Test1,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,90
 Hilfsmittel,1,name,besch,30,%,Picture,dhhd,kkk

@@ -27,7 +27,6 @@ public class Event {
 	private EventKategorie kategorie;
 	private Status status;
 
-	private Attribute[] attArr;
 	
 	PictureList pictureList = new PictureList();
 	KontaktInfoList kontaktInfoList = new KontaktInfoList();
