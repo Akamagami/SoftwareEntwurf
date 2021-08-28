@@ -24,7 +24,6 @@ public class EventDetailsController extends GUIController {
     }
 
     public enum Commands implements EventCommand {
-        CHANGE_BACKGROUND_COLOR("CHANGE_BACKGROUND_COLOR", EventDetailsController.class),
         CREATE_TEILEVENT("CREATE_TEILEVENT", EventDetailsController.class);
 
         private String cmdText;
@@ -50,10 +49,7 @@ public class EventDetailsController extends GUIController {
     public void processGUIEvent(GUIEvent ge) {
         if (ge.getCmd().equals(ButtonElement.Commands.BUTTON_PRESSED)) {
             ButtonElement x = (ButtonElement) ge.getData();
-            if (x.getID().equals("EDK-BTN")) {
-                kosten.processUpdateEvent(new UpdateEvent(this, Commands.CHANGE_BACKGROUND_COLOR, null));
-            }
-            else if (x.getID().equals("EDT-CRBTN")) {
+            if (x.getID().equals("EDT-CRBTN")) {
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.CREATE_TEILEVENT, null));
             }
         }

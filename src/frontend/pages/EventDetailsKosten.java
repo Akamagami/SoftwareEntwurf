@@ -64,10 +64,7 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-        if (updateEvent.getCmd().getCmdText() == "CHANGE_BACKGROUND_COLOR") {
-            this.setBackground(Color.BLUE);
-            JOptionPane.showMessageDialog(null, "Backgroundcolor changed to blue");
-        }
+
     }
 
     public GUIController getController() {
@@ -79,23 +76,5 @@ public class EventDetailsKosten extends JPanel implements IUpdateEventListener, 
         button1.addObserver(controller);
     }
 
-    public static enum Commands implements EventCommand {
-        CHANGE_BACKGROUND_COLOR("CHANGE_BACKGROUND_COLOR", ButtonElement.class);
 
-        public final Class<?> payloadType;
-        public final String cmdText;
-
-        private Commands(String cmdText, Class<?> payloadType) {
-            this.cmdText = cmdText;
-            this.payloadType = payloadType;
-        }
-
-        public String getCmdText() {
-            return this.cmdText;
-        }
-
-        public Class<?> getPayloadType() {
-            return this.payloadType;
-        }
-    }
 }
