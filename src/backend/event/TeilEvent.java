@@ -89,11 +89,10 @@ public class TeilEvent {
 		status = s;
 	}
 /*-----------------------------------------------------------------------------*/
-	public void update(Date start, Date ende, String name, Status status) {
+	public void update(Date start, Date ende, String name) {
 		this.start = start;
 		this.ende = ende;
 		this.name = name;
-		this.status = status;
 	}
 /*-----------------------------------------------------------------------------*/
 	@Override

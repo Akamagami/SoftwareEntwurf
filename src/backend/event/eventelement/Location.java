@@ -30,5 +30,21 @@ public class Location extends EventElement {
 		String ret = ClassType.ELEMENTLOCATION.getDisplayName() + d + super.toString() + d + adresse + d + groesse;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
-	}	
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public String getGroesse() {
+		return groesse;
+	}
+
+	public void setGroesse(String groesse) {
+		this.groesse = groesse;
+	}
 }

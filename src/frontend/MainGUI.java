@@ -24,6 +24,12 @@ public class MainGUI extends JComponent {
     private TeilEventDetailsPane teileventspane;
     private MainGUIController mainGUIController;
     private Speicher speicher;
+    private EventDetailsController eventDetailsController;
+    EventListGUIController eventListGUIController;
+    HilfsmittelDetailsController hilfsmittelDetailsController;
+    KalenderGUIConroller kalenderGUIConroller;
+    LagerListGUIController lagerListGUIController;
+    TeilEventDetailsController teilEventDetailsController;
 
     public JFrame getFrame() {
         return frame;
@@ -55,6 +61,78 @@ public class MainGUI extends JComponent {
 
     public MainGUIController getMainGUIController() {
         return mainGUIController;
+    }
+
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
+    }
+
+    public void setEventpane(EventDetailsPane eventpane) {
+        this.eventpane = eventpane;
+    }
+
+    public void setLagerpane(LagerDetailsPane lagerpane) {
+        this.lagerpane = lagerpane;
+    }
+
+    public void setOverviewpane(OverviewPane overviewpane) {
+        this.overviewpane = overviewpane;
+    }
+
+    public void setTeileventspane(TeilEventDetailsPane teileventspane) {
+        this.teileventspane = teileventspane;
+    }
+
+    public void setMainGUIController(MainGUIController mainGUIController) {
+        this.mainGUIController = mainGUIController;
+    }
+
+    public EventDetailsController getEventDetailsController() {
+        return eventDetailsController;
+    }
+
+    public void setEventDetailsController(EventDetailsController eventDetailsController) {
+        this.eventDetailsController = eventDetailsController;
+    }
+
+    public EventListGUIController getEventListGUIController() {
+        return eventListGUIController;
+    }
+
+    public void setEventListGUIController(EventListGUIController eventListGUIController) {
+        this.eventListGUIController = eventListGUIController;
+    }
+
+    public HilfsmittelDetailsController getHilfsmittelDetailsController() {
+        return hilfsmittelDetailsController;
+    }
+
+    public void setHilfsmittelDetailsController(HilfsmittelDetailsController hilfsmittelDetailsController) {
+        this.hilfsmittelDetailsController = hilfsmittelDetailsController;
+    }
+
+    public KalenderGUIConroller getKalenderGUIConroller() {
+        return kalenderGUIConroller;
+    }
+
+    public void setKalenderGUIConroller(KalenderGUIConroller kalenderGUIConroller) {
+        this.kalenderGUIConroller = kalenderGUIConroller;
+    }
+
+    public LagerListGUIController getLagerListGUIController() {
+        return lagerListGUIController;
+    }
+
+    public void setLagerListGUIController(LagerListGUIController lagerListGUIController) {
+        this.lagerListGUIController = lagerListGUIController;
+    }
+
+    public TeilEventDetailsController getTeilEventDetailsController() {
+        return teilEventDetailsController;
+    }
+
+    public void setTeilEventDetailsController(TeilEventDetailsController teilEventDetailsController) {
+        this.teilEventDetailsController = teilEventDetailsController;
     }
 
     public MainGUI() {
@@ -114,12 +192,12 @@ public class MainGUI extends JComponent {
         teileventspane.addTab("Mitarbeiter", teilEventDetailsMitarbeiter);
         teileventspane.addTab("Hilfsmittel", teilEventDetailsHilfsmittel);
 
-        EventDetailsController eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten, mainGUIController, this.speicher);
-        EventListGUIController eventListGUIController = new EventListGUIController(eventListGUI, mainGUIController, this.speicher);
-        HilfsmittelDetailsController hilfsmittelDetailsController = new HilfsmittelDetailsController(hilfsmittelDetails, this.speicher);
-        KalenderGUIConroller kalenderGUIConroller = new KalenderGUIConroller(kalenderGUI);
-        LagerListGUIController lagerListGUIController = new LagerListGUIController(lagerListGUI, this.speicher);
-        TeilEventDetailsController teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsÜbersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, this.speicher);
+        eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten, mainGUIController, this.speicher);
+        eventListGUIController = new EventListGUIController(eventListGUI, mainGUIController, this.speicher);
+        hilfsmittelDetailsController = new HilfsmittelDetailsController(hilfsmittelDetails, this.speicher);
+        kalenderGUIConroller = new KalenderGUIConroller(kalenderGUI);
+        lagerListGUIController = new LagerListGUIController(lagerListGUI, this.speicher);
+        teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsÜbersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, this.speicher, mainGUIController);
 
         eventDetailsÜbersicht.setController(eventDetailsController);
         eventDetailsTeilevent.setController(eventDetailsController);
@@ -137,10 +215,6 @@ public class MainGUI extends JComponent {
 
 
         frame.add(overviewpane);
-
-        //frame.add(eventpane);
-        //frame.add(teileventspane);
-
 
         frame.setVisible(true);
 

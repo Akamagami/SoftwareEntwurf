@@ -30,5 +30,21 @@ public class Musik extends EventElement {
 		String ret = ClassType.ELEMENTMUSIK.getDisplayName() + d + super.toString() + d + kuenstlername + d + genre;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
-	}	
+	}
+
+	public String getKuenstlername() {
+		return kuenstlername;
+	}
+
+	public void setKuenstlername(String kuenstlername) {
+		this.kuenstlername = kuenstlername;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 }

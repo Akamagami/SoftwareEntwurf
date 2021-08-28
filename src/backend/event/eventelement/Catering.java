@@ -31,5 +31,21 @@ public class Catering extends EventElement {
 		String ret = ClassType.ELEMENTCATERING.getDisplayName() + d + super.toString() + d + speisseangebot + d + menueBeschreibung;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
-	}	
+	}
+
+	public String getSpeisseangebot() {
+		return speisseangebot;
+	}
+
+	public void setSpeisseangebot(String speisseangebot) {
+		this.speisseangebot = speisseangebot;
+	}
+
+	public String getMenueBeschreibung() {
+		return menueBeschreibung;
+	}
+
+	public void setMenueBeschreibung(String menueBeschreibung) {
+		this.menueBeschreibung = menueBeschreibung;
+	}
 }

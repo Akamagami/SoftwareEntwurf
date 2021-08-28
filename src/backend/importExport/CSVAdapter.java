@@ -42,7 +42,7 @@ public class CSVAdapter implements IReadWrite {
 
 	@Override
 	public void saveAll(ArrayList<String> data) {
-		try (FileWriter writer = new FileWriter(new File("I:\\test.csv"))) {		 
+		try (FileWriter writer = new FileWriter(new File("test.csv"))) {
 			 for(String line:data) {
 				 writer.append(line);
 				 writer.append("\n");

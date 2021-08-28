@@ -1,12 +1,16 @@
 package backend.event;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 import backend.benutzer.Kontaktinformation;
 import backend.utils.KontaktInfoList;
 import backend.utils.Picture;
 import backend.utils.PictureList;
 import constants.*;
+import de.dhbwka.swe.utils.model.Attribute;
+import de.dhbwka.swe.utils.model.IDepictable;
+import de.dhbwka.swe.utils.model.PersonWithAttributes;
 
 public class Event {
 /* beschreibt ein Event*/
@@ -22,6 +26,8 @@ public class Event {
 	
 	private EventKategorie kategorie;
 	private Status status;
+
+	private Attribute[] attArr;
 	
 	PictureList pictureList = new PictureList();
 	KontaktInfoList kontaktInfoList = new KontaktInfoList();
@@ -41,6 +47,7 @@ public class Event {
 		this.id = id;
 		this.kategorie = kategorie;
 		status = Status.E;
+
 	}
 	
 /*------------------------------------------------------------------*/	
@@ -77,6 +84,10 @@ public class Event {
 		}
 	}
 /*------------------------------------------------------------------*/
+
+	public ArrayList<TeilEvent> getTeilEventList() {
+		return TeilEventList;
+	}
 
 	public String getTitel() {
 		return titel;
@@ -161,5 +172,7 @@ public class Event {
 		ret+= kontaktInfoList.toString() + pictureList.toString();
 		return ret;
 	}
+
+
 
 }

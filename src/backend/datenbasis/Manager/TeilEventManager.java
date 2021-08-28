@@ -43,7 +43,7 @@ public class TeilEventManager implements EntityManager<TeilEvent> {
 
 	@Override
 	public void update(String id, Object[] params) {
-		list.get(id).update((Date) params[0],(Date) params[1],(String) params[2],(Status) params[3]);
+		list.get(id).update((Date) params[0],(Date) params[1],(String) params[2]);
 	}
 }
 
