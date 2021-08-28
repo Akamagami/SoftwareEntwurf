@@ -14,22 +14,22 @@ import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
 import frontend.pages.EventDetailsKosten;
 import frontend.pages.EventDetailsTeilevent;
-import frontend.pages.EventDetailsÜbersicht;
+import frontend.pages.EventDetailsUebersicht;
 
 import javax.swing.*;
 import java.sql.Date;
 
 public class EventDetailsController extends GUIController {
 
-    private EventDetailsÜbersicht übersicht;
+    private EventDetailsUebersicht Uebersicht;
     private EventDetailsTeilevent teilevent;
     private EventDetailsKosten kosten;
     private MainGUIController mainGUIController;
     private Speicher speicher;
     private EventUI currentEventUI;
 
-    public EventDetailsController(EventDetailsÜbersicht übersicht, EventDetailsTeilevent teilevent, EventDetailsKosten kosten, MainGUIController mainGUIController, Speicher speicher) {
-        this.übersicht = übersicht;
+    public EventDetailsController(EventDetailsUebersicht Uebersicht, EventDetailsTeilevent teilevent, EventDetailsKosten kosten, MainGUIController mainGUIController, Speicher speicher) {
+        this.Uebersicht = Uebersicht;
         this.teilevent = teilevent;
         this.kosten = kosten;
         this.mainGUIController = mainGUIController;
@@ -53,8 +53,8 @@ public class EventDetailsController extends GUIController {
             }
             else if (x.getID().equals("SAFE-EDUE")) {
                 if (currentEventUI == null) {
-                    String[] params = übersicht.getAttributeComponent().getAttributeValuesAsArray();
-                    String[] kontaktParams = übersicht.getKontaktBeschreibungComponent().getAttributeValuesAsArray();
+                    String[] params = Uebersicht.getAttributeComponent().getAttributeValuesAsArray();
+                    String[] kontaktParams = Uebersicht.getKontaktBeschreibungComponent().getAttributeValuesAsArray();
                     for (EventKategorie kategorie : EventKategorie.values()
                     ) {
                         if (kategorie.getDisplayName().equals(params[7])) {
@@ -71,12 +71,12 @@ public class EventDetailsController extends GUIController {
                         }
 
                     }
-                    //mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsÜbersicht().setCurrentEventUI(null);
+                    //mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsUebersicht().setCurrentEventUI(null);
                     mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
                 }
                 else {
-                    String[] params = übersicht.getAttributeComponent().getAttributeValuesAsArray();
-                    String[] kontaktParams = übersicht.getKontaktBeschreibungComponent().getAttributeValuesAsArray();
+                    String[] params = Uebersicht.getAttributeComponent().getAttributeValuesAsArray();
+                    String[] kontaktParams = Uebersicht.getKontaktBeschreibungComponent().getAttributeValuesAsArray();
                     for (EventKategorie kategorie : EventKategorie.values()
                     ) {
                         if (kategorie.getDisplayName().equals(params[7])) {
@@ -119,9 +119,9 @@ public class EventDetailsController extends GUIController {
 
     public void getEvent(EventUI event) {
         this.currentEventUI = event;
-        übersicht.fillAttributes(event);
+        Uebersicht.fillAttributes(event);
         mainGUIController.getMainGUI().getEventListGUIController().loadElements();
-        mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getEvent(currentEventUI);
+        mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsUebersicht().getEvent(currentEventUI);
     }
 
 
@@ -156,12 +156,12 @@ public class EventDetailsController extends GUIController {
 
 
 
-    public EventDetailsÜbersicht getÜbersicht() {
-        return übersicht;
+    public EventDetailsUebersicht getUebersicht() {
+        return Uebersicht;
     }
 
-    public void setÜbersicht(EventDetailsÜbersicht übersicht) {
-        this.übersicht = übersicht;
+    public void setUebersicht(EventDetailsUebersicht Uebersicht) {
+        this.Uebersicht = Uebersicht;
     }
 
     public EventDetailsTeilevent getTeilevent() {

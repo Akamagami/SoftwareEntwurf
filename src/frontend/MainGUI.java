@@ -65,10 +65,10 @@ public class MainGUI extends JComponent {
         overviewpane = new OverviewPane();
         teileventspane = new TeilEventDetailsPane();
 
-        EventDetailsÜbersicht eventDetailsÜbersicht = new EventDetailsÜbersicht();
+        EventDetailsUebersicht eventDetailsUebersicht = new EventDetailsUebersicht();
         EventDetailsTeilevent eventDetailsTeilevent = new EventDetailsTeilevent();
         EventDetailsKosten eventDetailsKosten = new EventDetailsKosten();
-        eventpane.addTab("Übersicht", eventDetailsÜbersicht);
+        eventpane.addTab("Uebersicht", eventDetailsUebersicht);
         eventpane.addTab("Teilevents", eventDetailsTeilevent);
         eventpane.addTab("Kosten", eventDetailsKosten);
 
@@ -83,27 +83,27 @@ public class MainGUI extends JComponent {
         overviewpane.addTab("Kalender", kalenderGUI);
 
         TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter = new TeilEventDetailsMitarbeiter();
-        TeilEventDetailsÜbersicht teilEventDetailsÜbersicht = new TeilEventDetailsÜbersicht();
+        TeilEventDetailsUebersicht teilEventDetailsUebersicht = new TeilEventDetailsUebersicht();
         TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel = new TeilEventDetailsHilfsmittel();
-        teileventspane.addTab("Übersicht", teilEventDetailsÜbersicht);
+        teileventspane.addTab("Uebersicht", teilEventDetailsUebersicht);
         teileventspane.addTab("Mitarbeiter", teilEventDetailsMitarbeiter);
         teileventspane.addTab("Hilfsmittel", teilEventDetailsHilfsmittel);
 
-        eventDetailsController = new EventDetailsController(eventDetailsÜbersicht, eventDetailsTeilevent, eventDetailsKosten, mainGUIController, this.speicher);
+        eventDetailsController = new EventDetailsController(eventDetailsUebersicht, eventDetailsTeilevent, eventDetailsKosten, mainGUIController, this.speicher);
         eventListGUIController = new EventListGUIController(eventListGUI, mainGUIController, this.speicher);
         hilfsmittelDetailsController = new HilfsmittelDetailsController(hilfsmittelDetails, this.speicher);
         kalenderGUIConroller = new KalenderGUIConroller(kalenderGUI);
         lagerListGUIController = new LagerListGUIController(lagerListGUI, this.speicher);
-        teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsÜbersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, this.speicher, mainGUIController);
+        teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsUebersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, this.speicher, mainGUIController);
 
-        eventDetailsÜbersicht.setController(eventDetailsController);
+        eventDetailsUebersicht.setController(eventDetailsController);
         eventDetailsTeilevent.setController(eventDetailsController);
         eventDetailsKosten.setController(eventDetailsController);
         eventListGUI.setController(eventListGUIController);
         hilfsmittelDetails.setController(hilfsmittelDetailsController);
         kalenderGUI.setController(kalenderGUIConroller);
         lagerListGUI.setController(lagerListGUIController);
-        teilEventDetailsÜbersicht.setController(teilEventDetailsController);
+        teilEventDetailsUebersicht.setController(teilEventDetailsController);
         teilEventDetailsMitarbeiter.setController(teilEventDetailsController);
         teilEventDetailsHilfsmittel.setController(teilEventDetailsController);
 

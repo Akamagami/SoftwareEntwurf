@@ -60,8 +60,8 @@ public class MainGUIController extends GUIController {
         if (ge.getCmd().equals(EventListGUIController.Commands.OPEN_EVENTPANE)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getEventpane());
-            mainGUI.getEventDetailsController().getÜbersicht().getAttributeComponent().clearValues();
-            mainGUI.getEventDetailsController().getÜbersicht().getKontaktBeschreibungComponent().clearValues();
+            mainGUI.getEventDetailsController().getUebersicht().getAttributeComponent().clearValues();
+            mainGUI.getEventDetailsController().getUebersicht().getKontaktBeschreibungComponent().clearValues();
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
@@ -69,10 +69,10 @@ public class MainGUIController extends GUIController {
         else if (ge.getCmd().equals(EventDetailsController.Commands.CREATE_TEILEVENT)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getTeileventspane());
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getAttributeComponent().clearValues();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getKontaktInformation().clearValues();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getSpecialComponent().clearValues();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().setTeilEventIdent(ge.getData());
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getAttributeComponent().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getKontaktInformation().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getSpecialComponent().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().setTeilEventIdent(ge.getData());
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.setSize(new Dimension(800, 600));
@@ -81,9 +81,9 @@ public class MainGUIController extends GUIController {
             JFrame frame = new JFrame();
             EventUI event = (EventUI) ge.getData();
             frame.add(mainGUI.getEventpane());
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getAttributeComponent().clearValues();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getKontaktInformation().clearValues();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().getSpecialComponent().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getAttributeComponent().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getKontaktInformation().clearValues();
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().getSpecialComponent().clearValues();
             mainGUI.getEventDetailsController().getEvent(event);
             mainGUI.getTeilEventDetailsController().loadElements();
             frame.setVisible(true);
@@ -96,7 +96,7 @@ public class MainGUIController extends GUIController {
             TeilEventUI teilEventUI = (TeilEventUI) ge.getData();
             mainGUI.getTeilEventDetailsController().setCurrentTeilEventUI(teilEventUI);
             mainGUI.getTeilEventDetailsController().loadElements();
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsÜbersicht().fillAttributes(teilEventUI);
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().fillAttributes(teilEventUI);
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();

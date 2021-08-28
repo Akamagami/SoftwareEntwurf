@@ -21,7 +21,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.EventListener;
 
-public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
     private GUIController controller;
     private ButtonElement saveButton;
@@ -32,7 +32,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
     private Object teilEventIdent;
     private EventUI currentEventUI;
 
-    public TeilEventDetailsÜbersicht() {
+    public TeilEventDetailsUebersicht() {
 
 
         AttributeElement[] attributeElements = new AttributeElement[] {
@@ -95,7 +95,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
 
         saveButton = ButtonElement.builder("TED-SAVE-BUTTON").buttonText("Speichern").build();
 
-        attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("Eventübersicht").build();
+        attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("EventUebersicht").build();
         specialComponent = AttributeComponent.builder("AC-2").attributeElements(elements).title("Spezial").build();
         kontaktInformation = AttributeComponent.builder("AC-3").attributeElements(kontaktInformationElements).title("Kontaktinformation").build();
 
@@ -126,7 +126,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
                             .mandatory(true).maxLength(300).build(),
 
-                    AttributeElement.builder("C-2").labelName("Menübeschreibung")
+                    AttributeElement.builder("C-2").labelName("MenUebeschreibung")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -148,7 +148,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
             };
         } else if (teilEventIdent == "Musik") {
             elements = new AttributeElement[]{
-                    AttributeElement.builder("M-1").labelName("Künstler")
+                    AttributeElement.builder("M-1").labelName("KUenstler")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -238,7 +238,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
                                     .mandatory(true).maxLength(300)
                                     .value(catering.getSpeisseangebot()).build(),
 
-                            AttributeElement.builder("C-2").labelName("Menübeschreibung")
+                            AttributeElement.builder("C-2").labelName("MenUebeschreibung")
                                     .actionType(AttributeElement.ActionType.NONE)
                                     .modificationType(AttributeElement.ModificationType.DIRECT)
                                     .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -272,7 +272,7 @@ public class TeilEventDetailsÜbersicht extends JPanel implements IUpdateEventLi
             Musik musik = (Musik) teilEvent.getElement();
             this.specialComponent.setAttributeElements(
                     new AttributeElement[]{
-                        AttributeElement.builder("M-1").labelName("Künstler")
+                        AttributeElement.builder("M-1").labelName("KUenstler")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DEFAULT)

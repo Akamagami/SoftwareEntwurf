@@ -20,7 +20,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.EventListener;
 
-public class EventDetailsÜbersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class EventDetailsUebersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
     private GUIController controller;
     private ButtonElement safeButton;
@@ -66,7 +66,7 @@ public class EventDetailsÜbersicht extends JPanel implements IUpdateEventListen
         this.kontaktBeschreibungComponent = kontaktBeschreibungComponent;
     }
 
-    public EventDetailsÜbersicht() {
+    public EventDetailsUebersicht() {
 
         String[] kategorien = new String[EventKategorie.values().length];
         int count = 0;
@@ -160,7 +160,7 @@ public class EventDetailsÜbersicht extends JPanel implements IUpdateEventListen
         ssc = SlideshowComponent.builder("SSC").imageElements(loadedImageElements).smallImageSize(new Dimension(50, 50)).build();
 
 
-        attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("Eventübersicht").build();
+        attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("EventUebersicht").build();
         kontaktBeschreibungComponent = AttributeComponent.builder("K-1").attributeElements(kontaktBeschreibung).title("Kontaktinformationen").build();
         safeButton = ButtonElement.builder("SAFE-EDUE").buttonText("Speichern").build();
 

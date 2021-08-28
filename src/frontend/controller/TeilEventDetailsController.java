@@ -18,7 +18,7 @@ import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
 import frontend.pages.TeilEventDetailsHilfsmittel;
 import frontend.pages.TeilEventDetailsMitarbeiter;
-import frontend.pages.TeilEventDetailsÜbersicht;
+import frontend.pages.TeilEventDetailsUebersicht;
 
 import java.sql.Array;
 import java.sql.Date;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class TeilEventDetailsController extends GUIController {
 
-    private TeilEventDetailsÜbersicht teilEventDetailsÜbersicht;
+    private TeilEventDetailsUebersicht teilEventDetailsUebersicht;
     private TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter;
     private TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel;
     private MainGUIController mainGUIController;
@@ -34,9 +34,9 @@ public class TeilEventDetailsController extends GUIController {
     private TeilEventUI currentTeilEventUI;
     private Speicher speicher;
 
-    public TeilEventDetailsController(TeilEventDetailsÜbersicht teilEventDetailsÜbersicht, TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter,
+    public TeilEventDetailsController(TeilEventDetailsUebersicht teilEventDetailsUebersicht, TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter,
                                       TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel, Speicher speicher, MainGUIController mainGUIController) {
-        this.teilEventDetailsÜbersicht = teilEventDetailsÜbersicht;
+        this.teilEventDetailsUebersicht = teilEventDetailsUebersicht;
         this.teilEventDetailsMitarbeiter = teilEventDetailsMitarbeiter;
         this.teilEventDetailsHilfsmittel = teilEventDetailsHilfsmittel;
         this.mainGUIController = mainGUIController;
@@ -51,13 +51,13 @@ public class TeilEventDetailsController extends GUIController {
             ButtonElement x = (ButtonElement) ge.getSource();
             if (x.getID().equals("TED-SAVE-BUTTON")) {
                 if (currentTeilEventUI == null ){
-                    String[] params = teilEventDetailsÜbersicht.getAttributeComponent().getAttributeValuesAsArray();
-                    String[] specialParams = teilEventDetailsÜbersicht.getSpecialComponent().getAttributeValuesAsArray();
-                    String[] kontaktParams = teilEventDetailsÜbersicht.getKontaktInformation().getAttributeValuesAsArray();
+                    String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
+                    String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
+                    String[] kontaktParams = teilEventDetailsUebersicht.getKontaktInformation().getAttributeValuesAsArray();
 
                     EventElement eventElement = null;
 
-                    Object teilEventIdent = teilEventDetailsÜbersicht.getTeilEventIdent();
+                    Object teilEventIdent = teilEventDetailsUebersicht.getTeilEventIdent();
                     if (teilEventIdent == "Catering") {
                         Object[] eventelement = {params[0], params[1], Double.parseDouble(params[4]) , specialParams[0], specialParams[1]} ;
                         eventElement  = (EventElement) speicher.createObject(ClassType.ELEMENTCATERING, eventelement);
@@ -87,14 +87,14 @@ public class TeilEventDetailsController extends GUIController {
                     currentTeilEventUI = new TeilEventUI(teilEvent);
                     teilEvent.addEventElement(eventElement);
 
-                    teilEventDetailsÜbersicht.getCurrentEventUI().getEvent().addTeilEvent(teilEvent);
+                    teilEventDetailsUebersicht.getCurrentEventUI().getEvent().addTeilEvent(teilEvent);
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
                 } else {
-                    String[] params = teilEventDetailsÜbersicht.getAttributeComponent().getAttributeValuesAsArray();
-                    String[] specialParams = teilEventDetailsÜbersicht.getSpecialComponent().getAttributeValuesAsArray();
-                    String[] kontaktParams = teilEventDetailsÜbersicht.getKontaktInformation().getAttributeValuesAsArray();
+                    String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
+                    String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
+                    String[] kontaktParams = teilEventDetailsUebersicht.getKontaktInformation().getAttributeValuesAsArray();
 
 
                     currentTeilEventUI.getTeilEvent().update(Date.valueOf(params[2]), Date.valueOf(params[3]), params[0]);
@@ -163,7 +163,7 @@ public class TeilEventDetailsController extends GUIController {
 
 
     public void loadElements(){
-        ArrayList<TeilEvent> teilEvents = teilEventDetailsÜbersicht.getCurrentEventUI().getEvent().getTeilEventList();
+        ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
         mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
         this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
     }
@@ -173,12 +173,12 @@ public class TeilEventDetailsController extends GUIController {
     }
 
 
-    public TeilEventDetailsÜbersicht getTeilEventDetailsÜbersicht() {
-        return teilEventDetailsÜbersicht;
+    public TeilEventDetailsUebersicht getTeilEventDetailsUebersicht() {
+        return teilEventDetailsUebersicht;
     }
 
-    public void setTeilEventDetailsÜbersicht(TeilEventDetailsÜbersicht teilEventDetailsÜbersicht) {
-        this.teilEventDetailsÜbersicht = teilEventDetailsÜbersicht;
+    public void setTeilEventDetailsUebersicht(TeilEventDetailsUebersicht teilEventDetailsUebersicht) {
+        this.teilEventDetailsUebersicht = teilEventDetailsUebersicht;
     }
 
     public TeilEventDetailsMitarbeiter getTeilEventDetailsMitarbeiter() {
