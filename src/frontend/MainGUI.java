@@ -11,6 +11,9 @@ import frontend.panes.TeilEventDetailsPane;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class MainGUI extends JComponent {
 
@@ -62,8 +65,23 @@ public class MainGUI extends JComponent {
         frame = new JFrame();
         frame.setSize(1280, 960);
         frame.setTitle("EventPlaner");
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(1, 1));
+
+        WindowListener exitListener = new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int confirm = JOptionPane.showOptionDialog(
+                        null, "Wollen Sie die Anwendung schließen?",
+                        "Beenden", JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE, null, null, null);
+                if (confirm == 0) {
+                    speicher.save();
+                    System.exit(0);
+                }
+            }
+        };
+        frame.addWindowListener(exitListener);
 
         mainGUIController = new MainGUIController(this, this.speicher);
 

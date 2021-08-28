@@ -20,7 +20,7 @@ public class CSVAdapter implements IReadWrite {
 		 
 		 BufferedReader csvReader;
 		try {
-			csvReader = new BufferedReader(new FileReader("I:\\test.csv"));
+			csvReader = new BufferedReader(new FileReader("test.csv"));
 			 while ((row = csvReader.readLine()) != null) {
 			     String[] data = row.split(",");
 			     ObjectData temp = null;
