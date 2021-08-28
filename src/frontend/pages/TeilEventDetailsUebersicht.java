@@ -309,8 +309,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
 
 
-
-
     @Override
     public boolean addObserver(EventListener eventListener) {
         return false;
@@ -323,15 +321,20 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-
     }
 
     public void setController(GUIController controller) {
         this.controller = controller;
         saveButton.addObserver(controller);
-
     }
 
+    public void setKontaktInformation(AttributeComponent kontaktInformation) {
+        this.kontaktInformation = kontaktInformation;
+    }
+
+    public void setAttributeComponent(AttributeComponent attributeComponent) {
+        this.attributeComponent = attributeComponent;
+    }
 
     public GUIController getController() {
         return controller;
@@ -347,10 +350,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     public AttributeComponent getAttributeComponent() {
         return attributeComponent;
-    }
-
-    public void setAttributeComponent(AttributeComponent attributeComponent) {
-        this.attributeComponent = attributeComponent;
     }
 
     public Object getTeilEventIdent() {
@@ -375,10 +374,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     public AttributeComponent getKontaktInformation() {
         return kontaktInformation;
-    }
-
-    public void setKontaktInformation(AttributeComponent kontaktInformation) {
-        this.kontaktInformation = kontaktInformation;
     }
 
     public void getEvent(EventUI event) {
