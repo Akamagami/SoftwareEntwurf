@@ -1,8 +1,6 @@
 package frontend.panes;
 
-import frontend.pages.EventDetailsKosten;
-import frontend.pages.EventDetailsTeilevent;
-import frontend.pages.EventDetailsUebersicht;
+
 
 import javax.swing.*;
 

@@ -126,7 +126,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
                             .mandatory(true).maxLength(300).build(),
 
-                    AttributeElement.builder("C-2").labelName("MenUebeschreibung")
+                    AttributeElement.builder("C-2").labelName("Menuebeschreibung")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -148,7 +148,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
             };
         } else if (teilEventIdent == "Musik") {
             elements = new AttributeElement[]{
-                    AttributeElement.builder("M-1").labelName("KUenstler")
+                    AttributeElement.builder("M-1").labelName("Kuenstler")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -238,7 +238,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                                     .mandatory(true).maxLength(300)
                                     .value(catering.getSpeisseangebot()).build(),
 
-                            AttributeElement.builder("C-2").labelName("MenUebeschreibung")
+                            AttributeElement.builder("C-2").labelName("Menuebeschreibung")
                                     .actionType(AttributeElement.ActionType.NONE)
                                     .modificationType(AttributeElement.ModificationType.DIRECT)
                                     .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -272,7 +272,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
             Musik musik = (Musik) teilEvent.getElement();
             this.specialComponent.setAttributeElements(
                     new AttributeElement[]{
-                        AttributeElement.builder("M-1").labelName("KUenstler")
+                        AttributeElement.builder("M-1").labelName("Kuenstler")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -309,8 +309,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
 
 
-
-
     @Override
     public boolean addObserver(EventListener eventListener) {
         return false;
@@ -323,15 +321,20 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-
     }
 
     public void setController(GUIController controller) {
         this.controller = controller;
         saveButton.addObserver(controller);
-
     }
 
+    public void setKontaktInformation(AttributeComponent kontaktInformation) {
+        this.kontaktInformation = kontaktInformation;
+    }
+
+    public void setAttributeComponent(AttributeComponent attributeComponent) {
+        this.attributeComponent = attributeComponent;
+    }
 
     public GUIController getController() {
         return controller;
@@ -347,10 +350,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     public AttributeComponent getAttributeComponent() {
         return attributeComponent;
-    }
-
-    public void setAttributeComponent(AttributeComponent attributeComponent) {
-        this.attributeComponent = attributeComponent;
     }
 
     public Object getTeilEventIdent() {
@@ -375,10 +374,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     public AttributeComponent getKontaktInformation() {
         return kontaktInformation;
-    }
-
-    public void setKontaktInformation(AttributeComponent kontaktInformation) {
-        this.kontaktInformation = kontaktInformation;
     }
 
     public void getEvent(EventUI event) {

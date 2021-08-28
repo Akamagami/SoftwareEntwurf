@@ -3,7 +3,6 @@ package frontend.controller;
 import backend.benutzer.Kontaktinformation;
 import backend.datenbasis.Speicher;
 import backend.event.Event;
-import backend.event.TeilEvent;
 import constants.ClassType;
 import constants.EventKategorie;
 import constants.Status;
@@ -12,7 +11,6 @@ import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
-import frontend.pages.EventDetailsKosten;
 import frontend.pages.EventDetailsTeilevent;
 import frontend.pages.EventDetailsUebersicht;
 
@@ -23,15 +21,13 @@ public class EventDetailsController extends GUIController {
 
     private EventDetailsUebersicht Uebersicht;
     private EventDetailsTeilevent teilevent;
-    private EventDetailsKosten kosten;
     private MainGUIController mainGUIController;
     private Speicher speicher;
     private EventUI currentEventUI;
 
-    public EventDetailsController(EventDetailsUebersicht Uebersicht, EventDetailsTeilevent teilevent, EventDetailsKosten kosten, MainGUIController mainGUIController, Speicher speicher) {
+    public EventDetailsController(EventDetailsUebersicht Uebersicht, EventDetailsTeilevent teilevent, MainGUIController mainGUIController, Speicher speicher) {
         this.Uebersicht = Uebersicht;
         this.teilevent = teilevent;
-        this.kosten = kosten;
         this.mainGUIController = mainGUIController;
         this.speicher = speicher;
 
@@ -47,7 +43,7 @@ public class EventDetailsController extends GUIController {
                         ClassType.ELEMENTMUSIK.getDisplayName(), ClassType.ELEMENTSONTIGES.getDisplayName()};
                 JComboBox comboBox = new JComboBox(string);
                 comboBox.setSelectedIndex(0);
-                JOptionPane.showMessageDialog(null, comboBox, "Wählen Sie Eventelement-Typ", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(null, comboBox, "W�hlen Sie Eventelement-Typ", JOptionPane.QUESTION_MESSAGE);
                 mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentTeilEventUI(null);
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.CREATE_TEILEVENT, comboBox.getSelectedItem()));
             }
@@ -71,7 +67,7 @@ public class EventDetailsController extends GUIController {
                         }
 
                     }
-                    //mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsUebersicht().setCurrentEventUI(null);
+
                     mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
                 }
                 else {
@@ -97,13 +93,14 @@ public class EventDetailsController extends GUIController {
                         }
 
                     }
+
                     mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
                 }
             } else if (x.getID().equals("EDT-EDTBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() != null) {
                 SimpleListComponent simpleListComponent = mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent();
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.OPEN_EDIT_TEILEVENTPANE, simpleListComponent.getSelectedElement()));
             } else if (x.getID().equals("EDT-EDTBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() == null) {
-                JOptionPane.showMessageDialog(null, "Bitte wähle ein Teilevent aus!");
+                JOptionPane.showMessageDialog(null, "Bitte w�hle ein Teilevent aus!");
             }
             else if (x.getID().equals("EDT-DELBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() != null) {
                 SimpleListComponent simpleListComponent = mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent();
@@ -112,7 +109,7 @@ public class EventDetailsController extends GUIController {
                 currentEventUI.getEvent().removeTeilEvent(tempTeilEvent.getTeilEvent());
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
             } else if (x.getID().equals("EDT-DELBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() == null) {
-                JOptionPane.showMessageDialog(null, "Bitte wähle ein Teilevent aus!");
+                JOptionPane.showMessageDialog(null, "Bitte w�hle ein Teilevent aus!");
             }
         }
     }
@@ -154,8 +151,6 @@ public class EventDetailsController extends GUIController {
     }
 
 
-
-
     public EventDetailsUebersicht getUebersicht() {
         return Uebersicht;
     }
@@ -170,14 +165,6 @@ public class EventDetailsController extends GUIController {
 
     public void setTeilevent(EventDetailsTeilevent teilevent) {
         this.teilevent = teilevent;
-    }
-
-    public EventDetailsKosten getKosten() {
-        return kosten;
-    }
-
-    public void setKosten(EventDetailsKosten kosten) {
-        this.kosten = kosten;
     }
 
     public MainGUIController getMainGUIController() {
