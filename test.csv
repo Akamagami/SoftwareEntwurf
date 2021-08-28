@@ -1,0 +1,10 @@
+KONTAKTINFORMATION,2,Email,adresse idk,hat kein phone zu arm
+BENUTZER,1,Felix,Radermacher,|,B
+BENUTZER,3,Relix,Fadermacher,|,KONTAKTINFORMATION,2,|,N
+BENUTZER,4,Relix,Fadermacher,|,N
+BGRUPPEGRUPPE,1,DeinErnst yryr,|,BENUTZER,1,|,1
+GRUPPE,2,DeinErnst yryr,|,
+GRUPPE,4,DeinErnst yryr,|,BENUTZER,1,3,4
+BGRUPPEGRUPPE,1,DeinErnst yryr,|,BENUTZER,1,|,1
+GRUPPE,2,DeinErnst yryr,|,
+GRUPPE,4,DeinErnst yryr,|,BENUTZER,1,3,4

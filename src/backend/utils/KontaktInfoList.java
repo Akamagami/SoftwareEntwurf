@@ -3,6 +3,7 @@ package backend.utils;
 import java.util.ArrayList;
 
 import backend.benutzer.Kontaktinformation;
+import constants.ClassType;
 
 public class KontaktInfoList {
 	
@@ -42,6 +43,23 @@ public class KontaktInfoList {
 		{
 			ret[cnt] = k;
 			cnt++;
+		}
+		return ret;
+	}
+	/*----------------------------------------------------------*/	
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "%" + d;
+		
+		String ret = "";
+		if(!kontaktInfoList.isEmpty()) {
+			
+			
+			for(Kontaktinformation k: kontaktInfoList) {
+				ret+= p + ClassType.KONTAKTINFORMATION.getDisplayName();
+				ret += d + k.getId();
+			}
 		}
 		return ret;
 	}

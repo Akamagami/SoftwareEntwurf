@@ -6,6 +6,7 @@ import java.util.Date;
 import backend.benutzer.Benutzer;
 import backend.benutzer.Beschaffungsgruppe;
 import backend.benutzer.Gruppe;
+import constants.ClassType;
 import constants.Status;
 
 public class TeilEvent {
@@ -31,10 +32,7 @@ public class TeilEvent {
 		
 		GruppenList.add(g);
 	}
-	public void addBeschaffungsGruppe(Beschaffungsgruppe g) {
-		
-		GruppenList.add(g);
-	}
+
 	public void deleteGruppe(int index) {
 		GruppenList.remove(index);
 	}
@@ -87,6 +85,9 @@ public class TeilEvent {
 	public EventElement getElement() {
 		return element;
 	}
+	public void setStatus(Status s) {
+		status = s;
+	}
 /*-----------------------------------------------------------------------------*/
 	public void update(Date start, Date ende, String name, Status status) {
 		this.start = start;
@@ -94,4 +95,22 @@ public class TeilEvent {
 		this.name = name;
 		this.status = status;
 	}
+/*-----------------------------------------------------------------------------*/
+	@Override
+	public String toString() {
+		String d = ",";
+		String p = d + "%" + d;
+		
+		String ret = ClassType.TEILEVENT.getDisplayName() + d + id + d + name + d + start + d + ende + d + status;
+		ret += p+ "Element" + d + element.getType() + d + element.getId();
+		if(!GruppenList.isEmpty()) {
+			
+			for(Gruppe g:GruppenList) {
+				ret += p + ClassType.GRUPPE.getDisplayName(); 
+				ret+= d + g.getId();
+			}
+		}
+		return ret;
+	}
+	
 }

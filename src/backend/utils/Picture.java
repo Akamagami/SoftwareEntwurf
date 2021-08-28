@@ -16,4 +16,5 @@ public class Picture {
 	public String getName() {
 		return Name;
 	}	
+	
 }
