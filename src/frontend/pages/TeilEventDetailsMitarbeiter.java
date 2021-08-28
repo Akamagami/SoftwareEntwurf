@@ -1,18 +1,47 @@
 package frontend.pages;
 
-import frontend.GUIEvent;
-import frontend.controller.IGUIEventListener;
+import de.dhbwka.swe.utils.event.*;
+import de.dhbwka.swe.utils.gui.*;
+import execution.Main;
+import frontend.controller.GUIController;
+import frontend.controller.MainGUIController;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.EventListener;
 
-public class TeilEventDetailsMitarbeiter extends JComponent implements IUpdateEventListener, IGUIEventSender {
-    @Override
-    public void update(GUIEvent ue) {
+public class TeilEventDetailsMitarbeiter extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
+    private GUIController controller;
+    private ButtonElement returnButton;
+    private SimpleListComponent simpleListComponent;
+
+
+    public TeilEventDetailsMitarbeiter() {
+        simpleListComponent = SimpleListComponent.builder("EDT-SLC")
+                .font( new Font("SansSerif", Font.ITALIC,10))
+                .selectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION).build();
+
+        this.setLayout(new BorderLayout());
+        this.add(simpleListComponent, BorderLayout.CENTER);
     }
 
     @Override
-    public void fireGUIEvent(GUIEvent ce) {
+    public boolean addObserver(EventListener eventListener) {
+        return false;
+    }
 
+    @Override
+    public boolean removeObserver(EventListener eventListener) {
+        return false;
+    }
+
+    @Override
+    public void processUpdateEvent(UpdateEvent updateEvent) {
+
+    }
+
+    public void setController(GUIController controller) {
+        this.controller = controller;
     }
 }

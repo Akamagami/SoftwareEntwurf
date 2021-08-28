@@ -1,18 +1,40 @@
 package frontend.pages;
 
-import frontend.GUIEvent;
-import frontend.controller.IGUIEventListener;
+import de.dhbwka.swe.utils.event.*;
+import de.dhbwka.swe.utils.gui.CalendarComponent;
+import frontend.controller.GUIController;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.EventListener;
 
-public class KalenderGUI extends JComponent implements IUpdateEventListener, IGUIEventSender {
-    @Override
-    public void update(GUIEvent ue) {
+public class KalenderGUI extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
+    private CalendarComponent calendarComponent;
+    private GUIController controller;
+
+    public KalenderGUI() {
+        calendarComponent = CalendarComponent.builder("KC").build();
+        this.setLayout(new BorderLayout());
+        this.add(calendarComponent, BorderLayout.CENTER);
     }
 
     @Override
-    public void fireGUIEvent(GUIEvent ce) {
+    public boolean addObserver(EventListener eventListener) {
+        return false;
+    }
 
+    @Override
+    public boolean removeObserver(EventListener eventListener) {
+        return false;
+    }
+
+    @Override
+    public void processUpdateEvent(UpdateEvent updateEvent) {
+
+    }
+
+    public void setController(GUIController controller) {
+        this.controller = controller;
     }
 }

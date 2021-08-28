@@ -1,18 +1,48 @@
 package frontend.pages;
 
-import frontend.GUIEvent;
-import frontend.controller.IGUIEventListener;
+import de.dhbwka.swe.utils.event.*;
+import de.dhbwka.swe.utils.gui.ButtonElement;
+import de.dhbwka.swe.utils.gui.SimpleListComponent;
+import frontend.controller.GUIController;
+
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.EventListener;
 
-public class HilfsmittelDetails extends JComponent implements IUpdateEventListener, IGUIEventSender {
-    @Override
-    public void update(GUIEvent ue) {
+public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, IGUIEventSender {
 
+    private GUIController controller;
+    private ButtonElement returnButton;
+    private SimpleListComponent simpleListComponent;
+
+
+    public HilfsmittelDetails() {
+
+
+        simpleListComponent = SimpleListComponent.builder("SLC").build();
+
+        this.setLayout(new GridLayout(2,2));
+        this.add(simpleListComponent);
     }
 
     @Override
-    public void fireGUIEvent(GUIEvent ce) {
+    public boolean addObserver(EventListener eventListener) {
+        return false;
+    }
+
+    @Override
+    public boolean removeObserver(EventListener eventListener) {
+        return false;
+    }
+
+    @Override
+    public void processUpdateEvent(UpdateEvent updateEvent) {
 
     }
+
+    public void setController(GUIController controller) {
+        this.controller = controller;
+    }
+
 }

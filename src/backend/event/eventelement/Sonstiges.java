@@ -23,5 +23,13 @@ public class Sonstiges extends EventElement {
 		String ret = ClassType.ELEMENTSONTIGES.getDisplayName() + d + super.toString() + d + Zustaendiger ;
 		ret+= this.getKontaktInfoList().toString() + this.getPictureList().toString();
 		return ret;
-	}	
+	}
+
+	public String getZustaendiger() {
+		return Zustaendiger;
+	}
+
+	public void setZustaendiger(String zustaendiger) {
+		Zustaendiger = zustaendiger;
+	}
 }

@@ -35,7 +35,9 @@ public class ElementCateringFactory implements ElementFactory {
 		String newIndex = "0";
 		if(optId.isPresent()) {
 			newIndex = optId.get();
-			index = Integer.parseInt(optId.get())+1;
+			if(Integer.parseInt(newIndex)+1 > index) {
+				index = Integer.parseInt(newIndex)+1;
+			}
 		} else {
 			newIndex = index+"";
 			index++;
