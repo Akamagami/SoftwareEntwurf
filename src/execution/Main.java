@@ -15,13 +15,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		MainGUI mainGUI = new MainGUI();
-
-
-		/*Speicher sp = new Speicher();
 		
 		Rolle besch = new Beschaffungspersonal();
 
-		System.out.println("--------------------------------Kontaktinfoamtion-----------------------------///?/");
+		/*System.out.println("--------------------------------Kontaktinfoamtion-----------------------------///?/");
 		Object[] params1 = {"Email","adresse idk","+7889846546 654 966 5847 6 8"};
 		
 		Kontaktinformation ktk1 = (Kontaktinformation) sp.createObject(ClassType.KONTAKTINFORMATION,params1);

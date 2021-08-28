@@ -1,5 +1,6 @@
 package frontend.controller;
 
+import backend.datenbasis.Speicher;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import frontend.pages.EventDetailsKosten;
@@ -15,12 +16,14 @@ public class EventDetailsController extends GUIController {
     private EventDetailsTeilevent teilevent;
     private EventDetailsKosten kosten;
     private MainGUIController mainGUIController;
+    private Speicher speicher;
 
-    public EventDetailsController(EventDetailsÜbersicht übersicht, EventDetailsTeilevent teilevent, EventDetailsKosten kosten, MainGUIController mainGUIController) {
+    public EventDetailsController(EventDetailsÜbersicht übersicht, EventDetailsTeilevent teilevent, EventDetailsKosten kosten, MainGUIController mainGUIController, Speicher speicher) {
         this.übersicht = übersicht;
         this.teilevent = teilevent;
         this.kosten = kosten;
         this.mainGUIController = mainGUIController;
+        this.speicher = speicher;
     }
 
     public enum Commands implements EventCommand {

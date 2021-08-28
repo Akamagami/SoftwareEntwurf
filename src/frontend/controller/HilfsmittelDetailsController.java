@@ -1,13 +1,17 @@
 package frontend.controller;
 
+import backend.datenbasis.Speicher;
 import de.dhbwka.swe.utils.event.*;
 import frontend.pages.HilfsmittelDetails;
 
 public class HilfsmittelDetailsController extends GUIController {
 
     HilfsmittelDetails hilfsmittelDetails;
-    public HilfsmittelDetailsController(HilfsmittelDetails hilfsmittelDetails) {
+    private Speicher speicher;
+
+    public HilfsmittelDetailsController(HilfsmittelDetails hilfsmittelDetails, Speicher speicher) {
         this.hilfsmittelDetails = hilfsmittelDetails;
+        this.speicher = speicher;
     }
 
     public enum Commands implements EventCommand {

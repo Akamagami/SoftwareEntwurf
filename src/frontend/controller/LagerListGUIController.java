@@ -1,5 +1,6 @@
 package frontend.controller;
 
+import backend.datenbasis.Speicher;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
 import frontend.pages.LagerListGUI;
@@ -7,9 +8,11 @@ import frontend.pages.LagerListGUI;
 public class LagerListGUIController extends GUIController {
 
     private LagerListGUI lagerListGUI;
+    private Speicher speicher;
 
-    public LagerListGUIController(LagerListGUI lagerListGUI) {
+    public LagerListGUIController(LagerListGUI lagerListGUI, Speicher speicher) {
         this.lagerListGUI = lagerListGUI;
+        this.speicher = speicher;
     }
 
     public enum Commands implements EventCommand {

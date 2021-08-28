@@ -1,5 +1,6 @@
 package frontend.controller;
 
+import backend.datenbasis.Speicher;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import execution.Main;
@@ -13,10 +14,12 @@ public class EventListGUIController extends GUIController {
 
     private EventListGUI eventListGUI;
     private MainGUIController mainGUIController;
+    private Speicher speicher;
 
-    public EventListGUIController(EventListGUI eventListGUI, MainGUIController mainGUIController) {
+    public EventListGUIController(EventListGUI eventListGUI, MainGUIController mainGUIController,Speicher speicher) {
         this.eventListGUI = eventListGUI;
         this.mainGUIController = mainGUIController;
+        this.speicher = speicher;
     }
 
 

@@ -1,5 +1,6 @@
 package frontend.controller;
 
+import backend.datenbasis.Speicher;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
 import frontend.pages.TeilEventDetailsHilfsmittel;
@@ -8,15 +9,17 @@ import frontend.pages.TeilEventDetailsÜbersicht;
 
 public class TeilEventDetailsController extends GUIController {
 
-    TeilEventDetailsÜbersicht teilEventDetailsÜbersicht;
-    TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter;
-    TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel;
+    private TeilEventDetailsÜbersicht teilEventDetailsÜbersicht;
+    private TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter;
+    private TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel;
+    private Speicher speicher;
 
     public TeilEventDetailsController(TeilEventDetailsÜbersicht teilEventDetailsÜbersicht, TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter,
-                                      TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel) {
+                                      TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel, Speicher speicher) {
         this.teilEventDetailsÜbersicht = teilEventDetailsÜbersicht;
         this.teilEventDetailsMitarbeiter = teilEventDetailsMitarbeiter;
         this.teilEventDetailsHilfsmittel = teilEventDetailsHilfsmittel;
+        this.speicher = speicher;
 
     }
 
