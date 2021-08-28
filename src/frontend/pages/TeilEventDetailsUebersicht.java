@@ -126,7 +126,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
                             .mandatory(true).maxLength(300).build(),
 
-                    AttributeElement.builder("C-2").labelName("MenUebeschreibung")
+                    AttributeElement.builder("C-2").labelName("Menuebeschreibung")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -148,7 +148,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
             };
         } else if (teilEventIdent == "Musik") {
             elements = new AttributeElement[]{
-                    AttributeElement.builder("M-1").labelName("KUenstler")
+                    AttributeElement.builder("M-1").labelName("Kuenstler")
                             .actionType(AttributeElement.ActionType.NONE)
                             .modificationType(AttributeElement.ModificationType.DIRECT)
                             .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -238,7 +238,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                                     .mandatory(true).maxLength(300)
                                     .value(catering.getSpeisseangebot()).build(),
 
-                            AttributeElement.builder("C-2").labelName("MenUebeschreibung")
+                            AttributeElement.builder("C-2").labelName("Menuebeschreibung")
                                     .actionType(AttributeElement.ActionType.NONE)
                                     .modificationType(AttributeElement.ModificationType.DIRECT)
                                     .allowedChars(AttributeElement.CHARSET_DEFAULT)
@@ -272,7 +272,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
             Musik musik = (Musik) teilEvent.getElement();
             this.specialComponent.setAttributeElements(
                     new AttributeElement[]{
-                        AttributeElement.builder("M-1").labelName("KUenstler")
+                        AttributeElement.builder("M-1").labelName("Kuenstler")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DEFAULT)

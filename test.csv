@@ -1,4 +1,4 @@
-Kontaktinfo,88,asdas,asdasd,112
+Kontaktinfo,88,ASDasd,asdasd,11212
 Kontaktinfo,89,asdas,asdasd,112
 Kontaktinfo,90,asdas,asdasd,112
 Kontaktinfo,91,asdas,asdasd,112
@@ -130,7 +130,8 @@ Musik,3,Musik3,asdas,100.0,awdlöjkasd,asdasd,%,Kontaktinfo,88
 Musik,4,Hund1,asd,100.0,asdas,asda,%,Kontaktinfo,89
 Musik,5,Löwe,asdas,100.0,asd,asd,%,Kontaktinfo,90
 Musik,6,Wolf1,asdsad,100.0,asdas,asdasd,%,Kontaktinfo,88
-Teilevent,11,Giraffe2,2021-12-11,2021-12-13,E,%,Element,ELEMENTSONTIGES,2
+Musik,7,asdasd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,88
+Teilevent,11,asdasd,2021-12-11,2021-12-11,E,%,Element,ELEMENTMUSIK,7
 Teilevent,12,Löwe,2021-12-11,2021-12-13,E,%,Element,ELEMENTMUSIK,5
 Teilevent,13,Pferd,2021-12-11,2021-12-11,E,%,Element,ELEMENTCATERING,13
 Teilevent,14,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,10
@@ -150,7 +151,7 @@ Teilevent,8,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,4
 Teilevent,9,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,5
 Teilevent,20,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,16
 Teilevent,10,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,6
-Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,12,%,Kontaktinfo,98
+Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,12,%,Teilevent,11,%,Kontaktinfo,98
 Event,2,asdasdaasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,89
 Event,3,Test1,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,90
 Hilfsmittel,1,name,besch,30,%,Picture,dhhd,kkk
