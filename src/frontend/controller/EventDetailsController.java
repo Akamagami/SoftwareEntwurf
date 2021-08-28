@@ -47,7 +47,7 @@ public class EventDetailsController extends GUIController {
                         ClassType.ELEMENTMUSIK.getDisplayName(), ClassType.ELEMENTSONTIGES.getDisplayName()};
                 JComboBox comboBox = new JComboBox(string);
                 comboBox.setSelectedIndex(0);
-                JOptionPane.showMessageDialog(null, comboBox, "W√§hlen Sie Eventelement-Typ", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(null, comboBox, "W‰hlen Sie Eventelement-Typ", JOptionPane.QUESTION_MESSAGE);
                 mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentTeilEventUI(null);
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.CREATE_TEILEVENT, comboBox.getSelectedItem()));
             }
@@ -103,7 +103,7 @@ public class EventDetailsController extends GUIController {
                 SimpleListComponent simpleListComponent = mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent();
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.OPEN_EDIT_TEILEVENTPANE, simpleListComponent.getSelectedElement()));
             } else if (x.getID().equals("EDT-EDTBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() == null) {
-                JOptionPane.showMessageDialog(null, "Bitte w√§hle ein Teilevent aus!");
+                JOptionPane.showMessageDialog(null, "Bitte w‰hle ein Teilevent aus!");
             }
             else if (x.getID().equals("EDT-DELBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() != null) {
                 SimpleListComponent simpleListComponent = mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent();
@@ -112,7 +112,7 @@ public class EventDetailsController extends GUIController {
                 currentEventUI.getEvent().removeTeilEvent(tempTeilEvent.getTeilEvent());
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
             } else if (x.getID().equals("EDT-DELBTN") && mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().getSelectedElement() == null) {
-                JOptionPane.showMessageDialog(null, "Bitte w√§hle ein Teilevent aus!");
+                JOptionPane.showMessageDialog(null, "Bitte w‰hle ein Teilevent aus!");
             }
         }
     }
