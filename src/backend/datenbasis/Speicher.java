@@ -237,6 +237,9 @@ public class Speicher {
 
 			}
 		}
+		if(this.getAll(ClassType.HILFSMITTEL).size()<2) {
+			this.createTestUserData();
+		}
 	}
 
 	/*--------------------------------------------------------------------------------------------------------------*/
@@ -442,11 +445,29 @@ public class Speicher {
 			}
 		}
 	}
+	/*---------------------------------test data---------------------------------------------------------------*/
+	public void createTestUserData() {
+        Object[] params = {"Felix","Radermacher"};
+        Benutzer felix = (Benutzer) this.createObject(ClassType.BENUTZER,params);
+        felix.setRolle(rv.getRolle(Rollen.A));
+        Object[] params1 = {"Sebastion","Adamois"};
+        Benutzer sebastion = (Benutzer) this.createObject(ClassType.BENUTZER,params1);
+        sebastion.setRolle(rv.getRolle(Rollen.B));
+        Object[] params2 = {"Aron","Nroa"};
+        Benutzer aron = (Benutzer) this.createObject(ClassType.BENUTZER,params2);
+        aron.setRolle(rv.getRolle(Rollen.B));
+        Object[] params3 = {"Potrs","nam"};
+        Benutzer piot = (Benutzer) this.createObject(ClassType.BENUTZER,params3);
+        piot.setRolle(rv.getRolle(Rollen.B));
+        
+        Object[] parrr = {"Baum", "Ein großer Baum", 42 };
+        this.createObject(ClassType.HILFSMITTEL, parrr);
+        Object[] parrr1 = {"Parkbank", "EIne Pank", 69 };
+        this.createObject(ClassType.HILFSMITTEL, parrr1);
+        Object[] parrr2 = {"Kunstrasen", "Vrum Vrum", 666 };
+        this.createObject(ClassType.HILFSMITTEL, parrr2);
+	}
 
-	/*
-	 * String titel, String beschreibung, Date start, Date end, int besucher, String
-	 * kunde, double budget, EventKategorie kategorie, String id
-	 */
 	/*--------------------------------------------------------------------------------------------------------------*/
 
 	public Object createObject(ClassType c, Object[] params) {
