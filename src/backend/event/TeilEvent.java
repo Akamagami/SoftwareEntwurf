@@ -36,6 +36,9 @@ public class TeilEvent {
 	public void deleteGruppe(int index) {
 		GruppenList.remove(index);
 	}
+	public Benutzer[] getBenutzer(){
+		return GruppenList.get(0).getMitarbeiterArray();
+	}
 /*-----------------------------------------------------------------------------*/
 	public boolean addMitarbeiterToGruppe(int index,Benutzer m) {
 		return GruppenList.get(index).addMitarbeiter(m);
@@ -61,6 +64,12 @@ public class TeilEvent {
 		} else {
 			return false;
 		}
+	}
+	public boolean addBenutzer(Benutzer m) {
+		return addMitarbeiterToGruppe(0, m);	
+	}
+	public boolean removeBenutzer(Benutzer m) {
+		return deleteMitarbeiterFromGruppe(0, m);	
 	}
 /*-----------------------------------------------------------------------------*/
 	public void addEventElement(EventElement ev) {
