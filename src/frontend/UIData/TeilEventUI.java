@@ -3,8 +3,8 @@ package frontend.UIData;
 import backend.event.TeilEvent;
 import de.dhbwka.swe.utils.model.Attribute;
 import de.dhbwka.swe.utils.model.IDepictable;
-import frontend.pages.TeilEventDetailsUebersicht;
 
+//Die Klasse TeilEventUI ermöglicht die Darstellung unserer eigenen Teilevents in den SimpleListComponents der SWE-Utils-Library
 public class TeilEventUI implements IDepictable {
 
     private TeilEvent teilEvent;

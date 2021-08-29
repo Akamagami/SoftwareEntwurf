@@ -4,10 +4,8 @@ import backend.event.Event;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
 import de.dhbwka.swe.utils.model.IDepictable;
-import execution.Main;
 import frontend.UIData.EventUI;
 import frontend.controller.GUIController;
-import frontend.controller.MainGUIController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,6 +45,7 @@ public class TeilEventDetailsHilfsmittel extends JPanel implements IUpdateEventL
         this.simpleListComponent.setListElements(elems);
     }
 
+    //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
     public void setController(GUIController controller) {
         this.controller = controller;
         this.simpleListComponent.addObserver(controller);
@@ -66,7 +65,6 @@ public class TeilEventDetailsHilfsmittel extends JPanel implements IUpdateEventL
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-
     }
 
 }

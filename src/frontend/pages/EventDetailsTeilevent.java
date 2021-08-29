@@ -1,16 +1,12 @@
 package frontend.pages;
 
-import backend.event.Event;
 import backend.event.TeilEvent;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import de.dhbwka.swe.utils.model.IDepictable;
-import execution.Main;
-import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
 import frontend.controller.GUIController;
-
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,21 +40,7 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
         this.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
-
-    }
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
+    //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
     public void setController(GUIController controller) {
         this.controller = controller;
         createButton.addObserver(controller);
@@ -67,15 +49,28 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
         simpleListComponent.addObserver(controller);
     }
 
+
     public void displayEvents(ArrayList<TeilEvent> teilEvents) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (TeilEvent teilEvent : teilEvents ) {
             elems.add(new TeilEventUI(teilEvent));
         }
-
         this.simpleListComponent.setListElements(elems);
     }
 
+    @Override
+    public boolean removeObserver(EventListener eventListener) {
+        return false;
+    }
+
+    @Override
+    public void processUpdateEvent(UpdateEvent updateEvent) {
+    }
+
+    @Override
+    public boolean addObserver(EventListener eventListener) {
+        return false;
+    }
 
     public GUIController getController() {
         return controller;
@@ -96,6 +91,5 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
     public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
         this.simpleListComponent = simpleListComponent;
     }
-
 
 }

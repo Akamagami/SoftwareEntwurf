@@ -38,9 +38,9 @@ public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, 
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-
     }
 
+    //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
     public void setController(GUIController controller) {
         this.controller = controller;
     }
