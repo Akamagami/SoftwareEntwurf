@@ -22,15 +22,16 @@ public class MainGUI extends JComponent {
     private MainGUIController mainGUIController;
     private Speicher speicher;
     private EventDetailsController eventDetailsController;
-    EventListGUIController eventListGUIController;
-    TeilEventDetailsController teilEventDetailsController;
+    private MitarbeiterDetails mitarbeiterDetails;
+    private HilfsmittelDetails hilfsmittelDetails;
+    private EventListGUIController eventListGUIController;
+    private TeilEventDetailsController teilEventDetailsController;
 
 
     public MainGUI() {
 
         speicher = new Speicher();
         speicher.load();
-        //speicher.testzuweisung();
 
         frame = new JFrame();
         frame.setSize(1280, 960);
@@ -76,9 +77,12 @@ public class MainGUI extends JComponent {
         teileventspane.addTab("Mitarbeiter", teilEventDetailsMitarbeiter);
         teileventspane.addTab("Hilfsmittel", teilEventDetailsHilfsmittel);
 
+        mitarbeiterDetails = new MitarbeiterDetails();
+        hilfsmittelDetails = new HilfsmittelDetails();
+
         eventDetailsController = new EventDetailsController(eventDetailsUebersicht, eventDetailsTeilevent, mainGUIController, this.speicher);
         eventListGUIController = new EventListGUIController(eventListGUI, mainGUIController, this.speicher);
-        teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsUebersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, this.speicher, mainGUIController);
+        teilEventDetailsController = new TeilEventDetailsController(teilEventDetailsUebersicht, teilEventDetailsMitarbeiter, teilEventDetailsHilfsmittel, hilfsmittelDetails, mitarbeiterDetails, this.speicher, mainGUIController);
 
         eventDetailsUebersicht.setController(eventDetailsController);
         eventDetailsTeilevent.setController(eventDetailsController);
@@ -86,9 +90,8 @@ public class MainGUI extends JComponent {
         teilEventDetailsUebersicht.setController(teilEventDetailsController);
         teilEventDetailsMitarbeiter.setController(teilEventDetailsController);
         teilEventDetailsHilfsmittel.setController(teilEventDetailsController);
-
-
-
+        hilfsmittelDetails.setController(teilEventDetailsController);
+        mitarbeiterDetails.setController(teilEventDetailsController);
 
 
         frame.add(overviewpane);
@@ -167,5 +170,21 @@ public class MainGUI extends JComponent {
 
     public void setTeilEventDetailsController(TeilEventDetailsController teilEventDetailsController) {
         this.teilEventDetailsController = teilEventDetailsController;
+    }
+
+    public MitarbeiterDetails getMitarbeiterDetails() {
+        return mitarbeiterDetails;
+    }
+
+    public void setMitarbeiterDetails(MitarbeiterDetails mitarbeiterDetails) {
+        this.mitarbeiterDetails = mitarbeiterDetails;
+    }
+
+    public HilfsmittelDetails getHilfsmittelDetails() {
+        return hilfsmittelDetails;
+    }
+
+    public void setHilfsmittelDetails(HilfsmittelDetails hilfsmittelDetails) {
+        this.hilfsmittelDetails = hilfsmittelDetails;
     }
 }

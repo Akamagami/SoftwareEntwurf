@@ -1,10 +1,14 @@
 package frontend.pages;
 
+import backend.benutzer.Benutzer;
+import backend.datenbasis.Speicher;
 import backend.event.Event;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
 import de.dhbwka.swe.utils.model.IDepictable;
 import frontend.UIData.EventUI;
+import frontend.UIData.MitarbeiterUI;
+import frontend.UIData.TeilEventUI;
 import frontend.controller.GUIController;
 
 import javax.swing.*;
@@ -18,11 +22,12 @@ public class TeilEventDetailsMitarbeiter extends JPanel implements IUpdateEventL
     private ButtonElement addButton;
     private ButtonElement deleteButton;
     private SimpleListComponent simpleListComponent;
+    private TeilEventUI currentTeilEventUI;
 
 
     public TeilEventDetailsMitarbeiter() {
         simpleListComponent = SimpleListComponent.builder("EDT-SLC")
-                .font( new Font("SansSerif", Font.ITALIC,10))
+                .font( new Font("SansSerif", Font.ITALIC,20))
                 .selectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION).build();
 
         addButton = ButtonElement.builder("TEDM-ADDBTN").buttonText("Hinzufügen").build();
@@ -37,12 +42,15 @@ public class TeilEventDetailsMitarbeiter extends JPanel implements IUpdateEventL
     }
 
 
-    public void displayEvents(ArrayList<backend.event.Event> events) {
-        ArrayList<IDepictable> elems = new ArrayList();
-        for (Event event : events ) {
-            elems.add(new EventUI(event));
+    public void displayMitarbeiter(Benutzer[] benutzer) {
+        if (currentTeilEventUI.getTeilEvent().hatGruppe()) {
+            ArrayList<IDepictable> elems = new ArrayList();
+            for (Benutzer nutzer : benutzer ) {
+                elems.add(new MitarbeiterUI(nutzer));
+            }
+            this.simpleListComponent.setListElements(elems);
         }
-        this.simpleListComponent.setListElements(elems);
+
     }
 
     //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
@@ -65,6 +73,42 @@ public class TeilEventDetailsMitarbeiter extends JPanel implements IUpdateEventL
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
+    }
+
+    public GUIController getController() {
+        return controller;
+    }
+
+    public ButtonElement getAddButton() {
+        return addButton;
+    }
+
+    public void setAddButton(ButtonElement addButton) {
+        this.addButton = addButton;
+    }
+
+    public ButtonElement getDeleteButton() {
+        return deleteButton;
+    }
+
+    public void setDeleteButton(ButtonElement deleteButton) {
+        this.deleteButton = deleteButton;
+    }
+
+    public SimpleListComponent getSimpleListComponent() {
+        return simpleListComponent;
+    }
+
+    public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
+        this.simpleListComponent = simpleListComponent;
+    }
+
+    public TeilEventUI getCurrentTeilEventUI() {
+        return currentTeilEventUI;
+    }
+
+    public void setCurrentTeilEventUI(TeilEventUI currentTeilEventUI) {
+        this.currentTeilEventUI = currentTeilEventUI;
     }
 
 }

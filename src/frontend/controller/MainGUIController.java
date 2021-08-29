@@ -63,6 +63,9 @@ public class MainGUIController extends GUIController {
             mainGUI.getTeilEventDetailsController().setCurrentTeilEventUI(teilEventUI);
             mainGUI.getTeilEventDetailsController().loadElements();
             mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().fillAttributes(teilEventUI);
+            mainGUI.getTeilEventDetailsController().getTeilEventDetailsMitarbeiter().setCurrentTeilEventUI(teilEventUI);
+            mainGUI.getTeilEventDetailsController().loadMitarbeiter();
+            mainGUI.getTeilEventDetailsController().loadHilfsmittel();
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
@@ -70,6 +73,27 @@ public class MainGUIController extends GUIController {
         else if (ge.getCmd().equals(EventDetailsController.Commands.RELOAD_PAGE) || ge.getCmd().equals(EventListGUIController.Commands.RELOAD_PAGE)) {
             mainGUI.getEventListGUIController().loadElements();
             mainGUI.getTeilEventDetailsController().loadElements();
+            mainGUI.getTeilEventDetailsController().loadMitarbeiter();
+            mainGUI.getTeilEventDetailsController().loadHilfsmittel();
+            mainGUI.getTeilEventDetailsController().loadAllHilfsmittel();
+        }
+        else if (ge.getCmd().equals(TeilEventDetailsController.Commands.ADD_MITARBEITER)) {
+            JFrame frame = new JFrame();
+            frame.add(mainGUI.getMitarbeiterDetails());
+            TeilEventUI teilEventUI = (TeilEventUI) ge.getData();
+            mainGUI.getMitarbeiterDetails().setCurrentTeilEventUI(teilEventUI);
+            mainGUI.getTeilEventDetailsController().loadAllMitarbeiter();
+            frame.setVisible(true);frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.pack();
+        }
+        else if (ge.getCmd().equals(TeilEventDetailsController.Commands.ADD_HILFSMITTEL)) {
+            JFrame frame = new JFrame();
+            frame.add(mainGUI.getHilfsmittelDetails());
+            TeilEventUI teilEventUI = (TeilEventUI) ge.getData();
+            mainGUI.getHilfsmittelDetails().setCurrentTeilEventUI(teilEventUI);
+            mainGUI.getTeilEventDetailsController().loadAllHilfsmittel();
+            frame.setVisible(true);frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            frame.pack();
         }
     }
 

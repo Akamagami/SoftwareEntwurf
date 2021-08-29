@@ -1,5 +1,7 @@
 package frontend.controller;
 
+import backend.benutzer.Benutzer;
+import backend.benutzer.Gruppe;
 import backend.benutzer.Kontaktinformation;
 import backend.datenbasis.Speicher;
 import backend.event.EventElement;
@@ -8,15 +10,17 @@ import backend.event.eventelement.Catering;
 import backend.event.eventelement.Location;
 import backend.event.eventelement.Musik;
 import backend.event.eventelement.Sonstiges;
+import backend.hilfsmittel.Hilfsmittel;
+import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
 import de.dhbwka.swe.utils.gui.ButtonElement;
-import frontend.UIData.EventUI;
-import frontend.UIData.TeilEventUI;
-import frontend.pages.TeilEventDetailsHilfsmittel;
-import frontend.pages.TeilEventDetailsMitarbeiter;
-import frontend.pages.TeilEventDetailsUebersicht;
+import de.dhbwka.swe.utils.model.IDepictable;
+import frontend.UIData.*;
+import frontend.pages.*;
+
+import javax.swing.*;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -25,16 +29,20 @@ public class TeilEventDetailsController extends GUIController {
     private TeilEventDetailsUebersicht teilEventDetailsUebersicht;
     private TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter;
     private TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel;
+    private HilfsmittelDetails hilfsmittelDetails;
+    private MitarbeiterDetails mitarbeiterDetails;
     private MainGUIController mainGUIController;
     private EventUI currentEventUI;
     private TeilEventUI currentTeilEventUI;
     private Speicher speicher;
 
     public TeilEventDetailsController(TeilEventDetailsUebersicht teilEventDetailsUebersicht, TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter,
-                                      TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel, Speicher speicher, MainGUIController mainGUIController) {
+                                      TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel, HilfsmittelDetails hilfsmittelDetails, MitarbeiterDetails mitarbeiterDetails, Speicher speicher, MainGUIController mainGUIController) {
         this.teilEventDetailsUebersicht = teilEventDetailsUebersicht;
         this.teilEventDetailsMitarbeiter = teilEventDetailsMitarbeiter;
         this.teilEventDetailsHilfsmittel = teilEventDetailsHilfsmittel;
+        this.hilfsmittelDetails = hilfsmittelDetails;
+        this.mitarbeiterDetails = mitarbeiterDetails;
         this.mainGUIController = mainGUIController;
         this.speicher = speicher;
     }
@@ -117,6 +125,44 @@ public class TeilEventDetailsController extends GUIController {
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
                 }
+            } else if (x.getID().equals("TEDM-ADDBTN")) {
+                mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_MITARBEITER, currentTeilEventUI));
+
+            } else if (x.getID().equals("MD-BTN")) {
+                if (!currentTeilEventUI.getTeilEvent().hatGruppe()) {
+                    Object[] params = {"Standardgruppe"};
+                    currentTeilEventUI.getTeilEvent().addGruppe((Gruppe) speicher.createObject(ClassType.GRUPPE, params));
+                }
+                MitarbeiterUI mitarbeiterUI = (MitarbeiterUI) mitarbeiterDetails.getSimpleListComponent().getSelectedElement();
+                currentTeilEventUI.getTeilEvent().addBenutzer(mitarbeiterUI.getBenutzer());
+
+                mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
+
+            } else if (x.getID().equals("TEDM-DELBTN")) {
+                MitarbeiterUI mitarbeiterUI = (MitarbeiterUI) teilEventDetailsMitarbeiter.getSimpleListComponent().getSelectedElement();
+                currentTeilEventUI.getTeilEvent().removeBenutzer(mitarbeiterUI.getBenutzer());
+
+                mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
+
+            } else if(x.getID().equals("TEDH-ADDBTN")) {
+                mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_HILFSMITTEL, currentTeilEventUI));
+            } else if (x.getID().equals("HD-BTN")) {
+                String value1 = JOptionPane.showInputDialog("Bitte geben Sie eine Anzahl ein!");
+                HilfsmittelUI hilfsmittelUI = (HilfsmittelUI) hilfsmittelDetails.getSimpleListComponent().getSelectedElement();
+                int value = Integer.parseInt(value1);
+                if (value <= hilfsmittelUI.getCurrentAnzhal() && value >0) {
+                    Object[] params = {currentTeilEventUI.getTeilEvent(), hilfsmittelUI.getHilfsmittel(), value};
+                    speicher.createObject(ClassType.ZUWEISUNG, params);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Es sind nicht genug von diesen Hilfsmitteln vorhanden!");
+                }
+
+                mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
+            } else if (x.getID().equals("TEDH-DELBTN")) {
+                ZuweisungUI zuweisungUI = (ZuweisungUI) teilEventDetailsHilfsmittel.getSimpleListComponent().getSelectedElement();
+                speicher.delete(ClassType.ZUWEISUNG, zuweisungUI.getZuweisung().getId());
+
+                mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
             }
         }
     }
@@ -128,9 +174,35 @@ public class TeilEventDetailsController extends GUIController {
         this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
     }
 
+    public void loadMitarbeiter() {
+        if (currentTeilEventUI.getTeilEvent().hatGruppe()) {
+                teilEventDetailsMitarbeiter.displayMitarbeiter(currentTeilEventUI.getTeilEvent().getBenutzer());
+            }
+    }
+
+    public void loadAllMitarbeiter() {
+            mitarbeiterDetails.displayMitarbeiter((ArrayList<Benutzer>)(ArrayList<?>) speicher.getAll(ClassType.BENUTZER));
+    }
+
+    public void loadHilfsmittel() {
+        ArrayList<Zuweisung> zuweisungArrayList = new ArrayList<>();
+        for (Zuweisung zuweisung : (ArrayList<Zuweisung>)(ArrayList<?>) speicher.getAll(ClassType.ZUWEISUNG)
+             ) {
+            if (zuweisung.getTeilevent().getId().equals(currentTeilEventUI.getTeilEvent().getId())) {
+                zuweisungArrayList.add(zuweisung);
+            }
+        }
+        teilEventDetailsHilfsmittel.displayHilfsmittel(zuweisungArrayList);
+    }
+
+    public void loadAllHilfsmittel() {
+        hilfsmittelDetails.displayHilfsmittel((ArrayList<Hilfsmittel>)(ArrayList<?>) speicher.getAll(ClassType.HILFSMITTEL), currentTeilEventUI, speicher);
+    }
+
 
     public enum Commands implements EventCommand {
-        CREATE_TEILEVENT("RELOAD_PAGE", EventDetailsController.class);
+        ADD_MITARBEITER("ADD_MITARBEITER", TeilEventDetailsController.class),
+        ADD_HILFSMITTEL("ADD_HILSFMITTEL", TeilEventDetailsController.class);
 
         private String cmdText;
         private Class<?> payloadType;

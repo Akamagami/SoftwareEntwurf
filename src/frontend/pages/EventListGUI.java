@@ -18,7 +18,6 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
     private ButtonElement buttonElement;
     private ButtonElement editButton;
     private GUIController controller;
-    private JTextArea textField;
     private ButtonElement deleteButton;
 
     public EventListGUI() {
@@ -36,13 +35,7 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
 
-        textField = new JTextArea("Suchen...");
-        textField.setBorder( BorderFactory.createLineBorder(Color.BLACK));
-        textField.setMargin(new Insets(10, 10, 10, 10));
-
         this.setLayout(new BorderLayout());
-
-        this.add(textField, BorderLayout.NORTH);
         this.add(simpleListComponent, BorderLayout.CENTER);
         this.add(buttonPanel, BorderLayout.SOUTH);
     }
@@ -106,14 +99,6 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
 
     public GUIController getController() {
         return controller;
-    }
-
-    public JTextArea getTextField() {
-        return textField;
-    }
-
-    public void setTextField(JTextArea textField) {
-        this.textField = textField;
     }
 
 }

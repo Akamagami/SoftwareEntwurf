@@ -461,7 +461,7 @@ public class Speicher {
         Benutzer piot = (Benutzer) this.createObject(ClassType.BENUTZER,params3);
         piot.setRolle(rv.getRolle(Rollen.B));
         
-        Object[] parrr = {"Baum", "Ein großer Baum", 42 };
+        Object[] parrr = {"Baum", "Ein groï¿½er Baum", 42 };
         this.createObject(ClassType.HILFSMITTEL, parrr);
         Object[] parrr1 = {"Parkbank", "EIne Pank", 69 };
         this.createObject(ClassType.HILFSMITTEL, parrr1);

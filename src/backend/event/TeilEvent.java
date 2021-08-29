@@ -1,7 +1,7 @@
 package backend.event;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 import backend.benutzer.Benutzer;
 import backend.benutzer.Beschaffungsgruppe;

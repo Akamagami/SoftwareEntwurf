@@ -1,7 +1,7 @@
 package backend.datenbasis.factory;
 
 import java.util.Optional;
-import java.util.Date;
+import java.sql.Date;
 
 import backend.benutzer.Benutzer;
 import backend.benutzer.Gruppe;
