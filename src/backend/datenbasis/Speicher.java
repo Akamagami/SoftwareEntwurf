@@ -48,6 +48,7 @@ import backend.hilfsmittel.Zuweisung;
 import backend.importExport.CSVAdapter;
 import backend.importExport.IReadWrite;
 import backend.importExport.ObjectData;
+import backend.utils.HilfsmittelUtils;
 import backend.utils.Picture;
 import constants.ClassType;
 import constants.EventKategorie;
@@ -58,7 +59,7 @@ public class Speicher {
 
 	private HashMap<ClassType, EntityManager> managers = new HashMap<ClassType, EntityManager>();
 	private HashMap<ClassType, ElementFactory> factories = new HashMap<ClassType, ElementFactory>();
-
+	private HilfsmittelUtils hu = new HilfsmittelUtils(this);
 	private IReadWrite csv = new CSVAdapter();
 	private RollenVerwaltung rv = new RollenVerwaltung();
 
@@ -476,5 +477,19 @@ public class Speicher {
 
 	private Object createObject(ClassType c, Object[] params, String id) {
 		return this.createObject(c, params, Optional.of(id));
+	}
+
+	public void testzuweisung() {
+		
+		Hilfsmittel h = (Hilfsmittel) this.getObject(ClassType.HILFSMITTEL,"1");
+		Object[] params = {this.getObject(ClassType.TEILEVENT, "1"),h,10};
+		this.createObject(ClassType.ZUWEISUNG,params);
+		
+		System.out.println("Max: " + h.getGesamtAnzahl());
+		System.out.println("CUrrent: " + hu.getBestand(h.getId(), Date.valueOf("1010-10-14"),  Date.valueOf("1010-10-16")));
+		
+	}
+	public HilfsmittelUtils getHiflsmittelUtils() {
+		return hu;
 	}
 }
