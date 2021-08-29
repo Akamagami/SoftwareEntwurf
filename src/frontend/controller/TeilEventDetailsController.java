@@ -169,7 +169,7 @@ public class TeilEventDetailsController extends GUIController {
 
 
     public void loadElements(){
-        ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
+        ArrayList<TeilEvent> teilEvents = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI().getEvent().getTeilEventList();
         mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
         this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
     }

@@ -73,6 +73,7 @@ public class EventDetailsController extends GUIController {
 
                             Event temp = (Event) speicher.createObject(ClassType.EVENT, createData);
                             this.currentEventUI = new EventUI(temp);
+                            refreshTeilevents(currentEventUI);
                             Object[] kontaktData = {kontaktParams[0], kontaktParams[1], kontaktParams[2]};
 
                             Kontaktinformation kontaktinformation = (Kontaktinformation) speicher.createObject(ClassType.KONTAKTINFORMATION, kontaktData);
@@ -143,6 +144,12 @@ public class EventDetailsController extends GUIController {
         mainGUIController.getMainGUI().getEventListGUIController().loadElements();
         mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsUebersicht().getEvent(currentEventUI);
     }
+    public void refreshTeilevents(EventUI event) {
+   	 mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentEventUI(event);
+   	 mainGUIController.getMainGUI().getTeilEventDetailsController().loadElements();
+   }
+
+
 
 
     public enum Commands implements EventCommand {
