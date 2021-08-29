@@ -110,7 +110,8 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         saveButton.addObserver(controller);
     }
 
-
+    //Verarbeitung der Kategorieauswahl für Teilevents;
+    //Je nach dem Wert des Identifiers wird ein auf die Kategorie zugeschnittener AttributeComponent erzeugt und dem Panel hinzugefuegt
     public void setTeilEventIdent(Object teilEventIdent) {
         this.teilEventIdent = teilEventIdent;
 
@@ -168,7 +169,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         specialComponent.setAttributeElements(elements);
     }
 
-
+    //Ausfuellen der Attributfelder mit Teilevent-Werten
     public void fillAttributes(TeilEventUI teilEventUI) {
         TeilEvent teilEvent = teilEventUI.getTeilEvent();
 

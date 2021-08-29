@@ -42,6 +42,7 @@ public class TeilEventDetailsHilfsmittel extends JPanel implements IUpdateEventL
 
     }
 
+    //Ausfuellen des SimpleListComponents mit im Teilevent hinzugefuegten Hilfsmitteln
     public void displayHilfsmittel(ArrayList<Zuweisung> zuweisungArrayList) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Zuweisung zuweisung : zuweisungArrayList ) {

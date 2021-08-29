@@ -16,7 +16,6 @@ import constants.ClassType;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
 import de.dhbwka.swe.utils.gui.ButtonElement;
-import de.dhbwka.swe.utils.model.IDepictable;
 import frontend.UIData.*;
 import frontend.pages.*;
 
@@ -36,6 +35,7 @@ public class TeilEventDetailsController extends GUIController {
     private TeilEventUI currentTeilEventUI;
     private Speicher speicher;
 
+    //Controller, der Events der Teilevent-Editierfenster verarbeitet
     public TeilEventDetailsController(TeilEventDetailsUebersicht teilEventDetailsUebersicht, TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter,
                                       TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel, HilfsmittelDetails hilfsmittelDetails, MitarbeiterDetails mitarbeiterDetails, Speicher speicher, MainGUIController mainGUIController) {
         this.teilEventDetailsUebersicht = teilEventDetailsUebersicht;
@@ -52,7 +52,9 @@ public class TeilEventDetailsController extends GUIController {
     public void processGUIEvent(GUIEvent ge) {
         if (ge.getCmd().equals(ButtonElement.Commands.BUTTON_PRESSED)) {
             ButtonElement x = (ButtonElement) ge.getSource();
+            //Speichern eines Teilevents bzw. speichern einer Bearbeitung des Teilevents
             if (x.getID().equals("TED-SAVE-BUTTON")) {
+                //Wenn kein Teilevent gesetzt ist, wird ein neues Teilevent für das Event erzeugt
                 if (currentTeilEventUI == null ){
                     String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
                     String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
@@ -93,6 +95,7 @@ public class TeilEventDetailsController extends GUIController {
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
+                    //Ist ein Teilevent gesetzt, wird dieses bearbeitet
                 } else {
                     String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
                     String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
@@ -125,9 +128,12 @@ public class TeilEventDetailsController extends GUIController {
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
                 }
+                //Hinzufügen eines neuen Mitarbeiters; das momentane Teilevent wird als Payload mitgegeben, es oeffnet sich ein Auswahl Fenster, das alle verfügbaren
+                //Mitarbeiter auflistet
             } else if (x.getID().equals("TEDM-ADDBTN")) {
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_MITARBEITER, currentTeilEventUI));
 
+                //Nach Auswahl eines Mitarbeiters in MitarbeiterDetails (Liste mit allen verfügbaren Mitarbeitern, s.o.) wird dieser Button betätigt, um zu bestätigen
             } else if (x.getID().equals("MD-BTN")) {
                 if (!currentTeilEventUI.getTeilEvent().hatGruppe()) {
                     Object[] params = {"Standardgruppe"};
@@ -136,16 +142,23 @@ public class TeilEventDetailsController extends GUIController {
                 MitarbeiterUI mitarbeiterUI = (MitarbeiterUI) mitarbeiterDetails.getSimpleListComponent().getSelectedElement();
                 currentTeilEventUI.getTeilEvent().addBenutzer(mitarbeiterUI.getBenutzer());
 
+                //Neuladen der für das Teilevent hinzugefügten Mitarbeiter
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
+                //Löschen des ausgewaehlten Mitarbeiters
             } else if (x.getID().equals("TEDM-DELBTN")) {
                 MitarbeiterUI mitarbeiterUI = (MitarbeiterUI) teilEventDetailsMitarbeiter.getSimpleListComponent().getSelectedElement();
                 currentTeilEventUI.getTeilEvent().removeBenutzer(mitarbeiterUI.getBenutzer());
 
+                //Neuladen der Liste
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
+                //Oeffnet ein Auswahlfenster mit allen verfügbaren Hilfsmitteln
             } else if(x.getID().equals("TEDH-ADDBTN")) {
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_HILFSMITTEL, currentTeilEventUI));
+
+                //Bestätigung der Auswahl für Hilfsmittel; Aufruf eines OptionPanes mit Eingabe für Stückanzahl
+                //Logik überprüft eingegebenen Wert mit Bestand und fügt Hilfsmittel Teilevent hinzu oder sendet Fehlermeldung
             } else if (x.getID().equals("HD-BTN")) {
                 String value1 = JOptionPane.showInputDialog("Bitte geben Sie eine Anzahl ein!");
                 HilfsmittelUI hilfsmittelUI = (HilfsmittelUI) hilfsmittelDetails.getSimpleListComponent().getSelectedElement();
@@ -156,8 +169,10 @@ public class TeilEventDetailsController extends GUIController {
                 } else {
                     JOptionPane.showMessageDialog(null, "Es sind nicht genug von diesen Hilfsmitteln vorhanden!");
                 }
-
+                //Neuladen der Liste
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
+
+                //Löschen des ausgewaehlten Hilfsmittels
             } else if (x.getID().equals("TEDH-DELBTN")) {
                 ZuweisungUI zuweisungUI = (ZuweisungUI) teilEventDetailsHilfsmittel.getSimpleListComponent().getSelectedElement();
                 speicher.delete(ClassType.ZUWEISUNG, zuweisungUI.getZuweisung().getId());
@@ -167,23 +182,26 @@ public class TeilEventDetailsController extends GUIController {
         }
     }
 
-
+    //Laden der Elemente für Teilevent-Liste
     public void loadElements(){
         ArrayList<TeilEvent> teilEvents = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI().getEvent().getTeilEventList();
         mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
         this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
     }
 
+    //Laden der Mitarbeiter des ausgewaehlten Teilevents
     public void loadMitarbeiter() {
         if (currentTeilEventUI.getTeilEvent().hatGruppe()) {
                 teilEventDetailsMitarbeiter.displayMitarbeiter(currentTeilEventUI.getTeilEvent().getBenutzer());
             }
     }
 
+    //Laden aller Mitarbeiter fuer Auswahlfenster
     public void loadAllMitarbeiter() {
             mitarbeiterDetails.displayMitarbeiter((ArrayList<Benutzer>)(ArrayList<?>) speicher.getAll(ClassType.BENUTZER));
     }
 
+    //Laden der Hilfsmittel des ausgewaehlten Teilevents
     public void loadHilfsmittel() {
         ArrayList<Zuweisung> zuweisungArrayList = new ArrayList<>();
         for (Zuweisung zuweisung : (ArrayList<Zuweisung>)(ArrayList<?>) speicher.getAll(ClassType.ZUWEISUNG)
@@ -195,6 +213,7 @@ public class TeilEventDetailsController extends GUIController {
         teilEventDetailsHilfsmittel.displayHilfsmittel(zuweisungArrayList);
     }
 
+    //Laden aller Hilfsmittel fuer Auswahlfenster
     public void loadAllHilfsmittel() {
         hilfsmittelDetails.displayHilfsmittel((ArrayList<Hilfsmittel>)(ArrayList<?>) speicher.getAll(ClassType.HILFSMITTEL), currentTeilEventUI, speicher);
     }

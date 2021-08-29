@@ -4,8 +4,6 @@ import constants.EventKategorie;
 import constants.Status;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
-import de.dhbwka.swe.utils.model.ImageElement;
-import de.dhbwka.swe.utils.util.ImageLoader;
 import frontend.UIData.EventUI;
 import frontend.controller.GUIController;
 
@@ -38,6 +36,7 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
             count2++;
         }
 
+        //Erzeugung der Attributfelder
         AttributeElement[] attributeElements = new AttributeElement[] {
                 AttributeElement.builder("AE-1").labelName("Titel")
                 .actionType(AttributeElement.ActionType.NONE)
@@ -85,6 +84,7 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
 
         };
 
+        //Attributfelder speziell für Kontaktdaten
         AttributeElement[] kontaktBeschreibung = new AttributeElement[] {
 
                 AttributeElement.builder("K-1").labelName("Kontaktperson")
@@ -127,7 +127,7 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
 
     }
 
-
+    //Ausfuellen der Attributfelder mit Eventdaten
     public void fillAttributes(EventUI event) {
         String[] kategorien = new String[EventKategorie.values().length];
         int count = 0;

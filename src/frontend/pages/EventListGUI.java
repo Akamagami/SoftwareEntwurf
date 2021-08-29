@@ -49,7 +49,7 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         deleteButton.addObserver(controller);
     }
 
-
+    //Ausfuellen des SimpleListComponents mit Events
     public void displayEvents(ArrayList<Event> events) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Event event : events ) {

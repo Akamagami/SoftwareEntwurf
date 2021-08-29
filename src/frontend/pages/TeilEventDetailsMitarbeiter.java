@@ -41,7 +41,7 @@ public class TeilEventDetailsMitarbeiter extends JPanel implements IUpdateEventL
         this.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-
+    //Ausfuellen des SimpleListComponents mit im Teilevent hinzugefuegten Mitarbeitern
     public void displayMitarbeiter(Benutzer[] benutzer) {
         if (currentTeilEventUI.getTeilEvent().hatGruppe()) {
             ArrayList<IDepictable> elems = new ArrayList();

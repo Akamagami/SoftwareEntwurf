@@ -45,6 +45,7 @@ public class MitarbeiterDetails extends JPanel implements IGUIEventSender {
         this.addButton.addObserver(controller);
     }
 
+    //Ausfuellen des SimpleListComponents mit Mitarbeitern
     public void displayMitarbeiter(ArrayList<Benutzer> benutzer) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Benutzer nutzer : benutzer ) {

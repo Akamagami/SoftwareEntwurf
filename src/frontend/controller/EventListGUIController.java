@@ -6,10 +6,7 @@ import constants.ClassType;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
-import execution.Main;
-import frontend.MainGUI;
 import frontend.pages.EventListGUI;
-import frontend.panes.EventDetailsPane;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -52,7 +49,7 @@ public class EventListGUIController extends GUIController {
             else if (x.getID().equals("BTN-EDIT-EVENT") && this.eventListGUI.getSimpleListComponent().getSelectedElement() == null) {
                 JOptionPane.showMessageDialog(null, "Wählen Sie ein Event aus!");
             }
-            //Löschen Events
+            //Löschen des ausgewaehlten Events
             else if (x.getID().equals("BTN-DELETE-EVENT") && this.eventListGUI.getSimpleListComponent().getSelectedElement() != null) {
                 SimpleListComponent simpleListComponent = eventListGUI.getSimpleListComponent();
 

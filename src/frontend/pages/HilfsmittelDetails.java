@@ -35,6 +35,7 @@ public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, 
         this.add(addButton, BorderLayout.SOUTH);
     }
 
+    //Darstellen der Hilfsmittel in SimpleListComponent
     public void displayHilfsmittel(ArrayList<Hilfsmittel> hilfsmittelArrayList, TeilEventUI currentTeilEventUI, Speicher speicher) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Hilfsmittel hilfsmittel : hilfsmittelArrayList ) {

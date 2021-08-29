@@ -52,6 +52,7 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
     	this.simpleListComponent.removeAllListElements();
     }
 
+    //Laden der Teilevents in SimpleListComponent
     public void displayEvents(ArrayList<TeilEvent> teilEvents) {
 	        ArrayList<IDepictable> elems = new ArrayList();
 	        for (TeilEvent teilEvent : teilEvents ) {
