@@ -48,14 +48,16 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
         deleteButton.addObserver(controller);
         simpleListComponent.addObserver(controller);
     }
+    public void clearTeilevents() {
+    	this.simpleListComponent.removeAllListElements();
+    }
 
-
-    public void displayTeilEvents(ArrayList<TeilEvent> teilEvents) {
-        ArrayList<IDepictable> elems = new ArrayList();
-        for (TeilEvent teilEvent : teilEvents ) {
-            elems.add(new TeilEventUI(teilEvent));
-        }
-        this.simpleListComponent.setListElements(elems);
+    public void displayEvents(ArrayList<TeilEvent> teilEvents) {
+	        ArrayList<IDepictable> elems = new ArrayList();
+	        for (TeilEvent teilEvent : teilEvents ) {
+	            elems.add(new TeilEventUI(teilEvent));
+	        }
+	        this.simpleListComponent.setListElements(elems);
     }
 
     @Override

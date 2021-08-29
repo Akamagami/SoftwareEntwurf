@@ -8,9 +8,6 @@ import backend.utils.KontaktInfoList;
 import backend.utils.Picture;
 import backend.utils.PictureList;
 import constants.*;
-import de.dhbwka.swe.utils.model.Attribute;
-import de.dhbwka.swe.utils.model.IDepictable;
-import de.dhbwka.swe.utils.model.PersonWithAttributes;
 
 public class Event {
 /* beschreibt ein Event*/

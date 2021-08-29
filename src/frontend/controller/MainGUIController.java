@@ -28,9 +28,7 @@ public class MainGUIController extends GUIController {
             frame.add(mainGUI.getEventpane());
             mainGUI.getEventDetailsController().getUebersicht().getAttributeComponent().clearValues();
             mainGUI.getEventDetailsController().getUebersicht().getKontaktBeschreibungComponent().clearValues();
-            mainGUI.getEventDetailsController().setCurrentEventUI(null);
-            mainGUI.getTeilEventDetailsController().getTeilEventDetailsUebersicht().setCurrentEventUI(null);
-            mainGUI.getTeilEventDetailsController().loadElements();
+            mainGUI.getEventDetailsController().getTeilevent().clearTeilevents();
             frame.setVisible(true);
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();

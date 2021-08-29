@@ -105,17 +105,6 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
         };
 
 
-        ImageElement[] loadedImageElements = null;
-        try {
-            loadedImageElements = ImageLoader.loadImageElements("D:\\Programming\\Java\\SoftwareEntwurf\\src\\frontend\\images\\");
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        ssc = SlideshowComponent.builder("SSC").imageElements(loadedImageElements).smallImageSize(new Dimension(50, 50)).build();
-
-
         attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("EventUebersicht").build();
         kontaktBeschreibungComponent = AttributeComponent.builder("K-1").attributeElements(kontaktBeschreibung).title("Kontaktinformationen").build();
         safeButton = ButtonElement.builder("SAFE-EDUE").buttonText("Speichern").build();
@@ -125,10 +114,8 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
 
 
         this.setLayout(new GridLayout(2,2));
-
         this.add(attributeComponent);
         this.add(kontaktBeschreibungComponent);
-        this.add(ssc);
         this.add(buttonPanel);
 
     }
