@@ -6,9 +6,13 @@ Kontaktinfo,112,gfdg,fdgdf,gdfg
 Kontaktinfo,113,gfdg,fdgdf,gdfg
 Kontaktinfo,114,gfdg,fdgdf,gdfg
 Kontaktinfo,115,3453,4535,3453
+Kontaktinfo,116,asd,asd,asd
 Kontaktinfo,90,56g3456,g3456g4,35g345
+Kontaktinfo,117,asd,asd,asd
 Kontaktinfo,91,56g3456,g3456g4,35g345
+Kontaktinfo,118,asd,asd,asd
 Kontaktinfo,92,56g3456,g3456g4,35g345
+Kontaktinfo,119,asd,asd,asd
 Kontaktinfo,93,56g3456,g3456g4,35g345
 Kontaktinfo,94,56g3456,g3456g4,35g345
 Kontaktinfo,95,56g3456,g3456g4,35g345
@@ -114,7 +118,7 @@ Kontaktinfo,85,1asdasdasd,asdasdasd,112
 Kontaktinfo,86,1asdasdasd,asdasdasd,112
 Kontaktinfo,87,1asdasdasd,asdasdasd,112
 Benutzer,1,Felix,Radermacher,%,Kontaktinfo,2,%,Rolle,B
-Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,ijlk,hurrrr
+Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,hurrrr,ijlk
 Benutzer,4,Relix,Fadermacher,%,Rolle,N
 Benutzer,5,Felix,Radermacher,%,Rolle,A
 Benutzer,6,Sebastion,Adamois,%,Rolle,B
@@ -124,6 +128,7 @@ Beschaffungsgruppe,Gruppe,1,nTREGTRE,%,Benutzer,1,%,Leiter,1
 Gruppe,4,DeinErnst yryr,%,Benutzer,1,%,Benutzer,3,%,Benutzer,4
 Gruppe,5,Standardgruppe,%,Benutzer,6,%,Benutzer,4
 Gruppe,6,Standardgruppe,%,Benutzer,6,%,Benutzer,7
+Gruppe,7,Standardgruppe,%,Benutzer,1,%,Benutzer,6
 Sonstiges,1,name,besch,3.2,speissse
 Sonstiges,2,Giraffe2,asda,100.0,Weil du Hund dein Maul halten sollst,%,Kontaktinfo,88
 Sonstiges,3,45gtz45435345,eduzt,10.0,rw,%,Kontaktinfo,89
@@ -148,6 +153,7 @@ Catering,10,sdfsdf,sdfsdfsdf,100.0,asdasd,asdasd,%,Kontaktinfo,95
 Location,1,name,besch,3.2,speissse,menuuu
 Location,2,Location1,asd,100.0,adsas,asdasd,%,Kontaktinfo,89
 Location,3,Nudel 12,asd,100.0,asdsa,asd,%,Kontaktinfo,106
+Location,4,sdfsdf,sdfsdfsd,100.0,asd,asd,%,Kontaktinfo,116
 Musik,11,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,92
 Musik,12,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,93
 Musik,13,566,6g4536g45,1.045645E7,456g3456,g3456g43,%,Kontaktinfo,94
@@ -164,6 +170,7 @@ Musik,10,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,91
 Teilevent,11,Nudel,1000-10-10,1000-10-10,E,%,Element,ELEMENTCATERING,11
 Teilevent,22,Nudel 12,2021-12-11,2021-12-12,E,%,Element,ELEMENTLOCATION,3,%,Gruppe,6
 Teilevent,12,Lwe56756,2021-12-11,2021-12-13,E,%,Element,ELEMENTMUSIK,5
+Teilevent,23,sdfsdf,2021-12-12,2021-12-12,E,%,Element,ELEMENTLOCATION,4,%,Gruppe,7
 Teilevent,13,Pferd,2021-12-11,2021-12-11,E,%,Element,ELEMENTCATERING,13
 Teilevent,14,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,10
 Teilevent,15,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,11
@@ -183,19 +190,13 @@ Teilevent,9,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,5
 Teilevent,20,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,16
 Teilevent,10,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,6
 Teilevent,21,rtfghret,1000-02-02,1000-02-02,E,%,Element,ELEMENTSONTIGES,5,%,Gruppe,5
-Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,21,%,Teilevent,22,%,Kontaktinfo,105
-Event,2,asdasdaasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,89
-Event,3,Test1,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,H,E,%,Kontaktinfo,90
-Event,4,hihih,werwe,1212-12-12,1212-12-12,34543,werwe,435345.0,KG,E,%,Kontaktinfo,107
-Event,5,trzt,erterter,1212-12-12,1212-12-12,354,terter,345.0,G,E,%,Kontaktinfo,109
-Event,6,6rz564,g54g654,1212-12-12,1212-12-12,234,g4565,234.0,G,E,%,Kontaktinfo,110
-Event,7,w4564,56456,1212-12-12,1212-12-12,1234,456546,234.0,G,E,%,Kontaktinfo,111
-Event,8,reter,tert,1212-12-12,1212-12-12,2342,erter,34223.0,G,E,%,Kontaktinfo,114
-Event,9,WichtigerTest,etrertert,1212-12-12,1212-12-12,3453453,erterter,4.5345345E7,W,E,%,Kontaktinfo,115
+Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,21,%,Teilevent,22,%,Teilevent,23,%,Kontaktinfo,119
 Hilfsmittel,1,name,besch,30,%,Picture,dhhd,kkk
 Hilfsmittel,2,Baum,Ein gro�er Baum,42
 Hilfsmittel,3,Parkbank,EIne Pank,69
 Hilfsmittel,4,Kunstrasen,Vrum Vrum,666
+Zuweisung,1,1,23,11
+Zuweisung,2,4,23,11
 Auftrag,1,324324,2018-05-06,1
 Auftrag,2,324324,2018-05-06,1
 Auftrag,3,324324,2018-05-06,1
