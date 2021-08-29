@@ -36,8 +36,8 @@ public class EventListGUIController extends GUIController {
                 //Das currentEventUI wird zurückgesetzt, damit nicht ausversehen ein zuvor bearbeitetes oder erstelltes Event mit dem neuen überschrieben wird
                 //Danach Aufforderung an MainGUIControllers das Event-Erstellungs-Fenster zu öffnen
                 mainGUIController.getMainGUI().getEventDetailsController().setCurrentEventUI(null);
+                mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentTeilEventUI(null);
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.OPEN_EVENTPANE, null));
-
             }
             //Ist ein Event ausgewählt wird wieder das currentEventUI zurückgesetzt, damit das neu gewählte Event editiert wird
             //Danach Aufforderung an MainGUIController das Event-Erstellungs-Fenster zu öffnen, allerdings wird das ausgewählte Event mitgegeben
@@ -45,6 +45,7 @@ public class EventListGUIController extends GUIController {
             else if (x.getID().equals("BTN-EDIT-EVENT") && this.eventListGUI.getSimpleListComponent().getSelectedElement() != null) {
                 SimpleListComponent simpleListComponent = eventListGUI.getSimpleListComponent();
                 mainGUIController.getMainGUI().getEventDetailsController().setCurrentEventUI(null);
+                mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentTeilEventUI(null);
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.OPEN_EDIT_EVENTPANE, simpleListComponent.getSelectedElement()));
             }
             //Man kann nur Edit-Button betätigen, wenn ein Event ausgewählt wurde

@@ -15,6 +15,7 @@ import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
+import de.dhbwka.swe.utils.gui.AttributeElement;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.model.IDepictable;
 import frontend.UIData.*;
@@ -169,9 +170,14 @@ public class TeilEventDetailsController extends GUIController {
 
 
     public void loadElements(){
-        ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
-        mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
-        this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
+        if(teilEventDetailsUebersicht.getCurrentEventUI() != null) {
+            ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
+            mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayTeilEvents(teilEvents);
+            this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
+        } else {
+            ArrayList<IDepictable> temp = new ArrayList<>();
+            mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().getSimpleListComponent().setListElements(temp);
+        }
     }
 
     public void loadMitarbeiter() {

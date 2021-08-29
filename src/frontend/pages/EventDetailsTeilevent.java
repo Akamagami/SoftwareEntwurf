@@ -50,7 +50,7 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
     }
 
 
-    public void displayEvents(ArrayList<TeilEvent> teilEvents) {
+    public void displayTeilEvents(ArrayList<TeilEvent> teilEvents) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (TeilEvent teilEvent : teilEvents ) {
             elems.add(new TeilEventUI(teilEvent));

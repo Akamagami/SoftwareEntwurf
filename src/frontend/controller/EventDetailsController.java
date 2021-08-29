@@ -80,6 +80,7 @@ public class EventDetailsController extends GUIController {
                         }
 
                     }
+
                     //Befehl an den MainGUIController die Seiten der Anwendung zu aktualisieren
                     mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
                 }
