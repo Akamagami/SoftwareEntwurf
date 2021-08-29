@@ -39,6 +39,13 @@ public class TeilEvent {
 	public Benutzer[] getBenutzer(){
 		return GruppenList.get(0).getMitarbeiterArray();
 	}
+	public boolean hatGruppe() {
+		if(GruppenList.size() <=0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 /*-----------------------------------------------------------------------------*/
 	public boolean addMitarbeiterToGruppe(int index,Benutzer m) {
 		return GruppenList.get(index).addMitarbeiter(m);
