@@ -30,6 +30,7 @@ public class MainGUI extends JComponent {
 
         speicher = new Speicher();
         speicher.load();
+        speicher.testzuweisung();
 
         frame = new JFrame();
         frame.setSize(1280, 960);
