@@ -2,7 +2,6 @@ package frontend.controller;
 
 import backend.benutzer.Kontaktinformation;
 import backend.datenbasis.Speicher;
-import backend.event.Event;
 import backend.event.EventElement;
 import backend.event.TeilEvent;
 import backend.event.eventelement.Catering;
@@ -13,14 +12,11 @@ import constants.ClassType;
 import de.dhbwka.swe.utils.event.EventCommand;
 import de.dhbwka.swe.utils.event.GUIEvent;
 import de.dhbwka.swe.utils.gui.ButtonElement;
-import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
 import frontend.pages.TeilEventDetailsHilfsmittel;
 import frontend.pages.TeilEventDetailsMitarbeiter;
 import frontend.pages.TeilEventDetailsUebersicht;
-
-import java.sql.Array;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -41,7 +37,6 @@ public class TeilEventDetailsController extends GUIController {
         this.teilEventDetailsHilfsmittel = teilEventDetailsHilfsmittel;
         this.mainGUIController = mainGUIController;
         this.speicher = speicher;
-
     }
 
 
@@ -86,7 +81,6 @@ public class TeilEventDetailsController extends GUIController {
                     TeilEvent teilEvent = (TeilEvent) speicher.createObject(ClassType.TEILEVENT, teilEventData);
                     currentTeilEventUI = new TeilEventUI(teilEvent);
                     teilEvent.addEventElement(eventElement);
-
                     teilEventDetailsUebersicht.getCurrentEventUI().getEvent().addTeilEvent(teilEvent);
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
@@ -95,7 +89,6 @@ public class TeilEventDetailsController extends GUIController {
                     String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
                     String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
                     String[] kontaktParams = teilEventDetailsUebersicht.getKontaktInformation().getAttributeValuesAsArray();
-
 
                     currentTeilEventUI.getTeilEvent().update(Date.valueOf(params[2]), Date.valueOf(params[3]), params[0]);
                     Object type = currentTeilEventUI.getTeilEvent().getElement().getType();
@@ -117,23 +110,23 @@ public class TeilEventDetailsController extends GUIController {
                         sonstiges.update(params[0], params[1], Double.parseDouble(params[4]) , specialParams[0]);
 
                     }
-
                     Object[] kontaktData = {kontaktParams[0], kontaktParams[1], kontaktParams[2]};
                     currentEventUI.getEvent().getKontaktInfoList().removeKontakt(0);
                     Kontaktinformation kontaktinformation = (Kontaktinformation) speicher.createObject(ClassType.KONTAKTINFORMATION, kontaktData);
                     currentEventUI.getEvent().getKontaktInfoList().addKontaktInfo(kontaktinformation);
 
-
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
-
                 }
-
             }
-
         }
     }
 
 
+    public void loadElements(){
+        ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
+        mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
+        this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
+    }
 
 
     public enum Commands implements EventCommand {
@@ -159,19 +152,9 @@ public class TeilEventDetailsController extends GUIController {
     }
 
 
-
-
-
-    public void loadElements(){
-        ArrayList<TeilEvent> teilEvents = teilEventDetailsUebersicht.getCurrentEventUI().getEvent().getTeilEventList();
-        mainGUIController.getMainGUI().getEventDetailsController().getTeilevent().displayEvents(teilEvents);
-        this.currentEventUI = mainGUIController.getMainGUI().getEventDetailsController().getCurrentEventUI();
-    }
-
     public void setCurrentTeilEventUI(TeilEventUI currentTeilEventUI) {
         this.currentTeilEventUI = currentTeilEventUI;
     }
-
 
     public TeilEventDetailsUebersicht getTeilEventDetailsUebersicht() {
         return teilEventDetailsUebersicht;

@@ -1,7 +1,6 @@
 package frontend.pages;
 
 import backend.event.Event;
-import backend.event.EventElement;
 import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
 import de.dhbwka.swe.utils.model.IDepictable;
@@ -48,6 +47,25 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         this.add(buttonPanel, BorderLayout.SOUTH);
     }
 
+    //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
+    public void setController(GUIController controller) {
+        this.controller = controller;
+        buttonElement.addObserver(controller);
+        editButton.addObserver(controller);
+        simpleListComponent.addObserver(controller);
+        deleteButton.addObserver(controller);
+    }
+
+
+    public void displayEvents(ArrayList<Event> events) {
+        ArrayList<IDepictable> elems = new ArrayList();
+        for (Event event : events ) {
+            elems.add(new EventUI(event));
+        }
+        this.simpleListComponent.setListElements(elems);
+    }
+
+
     @Override
     public boolean addObserver(EventListener eventListener) {
         return false;
@@ -60,7 +78,6 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-
     }
 
     public SimpleListComponent getSimpleListComponent() {
@@ -99,20 +116,4 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         this.textField = textField;
     }
 
-    public void setController(GUIController controller) {
-        this.controller = controller;
-        buttonElement.addObserver(controller);
-        editButton.addObserver(controller);
-        simpleListComponent.addObserver(controller);
-        deleteButton.addObserver(controller);
-    }
-
-    public void displayEvents(ArrayList<Event> events) {
-        ArrayList<IDepictable> elems = new ArrayList();
-        for (Event event : events ) {
-            elems.add(new EventUI(event));
-        }
-
-        this.simpleListComponent.setListElements(elems);
-    }
 }

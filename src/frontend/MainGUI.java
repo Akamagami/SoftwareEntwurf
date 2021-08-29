@@ -66,7 +66,6 @@ public class MainGUI extends JComponent {
         eventpane.addTab("Teilevents", eventDetailsTeilevent);
 
 
-        KalenderGUI kalenderGUI = new KalenderGUI();
         EventListGUI eventListGUI = new EventListGUI();
         overviewpane.addTab("Events", eventListGUI);
 

@@ -33,8 +33,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
     private EventUI currentEventUI;
 
     public TeilEventDetailsUebersicht() {
-
-
         AttributeElement[] attributeElements = new AttributeElement[] {
                 AttributeElement.builder("AE-1").labelName("Name")
                         .actionType(AttributeElement.ActionType.NONE)
@@ -106,6 +104,12 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         this.add(saveButton);
     }
 
+    //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu
+    public void setController(GUIController controller) {
+        this.controller = controller;
+        saveButton.addObserver(controller);
+    }
+
 
     public void setTeilEventIdent(Object teilEventIdent) {
         this.teilEventIdent = teilEventIdent;
@@ -163,6 +167,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         }
         specialComponent.setAttributeElements(elements);
     }
+
 
     public void fillAttributes(TeilEventUI teilEventUI) {
         TeilEvent teilEvent = teilEventUI.getTeilEvent();
@@ -306,9 +311,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
     }
 
 
-
-
-
     @Override
     public boolean addObserver(EventListener eventListener) {
         return false;
@@ -321,11 +323,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     @Override
     public void processUpdateEvent(UpdateEvent updateEvent) {
-    }
-
-    public void setController(GUIController controller) {
-        this.controller = controller;
-        saveButton.addObserver(controller);
     }
 
     public void setKontaktInformation(AttributeComponent kontaktInformation) {
