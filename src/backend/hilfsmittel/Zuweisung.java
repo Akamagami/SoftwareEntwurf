@@ -40,7 +40,7 @@ public Zuweisung(TeilEvent teilevent, Hilfsmittel hilfsmittel, int menge, String
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

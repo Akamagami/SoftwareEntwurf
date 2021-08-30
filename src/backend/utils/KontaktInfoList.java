@@ -50,7 +50,7 @@ public class KontaktInfoList {
 	}
 	/*----------------------------------------------------------*/	
 	@Override
-	public String toString() {
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

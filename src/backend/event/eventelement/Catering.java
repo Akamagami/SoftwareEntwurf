@@ -27,7 +27,7 @@ public class Catering extends EventElement {
 		super.update(name, beschreibung, kosten);
 	}
 	@Override
-	public String toString() {
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

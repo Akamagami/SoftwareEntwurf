@@ -6,7 +6,7 @@ import constants.ClassType;
 public class Location extends EventElement {
 	/*
 	 * Eventelement Location
-	 * ebthält 2 zusaätzliche felder
+	 * ebthält 2 zusätzliche felder
 	 */
 	private String adresse;
 	private String groesse;
@@ -26,7 +26,7 @@ public class Location extends EventElement {
 		super.update(name, beschreibung, kosten);
 	}
 	@Override
-	public String toString() {
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

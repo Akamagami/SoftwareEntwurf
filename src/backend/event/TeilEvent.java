@@ -115,7 +115,7 @@ public class TeilEvent {
 	}
 /*-----------------------------------------------------------------------------*/
 	@Override
-	public String toString() {//toSTring für Speicherfunktion
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

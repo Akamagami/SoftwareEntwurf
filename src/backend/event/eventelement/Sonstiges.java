@@ -20,7 +20,7 @@ public class Sonstiges extends EventElement {
 		this.Zustaendiger = Zustaendiger;
 		super.update(name, beschreibung, kosten);
 	}
-	public String toString() {
+	public String toString() {//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		
