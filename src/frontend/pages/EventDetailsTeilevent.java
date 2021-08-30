@@ -12,7 +12,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-
 public class EventDetailsTeilevent extends JPanel {
 
     private GUIController controller;
@@ -47,6 +46,8 @@ public class EventDetailsTeilevent extends JPanel {
         deleteButton.addObserver(controller);
         simpleListComponent.addObserver(controller);
     }
+
+
     public void clearTeilevents() {
     	this.simpleListComponent.removeAllListElements();
     }
@@ -79,5 +80,4 @@ public class EventDetailsTeilevent extends JPanel {
     public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
         this.simpleListComponent = simpleListComponent;
     }
-
 }

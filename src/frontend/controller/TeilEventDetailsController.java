@@ -62,6 +62,7 @@ public class TeilEventDetailsController extends GUIController {
 
                     EventElement eventElement = null;
 
+                    //Je nach Wert von teilEventIdent wird ein anderes Eventelement erzeugt
                     Object teilEventIdent = teilEventDetailsUebersicht.getTeilEventIdent();
                     if (teilEventIdent == "Catering") {
                         Object[] eventelement = {params[0], params[1], Double.parseDouble(params[4]) , specialParams[0], specialParams[1]} ;
