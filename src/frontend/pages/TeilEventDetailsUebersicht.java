@@ -91,11 +91,14 @@ public class TeilEventDetailsUebersicht extends JPanel {
         specialComponent = AttributeComponent.builder("AC-2").attributeElements(elements).title("Spezial").build();
         kontaktInformation = AttributeComponent.builder("AC-3").attributeElements(kontaktInformationElements).title("Kontaktinformation").build();
 
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(saveButton);
+
         this.setLayout(new GridLayout(2,2));
         this.add(attributeComponent);
         this.add(specialComponent);
         this.add(kontaktInformation);
-        this.add(saveButton);
+        this.add(buttonPanel);
     }
 
     //setzt den Controller und fügt sie gleichzeitig allen SWE-Utils-Komponenten als Observer hinzu

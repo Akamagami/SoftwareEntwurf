@@ -96,8 +96,10 @@ public class TeilEventDetailsController extends GUIController {
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
-                    //Ist ein Teilevent gesetzt, wird dieses bearbeitet
-                } else {
+
+                }
+                //Ist ein Teilevent gesetzt, wird dieses bearbeitet
+                else {
                     String[] params = teilEventDetailsUebersicht.getAttributeComponent().getAttributeValuesAsArray();
                     String[] specialParams = teilEventDetailsUebersicht.getSpecialComponent().getAttributeValuesAsArray();
                     String[] kontaktParams = teilEventDetailsUebersicht.getKontaktInformation().getAttributeValuesAsArray();
@@ -129,13 +131,21 @@ public class TeilEventDetailsController extends GUIController {
 
                     mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
                 }
-                //Hinzufügen eines neuen Mitarbeiters; das momentane Teilevent wird als Payload mitgegeben, es oeffnet sich ein Auswahl Fenster, das alle verfügbaren
-                //Mitarbeiter auflistet
-            } else if (x.getID().equals("TEDM-ADDBTN")) {
+
+            }
+            //Hinzufügen eines neuen Mitarbeiters; das momentane Teilevent wird als Payload mitgegeben, es oeffnet sich ein Auswahl Fenster, das alle verfügbaren
+            //Mitarbeiter auflistet
+            else if (x.getID().equals("TEDM-ADDBTN") && currentTeilEventUI != null) {
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_MITARBEITER, currentTeilEventUI));
 
-                //Nach Auswahl eines Mitarbeiters in MitarbeiterDetails (Liste mit allen verfügbaren Mitarbeitern, s.o.) wird dieser Button betätigt, um zu bestätigen
-            } else if (x.getID().equals("MD-BTN")) {
+
+            }
+            //Debug
+            else if (x.getID().equals("TEDM-ADDBTN") && currentTeilEventUI == null) {
+                JOptionPane.showMessageDialog(null, "Es koennen noch keine Mitarbeiter hinzugefuegt werden. Bitte erstellen Sie zunaechst das Teilevent und druecken auf 'Speichern'");
+            }
+            //Nach Auswahl eines Mitarbeiters in MitarbeiterDetails (Liste mit allen verfügbaren Mitarbeitern, s.o.) wird der folgende Button betätigt, um zu bestätigen
+            else if (x.getID().equals("MD-BTN")) {
                 if (!currentTeilEventUI.getTeilEvent().hatGruppe()) {
                     Object[] params = {"Standardgruppe"};
                     currentTeilEventUI.getTeilEvent().addGruppe((Gruppe) speicher.createObject(ClassType.GRUPPE, params));
@@ -146,21 +156,29 @@ public class TeilEventDetailsController extends GUIController {
                 //Neuladen der für das Teilevent hinzugefügten Mitarbeiter
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
-                //Löschen des ausgewaehlten Mitarbeiters
-            } else if (x.getID().equals("TEDM-DELBTN")) {
+            }
+            //Löschen des ausgewaehlten Mitarbeiters
+            else if (x.getID().equals("TEDM-DELBTN")) {
                 MitarbeiterUI mitarbeiterUI = (MitarbeiterUI) teilEventDetailsMitarbeiter.getSimpleListComponent().getSelectedElement();
                 currentTeilEventUI.getTeilEvent().removeBenutzer(mitarbeiterUI.getBenutzer());
 
                 //Neuladen der Liste
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
-                //Oeffnet ein Auswahlfenster mit allen verfügbaren Hilfsmitteln
-            } else if(x.getID().equals("TEDH-ADDBTN")) {
+            }
+            //Oeffnet ein Auswahlfenster mit allen verfügbaren Hilfsmitteln
+            else if(x.getID().equals("TEDH-ADDBTN") && currentTeilEventUI != null) {
                 mainGUIController.processGUIEvent(new GUIEvent(this, Commands.ADD_HILFSMITTEL, currentTeilEventUI));
 
-                //Bestätigung der Auswahl für Hilfsmittel; Aufruf eines OptionPanes mit Eingabe für Stückanzahl
-                //Logik überprüft eingegebenen Wert mit Bestand und fügt Hilfsmittel Teilevent hinzu oder sendet Fehlermeldung
-            } else if (x.getID().equals("HD-BTN")) {
+            }
+            //Debug
+            else if(x.getID().equals("TEDH-ADDBTN") && currentTeilEventUI == null) {
+                JOptionPane.showMessageDialog(null, "Es koennen noch keine Hilfsmittel hinzugefuegt werden. Bitte erstellen Sie zunaechst das Teilevent und druecken auf 'Speichern'");
+
+            }
+            //Bestätigung der Auswahl für Hilfsmittel; Aufruf eines OptionPanes mit Eingabe für Stückanzahl
+            //Logik überprüft eingegebenen Wert mit Bestand und fügt Hilfsmittel Teilevent hinzu oder sendet Fehlermeldung
+            else if (x.getID().equals("HD-BTN")) {
                 String value1 = JOptionPane.showInputDialog("Bitte geben Sie eine Anzahl ein!");
                 HilfsmittelUI hilfsmittelUI = (HilfsmittelUI) hilfsmittelDetails.getSimpleListComponent().getSelectedElement();
                 int value = Integer.parseInt(value1);
@@ -173,12 +191,14 @@ public class TeilEventDetailsController extends GUIController {
                 //Neuladen der Liste
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
 
-                //Löschen des ausgewaehlten Hilfsmittels
-            } else if (x.getID().equals("TEDH-DELBTN")) {
+            }
+            //Löschen des ausgewaehlten Hilfsmittels
+            else if (x.getID().equals("TEDH-DELBTN")) {
                 ZuweisungUI zuweisungUI = (ZuweisungUI) teilEventDetailsHilfsmittel.getSimpleListComponent().getSelectedElement();
                 speicher.delete(ClassType.ZUWEISUNG, zuweisungUI.getZuweisung().getId());
 
                 mainGUIController.processGUIEvent(new GUIEvent(this, EventDetailsController.Commands.RELOAD_PAGE, null));
+
             }
         }
     }
