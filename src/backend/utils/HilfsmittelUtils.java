@@ -33,7 +33,13 @@ public class HilfsmittelUtils {
 				}
 			}
 		}
-		return anzahl;
+		if(anzahl <0)
+		{
+			return 0;
+		}else {
+			return anzahl;
+		}
+		
 	}
 
 }

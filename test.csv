@@ -123,7 +123,7 @@ Kontaktinfo,85,1asdasdasd,asdasdasd,112
 Kontaktinfo,86,1asdasdasd,asdasdasd,112
 Kontaktinfo,87,1asdasdasd,asdasdasd,112
 Benutzer,1,Felix,Radermacher,%,Kontaktinfo,2,%,Rolle,B
-Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,hurrrr,ijlk
+Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,ijlk,hurrrr
 Benutzer,4,Relix,Fadermacher,%,Rolle,N
 Benutzer,5,Felix,Radermacher,%,Rolle,A
 Benutzer,6,Sebastion,Adamois,%,Rolle,B
@@ -132,7 +132,7 @@ Benutzer,8,Potrs,nam,%,Rolle,B
 Beschaffungsgruppe,Gruppe,1,nTREGTRE,%,Benutzer,1,%,Leiter,1
 Gruppe,4,DeinErnst yryr,%,Benutzer,1,%,Benutzer,3,%,Benutzer,4
 Gruppe,5,Standardgruppe,%,Benutzer,8,%,Benutzer,7,%,Benutzer,3,%,Benutzer,5
-Gruppe,6,Standardgruppe,%,Benutzer,6,%,Benutzer,7
+Gruppe,6,Standardgruppe,%,Benutzer,6,%,Benutzer,7,%,Benutzer,5,%,Benutzer,8
 Gruppe,7,Standardgruppe,%,Benutzer,1,%,Benutzer,6
 Sonstiges,1,name,besch,3.2,speissse
 Sonstiges,2,Giraffe2,asda,100.0,Weil du Hund dein Maul halten sollst,%,Kontaktinfo,88
