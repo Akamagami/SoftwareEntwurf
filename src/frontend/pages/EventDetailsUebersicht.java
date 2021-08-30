@@ -2,16 +2,14 @@ package frontend.pages;
 
 import constants.EventKategorie;
 import constants.Status;
-import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
 import frontend.UIData.EventUI;
 import frontend.controller.GUIController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.EventListener;
 
-public class EventDetailsUebersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class EventDetailsUebersicht extends JPanel {
 
     private GUIController controller;
     private ButtonElement safeButton;
@@ -57,25 +55,25 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
                 .actionType(AttributeElement.ActionType.NONE)
                 .modificationType(AttributeElement.ModificationType.DIRECT)
                 .allowedChars(AttributeElement.CHARSET_DATE)
-                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD").build(),
 
                 AttributeElement.builder("AE-5").labelName("Bis")
                 .actionType(AttributeElement.ActionType.NONE)
                 .modificationType(AttributeElement.ModificationType.DIRECT)
                 .allowedChars(AttributeElement.CHARSET_DATE)
-                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD").build(),
 
                 AttributeElement.builder("AE-6").labelName("Besucher")
                 .actionType(AttributeElement.ActionType.NONE)
                 .modificationType(AttributeElement.ModificationType.DIRECT)
                 .allowedChars(AttributeElement.CHARSET_NUMBER)
-                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                .mandatory(true).maxLength(100).build(),
 
                 AttributeElement.builder("AE-7").labelName("Budget")
                 .actionType(AttributeElement.ActionType.NONE)
                 .modificationType(AttributeElement.ModificationType.DIRECT)
                 .allowedChars(AttributeElement.CHARSET_NUMBER)
-                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                .mandatory(true).maxLength(100).build(),
 
                 AttributeElement.builder("AE-8").labelName("Kategorie")
                 .actionType(AttributeElement.ActionType.COMBOBOX)
@@ -165,28 +163,28 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DATE)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD")
                                 .value(event.getEvent().getStart()).build(),
 
                         AttributeElement.builder("AE-5").labelName("Bis")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DATE)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD")
                                 .value(event.getEvent().getEnd()).build(),
 
                         AttributeElement.builder("AE-6").labelName("Besucher")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_NUMBER)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100)
                                 .value(event.getEvent().getBesucher()).build(),
 
                         AttributeElement.builder("AE-7").labelName("Budget")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_NUMBER)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100)
                                 .value(event.getEvent().getBudget()).build(),
 
                         AttributeElement.builder("AE-8").labelName("Kategorie")
@@ -229,50 +227,12 @@ public class EventDetailsUebersicht extends JPanel implements IUpdateEventListen
         return controller;
     }
 
-    public ButtonElement getSafeButton() {
-        return safeButton;
-    }
-
-    public void setSafeButton(ButtonElement safeButton) {
-        this.safeButton = safeButton;
-    }
-
-    public SlideshowComponent getSsc() {
-        return ssc;
-    }
-
-    public void setSsc(SlideshowComponent ssc) {
-        this.ssc = ssc;
-    }
-
     public AttributeComponent getAttributeComponent() {
         return attributeComponent;
-    }
-
-    public void setAttributeComponent(AttributeComponent attributeComponent) {
-        this.attributeComponent = attributeComponent;
     }
 
     public AttributeComponent getKontaktBeschreibungComponent() {
         return kontaktBeschreibungComponent;
     }
 
-    public void setKontaktBeschreibungComponent(AttributeComponent kontaktBeschreibungComponent) {
-        this.kontaktBeschreibungComponent = kontaktBeschreibungComponent;
-    }
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
-
-    }
 }

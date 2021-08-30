@@ -130,16 +130,4 @@ public class MainGUIController extends GUIController {
     public MainGUI getMainGUI() {
         return mainGUI;
     }
-
-    public void setMainGUI(MainGUI mainGUI) {
-        this.mainGUI = mainGUI;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
-    }
 }

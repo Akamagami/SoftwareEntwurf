@@ -184,32 +184,12 @@ public class EventDetailsController extends GUIController {
         return Uebersicht;
     }
 
-    public void setUebersicht(EventDetailsUebersicht Uebersicht) {
-        this.Uebersicht = Uebersicht;
-    }
-
     public EventDetailsTeilevent getTeilevent() {
         return teilevent;
     }
 
     public void setTeilevent(EventDetailsTeilevent teilevent) {
         this.teilevent = teilevent;
-    }
-
-    public MainGUIController getMainGUIController() {
-        return mainGUIController;
-    }
-
-    public void setMainGUIController(MainGUIController mainGUIController) {
-        this.mainGUIController = mainGUIController;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
     }
 
     public EventUI getCurrentEventUI() {

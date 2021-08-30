@@ -89,30 +89,4 @@ public class EventListGUIController extends GUIController {
             return null;
         }
     }
-
-
-    public EventListGUI getEventListGUI() {
-        return eventListGUI;
-    }
-
-    public void setEventListGUI(EventListGUI eventListGUI) {
-        this.eventListGUI = eventListGUI;
-    }
-
-    public MainGUIController getMainGUIController() {
-        return mainGUIController;
-    }
-
-    public void setMainGUIController(MainGUIController mainGUIController) {
-        this.mainGUIController = mainGUIController;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
-    }
-
 }

@@ -251,52 +251,12 @@ public class TeilEventDetailsController extends GUIController {
         return teilEventDetailsUebersicht;
     }
 
-    public void setTeilEventDetailsUebersicht(TeilEventDetailsUebersicht teilEventDetailsUebersicht) {
-        this.teilEventDetailsUebersicht = teilEventDetailsUebersicht;
-    }
-
     public TeilEventDetailsMitarbeiter getTeilEventDetailsMitarbeiter() {
         return teilEventDetailsMitarbeiter;
     }
 
-    public void setTeilEventDetailsMitarbeiter(TeilEventDetailsMitarbeiter teilEventDetailsMitarbeiter) {
-        this.teilEventDetailsMitarbeiter = teilEventDetailsMitarbeiter;
-    }
-
-    public TeilEventDetailsHilfsmittel getTeilEventDetailsHilfsmittel() {
-        return teilEventDetailsHilfsmittel;
-    }
-
-    public void setTeilEventDetailsHilfsmittel(TeilEventDetailsHilfsmittel teilEventDetailsHilfsmittel) {
-        this.teilEventDetailsHilfsmittel = teilEventDetailsHilfsmittel;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
-    }
-
-    public MainGUIController getMainGUIController() {
-        return mainGUIController;
-    }
-
-    public void setMainGUIController(MainGUIController mainGUIController) {
-        this.mainGUIController = mainGUIController;
-    }
-
-    public EventUI getCurrentEventUI() {
-        return currentEventUI;
-    }
-
     public void setCurrentEventUI(EventUI currentEventUI) {
         this.currentEventUI = currentEventUI;
-    }
-
-    public TeilEventUI getCurrentTeilEventUI() {
-        return currentTeilEventUI;
     }
 
 }

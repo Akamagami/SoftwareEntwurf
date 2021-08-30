@@ -30,7 +30,10 @@ Kontaktinfo,16,asdasdas,asdasdasd,1010230123
 Kontaktinfo,17,asdasdas,asdasdasd,1010230123
 Kontaktinfo,18,asdasdas,asdasdasd,1010230123
 Kontaktinfo,19,asdasdas,asdasdasd,1010230123
+Kontaktinfo,120,ert,vertv,er
+Kontaktinfo,121,asdsad,asdasd,12121
 Kontaktinfo,1,23423,23423423423423432 idk,hat kein phone zu arm
+Kontaktinfo,122,asd,asD,123123123
 Kontaktinfo,2,Email,adresse idk,hat kein phone zu arm
 Kontaktinfo,3,asdasdasdasd,asdasdasdasdasd,1010231
 Kontaktinfo,4,asdasdas,asdasdasd,1010230123
@@ -126,14 +129,14 @@ Benutzer,7,Aron,Nroa,%,Rolle,B
 Benutzer,8,Potrs,nam,%,Rolle,B
 Beschaffungsgruppe,Gruppe,1,nTREGTRE,%,Benutzer,1,%,Leiter,1
 Gruppe,4,DeinErnst yryr,%,Benutzer,1,%,Benutzer,3,%,Benutzer,4
-Gruppe,5,Standardgruppe,%,Benutzer,6,%,Benutzer,4
+Gruppe,5,Standardgruppe,%,Benutzer,8,%,Benutzer,7,%,Benutzer,3,%,Benutzer,5
 Gruppe,6,Standardgruppe,%,Benutzer,6,%,Benutzer,7
 Gruppe,7,Standardgruppe,%,Benutzer,1,%,Benutzer,6
 Sonstiges,1,name,besch,3.2,speissse
 Sonstiges,2,Giraffe2,asda,100.0,Weil du Hund dein Maul halten sollst,%,Kontaktinfo,88
 Sonstiges,3,45gtz45435345,eduzt,10.0,rw,%,Kontaktinfo,89
 Sonstiges,4,rtfghret,ertvger,213.0,tvrevt,%,Kontaktinfo,103
-Sonstiges,5,rtfghret,ertvger,213.0,tvrevt,%,Kontaktinfo,104
+Sonstiges,5,54665,ertvger,213.0,tvrevt,%,Kontaktinfo,104
 Catering,11,Nudel,zrtzrt,21.0,zrtz,rtzrt,%,Kontaktinfo,89
 Catering,12,Pferd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,90
 Catering,13,Pferd,asdasd,100.0,asdasd,asdasd,%,Kontaktinfo,91
@@ -189,14 +192,18 @@ Teilevent,8,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,4
 Teilevent,9,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,5
 Teilevent,20,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,16
 Teilevent,10,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,6
-Teilevent,21,rtfghret,1000-02-02,1000-02-02,E,%,Element,ELEMENTSONTIGES,5,%,Gruppe,5
-Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,21,%,Teilevent,22,%,Teilevent,23,%,Kontaktinfo,119
+Teilevent,21,54665,1000-02-02,1000-02-02,E,%,Element,ELEMENTSONTIGES,5,%,Gruppe,5
+Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,21,%,Teilevent,22,%,Teilevent,23,%,Kontaktinfo,120
+Event,2,dffgghdfg,dfgdfg,2021-12-11,2021-12-11,100,dfgdfg,110.0,E,E,%,Kontaktinfo,121
+Event,3,asdasd,asdasdas,2021-12-11,2021-12-13,100,asdasdas,100.0,H,E,%,Kontaktinfo,122
 Hilfsmittel,1,name,besch,30,%,Picture,dhhd,kkk
 Hilfsmittel,2,Baum,Ein gro�er Baum,42
 Hilfsmittel,3,Parkbank,EIne Pank,69
 Hilfsmittel,4,Kunstrasen,Vrum Vrum,666
 Zuweisung,1,1,23,11
 Zuweisung,2,4,23,11
+Zuweisung,4,3,21,11
+Zuweisung,5,2,21,11
 Auftrag,1,324324,2018-05-06,1
 Auftrag,2,324324,2018-05-06,1
 Auftrag,3,324324,2018-05-06,1
