@@ -88,7 +88,7 @@ public class TeilEventDetailsUebersicht extends JPanel {
         saveButton = ButtonElement.builder("TED-SAVE-BUTTON").buttonText("Speichern").build();
 
         attributeComponent = AttributeComponent.builder("AC-1").attributeElements(attributeElements).title("EventUebersicht").build();
-        specialComponent = AttributeComponent.builder("AC-2").attributeElements(elements).title("Spezial").build();
+        specialComponent = AttributeComponent.builder("AC-2").attributeElements(elements).title("Kategorie").build();
         kontaktInformation = AttributeComponent.builder("AC-3").attributeElements(kontaktInformationElements).title("Kontaktinformation").build();
 
         JPanel buttonPanel = new JPanel();
