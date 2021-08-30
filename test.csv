@@ -35,6 +35,7 @@ Kontaktinfo,121,asdsad,asdasd,12121
 Kontaktinfo,1,23423,23423423423423432 idk,hat kein phone zu arm
 Kontaktinfo,122,asd,asD,123123123
 Kontaktinfo,2,Email,adresse idk,hat kein phone zu arm
+Kontaktinfo,123,asd,asd,1212
 Kontaktinfo,3,asdasdasdasd,asdasdasdasdasd,1010231
 Kontaktinfo,4,asdasdas,asdasdasd,1010230123
 Kontaktinfo,5,asdasdas,asdasdasd,1010230123
@@ -121,7 +122,7 @@ Kontaktinfo,85,1asdasdasd,asdasdasd,112
 Kontaktinfo,86,1asdasdasd,asdasdasd,112
 Kontaktinfo,87,1asdasdasd,asdasdasd,112
 Benutzer,1,Felix,Radermacher,%,Kontaktinfo,2,%,Rolle,B
-Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,hurrrr,ijlk
+Benutzer,3,Relix,Fadermacher,%,Kontaktinfo,2,%,Rolle,N,%,Picture,ijlk,hurrrr
 Benutzer,4,Relix,Fadermacher,%,Rolle,N
 Benutzer,5,Felix,Radermacher,%,Rolle,A
 Benutzer,6,Sebastion,Adamois,%,Rolle,B
@@ -160,6 +161,7 @@ Location,4,sdfsdf,sdfsdfsd,100.0,asd,asd,%,Kontaktinfo,116
 Musik,11,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,92
 Musik,12,564h6426g45,6g4536g45,100.0,456g3456,g3456g43,%,Kontaktinfo,93
 Musik,13,566,6g4536g45,1.045645E7,456g3456,g3456g43,%,Kontaktinfo,94
+Musik,14,asdasd,asdasd,100.0,asd,asd,%,Kontaktinfo,123
 Musik,1,name,besch,3.2,speissse,menuuu
 Musik,2,dfgdf,dfgg,100.0,asdasd,asdas,%,Kontaktinfo,88
 Musik,3,Musik3,asdas,100.0,awdlöjkasd,asdasd,%,Kontaktinfo,88
@@ -175,6 +177,7 @@ Teilevent,22,Nudel 12,2021-12-11,2021-12-12,E,%,Element,ELEMENTLOCATION,3,%,Grup
 Teilevent,12,Lwe56756,2021-12-11,2021-12-13,E,%,Element,ELEMENTMUSIK,5
 Teilevent,23,sdfsdf,2021-12-12,2021-12-12,E,%,Element,ELEMENTLOCATION,4,%,Gruppe,7
 Teilevent,13,Pferd,2021-12-11,2021-12-11,E,%,Element,ELEMENTCATERING,13
+Teilevent,24,asdasd,2021-12-11,2021-12-12,E,%,Element,ELEMENTMUSIK,14
 Teilevent,14,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,10
 Teilevent,15,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,11
 Teilevent,16,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,12
@@ -193,7 +196,7 @@ Teilevent,9,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,5
 Teilevent,20,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,16
 Teilevent,10,sdfsdf,2021-12-11,2021-12-13,E,%,Element,ELEMENTCATERING,6
 Teilevent,21,54665,1000-02-02,1000-02-02,E,%,Element,ELEMENTSONTIGES,5,%,Gruppe,5
-Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,21,%,Teilevent,22,%,Teilevent,23,%,Kontaktinfo,120
+Event,1,Pasdasd,asdasd,2021-12-11,2021-12-13,100,asdasd,100.0,G,E,%,Teilevent,22,%,Teilevent,23,%,Teilevent,24,%,Kontaktinfo,120
 Event,2,dffgghdfg,dfgdfg,2021-12-11,2021-12-11,100,dfgdfg,110.0,E,E,%,Kontaktinfo,121
 Event,3,asdasd,asdasdas,2021-12-11,2021-12-13,100,asdasdas,100.0,H,E,%,Kontaktinfo,122
 Hilfsmittel,1,name,besch,30,%,Picture,dhhd,kkk
@@ -204,6 +207,7 @@ Zuweisung,1,1,23,11
 Zuweisung,2,4,23,11
 Zuweisung,4,3,21,11
 Zuweisung,5,2,21,11
+Zuweisung,6,1,22,12
 Auftrag,1,324324,2018-05-06,1
 Auftrag,2,324324,2018-05-06,1
 Auftrag,3,324324,2018-05-06,1

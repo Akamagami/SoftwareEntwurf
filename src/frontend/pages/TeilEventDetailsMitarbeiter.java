@@ -56,6 +56,11 @@ public class TeilEventDetailsMitarbeiter extends JPanel {
         this.deleteButton.addObserver(controller);
     }
 
+    //Loeschen aller Elemente des SimpleListComponents
+    public void clearTeilevents() {
+        this.simpleListComponent.removeAllListElements();
+    }
+
     public GUIController getController() {
         return controller;
     }

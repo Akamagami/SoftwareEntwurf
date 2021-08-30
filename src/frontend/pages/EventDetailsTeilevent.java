@@ -47,7 +47,7 @@ public class EventDetailsTeilevent extends JPanel {
         simpleListComponent.addObserver(controller);
     }
 
-
+    //Loeschen aller Elemente des SimpleListComponents
     public void clearTeilevents() {
     	this.simpleListComponent.removeAllListElements();
     }

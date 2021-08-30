@@ -256,6 +256,10 @@ public class TeilEventDetailsController extends GUIController {
         return teilEventDetailsMitarbeiter;
     }
 
+    public TeilEventDetailsHilfsmittel getTeilEventDetailsHilfsmittel() {
+        return teilEventDetailsHilfsmittel;
+    }
+
     public void setCurrentEventUI(EventUI currentEventUI) {
         this.currentEventUI = currentEventUI;
     }
