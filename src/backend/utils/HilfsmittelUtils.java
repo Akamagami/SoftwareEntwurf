@@ -9,6 +9,10 @@ import backend.hilfsmittel.Zuweisung;
 import constants.ClassType;
 
 public class HilfsmittelUtils {
+	/*
+	 * enthält hilfsmethode zur verarbeitung von hilfsmitteln
+	 * getBestand() liefert den verfügbaren bestand eines Hilfsmittels zu einer bestimmten Zeit zurück
+	 */
 	private Speicher speicher;
 	
 	public HilfsmittelUtils(Speicher speicher) {

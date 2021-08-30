@@ -6,7 +6,9 @@ import backend.benutzer.Kontaktinformation;
 import constants.ClassType;
 
 public class PictureList {
-	
+	/*
+	 * Liste mit Kontaktinfoamtionen
+	 */
 	ArrayList<Picture> bildList = new ArrayList<Picture>();
 	
 /*----------------------------------------------------------*/
@@ -49,7 +51,7 @@ public class PictureList {
 /*----------------------------------------------------------*/	
 	@Override
 	public String toString()
-	{
+	{//toString für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

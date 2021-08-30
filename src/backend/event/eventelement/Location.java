@@ -4,7 +4,10 @@ import backend.event.EventElement;
 import constants.ClassType;
 
 public class Location extends EventElement {
-	
+	/*
+	 * Eventelement Location
+	 * ebthält 2 zusaätzliche felder
+	 */
 	private String adresse;
 	private String groesse;
 	

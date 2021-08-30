@@ -30,8 +30,8 @@ public abstract class EventElement {
 		type = t;
 	}
 	
-	PictureList pictureList = new PictureList();
-	KontaktInfoList kontaktInfoList = new KontaktInfoList();
+	PictureList pictureList = new PictureList();//objekt das Bilder verwaltet
+	KontaktInfoList kontaktInfoList = new KontaktInfoList(); //objekt das Kontaktinformationen verwaltet
 /*------------------------------------------------------------------------------------------*/
 
 	public String getName() {
@@ -63,7 +63,7 @@ public abstract class EventElement {
 	}
 /*------------------------------------------------------------------------------------------*/
 	@Override
-	public String toString() {
+	public String toString() { //to string für speicher vorgang
 		String d = ",";
 		String p = d + "%" + d;
 		

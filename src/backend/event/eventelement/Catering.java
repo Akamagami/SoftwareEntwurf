@@ -5,7 +5,10 @@ import backend.event.EventElement;
 import constants.ClassType;
 
 public class Catering extends EventElement {
-	
+	/*
+	 * Eventelement Catering
+	 * enthält 2 ztusätzliche Felder
+	 */
 	private String speisseangebot;
 	private String menueBeschreibung;
 	

@@ -5,6 +5,11 @@ import java.util.Date;
 import constants.ClassType;
 
 public class Request {
+	/*
+	 * Request dienen der Anforderung einer AUfstockung
+	 * Es wird eine Anzahl für ein Hilfsmittel festgelegt
+	 * Es wird auch ein bis datum gesetzt
+	 */
 	
 	private int anzahl;
 	private Date bis;
@@ -35,7 +40,7 @@ public class Request {
 		return hilfsmittel;
 	}
 	
-	public void update(int anzahl) {
+	public void update(int anzahl) {//erhöhung oder verringern der Anzahl
 		this.anzahl = anzahl;
 	}
 

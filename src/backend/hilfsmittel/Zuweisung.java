@@ -4,6 +4,9 @@ import backend.event.TeilEvent;
 import constants.ClassType;
 
 public class Zuweisung {
+	/*
+	 * Eine Menge eines Hilfsmittels wird einem Teilevent zugewiesen
+	 */
 	
 	private TeilEvent teilevent;
 	private Hilfsmittel hilfsmittel;

@@ -4,7 +4,10 @@ import backend.event.EventElement;
 import constants.ClassType;
 
 public class Musik extends EventElement {
-	
+	/*
+	 * Eventelement Musik
+	 * ebthält 2 zusätzliche felder
+	 */
 	private String kuenstlername;
 	private String genre;
 	
