@@ -58,7 +58,7 @@ public class Benutzer {
 	}
 /*------------------------------------------------------------------------------*/
 	@Override
-	public String toString() {
+	public String toString() { //to string methode für den speichervorgang
 		String d = ",";
 		String p = d + "%" + d;
 		
