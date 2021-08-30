@@ -197,50 +197,49 @@ public class Speicher {
 	public void load() {//erhält liste von csvAdapter, ruft basierend auf dem Class Type des zu erstellenden Objekted die richtige Methode auf
 		for (ObjectData o : csv.initRead()) {
 			String[] data = o.splitData();
-			switch (o.getType()) {
-			case BENUTZER:
-				createFromDataBenutzer(data);
-				break;
-			case BGRUPPE:
-				createFromDataBGruppe(data);
-				break;
-			case ELEMENTCATERING:
-				createFromDataCatering(data);
-				break;
-			case ELEMENTLOCATION:
-				createFromDataLocation(data);
-				break;
-			case ELEMENTMUSIK:
-				createFromDataMusik(data);
-				break;
-			case ELEMENTSONTIGES:
-				createFromDataSonstiges(data);
-				break;
-			case EVENT:
-				createFromDataEvent(data);
-				break;
-			case GRUPPE:
-				createFromDataGruppe(data);
-				break;
-			case HILFSMITTEL:
-				createFromDataHilfsmittel(data);
-				break;
-			case KONTAKTINFORMATION:
-				createFromDataKontaktinformation(data);
-				break;
-			case REQUEST:
-				createFromDataRequest(data);
-				break;
-			case TEILEVENT:
-				createFromDataTeilEvent(data);
-				break;
-			case ZUWEISUNG:
-				createFromDataZuweisung(data);
-				break;
-			default:
-				break;
-
-			}
+				switch (o.getType()) {
+				case BENUTZER:
+					createFromDataBenutzer(data);
+					break;
+				case BGRUPPE:
+					createFromDataBGruppe(data);
+					break;
+				case ELEMENTCATERING:
+					createFromDataCatering(data);
+					break;
+				case ELEMENTLOCATION:
+					createFromDataLocation(data);
+					break;
+				case ELEMENTMUSIK:
+					createFromDataMusik(data);
+					break;
+				case ELEMENTSONTIGES:
+					createFromDataSonstiges(data);
+					break;
+				case EVENT:
+					createFromDataEvent(data);
+					break;
+				case GRUPPE:
+					createFromDataGruppe(data);
+					break;
+				case HILFSMITTEL:
+					createFromDataHilfsmittel(data);
+					break;
+				case KONTAKTINFORMATION:
+					createFromDataKontaktinformation(data);
+					break;
+				case REQUEST:
+					createFromDataRequest(data);
+					break;
+				case TEILEVENT:
+					createFromDataTeilEvent(data);
+					break;
+				case ZUWEISUNG:
+					createFromDataZuweisung(data);
+					break;
+				default:
+					break;	
+				}		
 		}
 		if(this.getAll(ClassType.HILFSMITTEL).size()<2) {
 			this.createTestUserData();
