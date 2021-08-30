@@ -456,16 +456,26 @@ public class Speicher {
 	}
 	/*---------------------------------test data---------------------------------------------------------------*/
 	public void createTestUserData() {//Diese methode erstellt eine Reihe an Benutzern und Hilfsmittel wenn ser SPeicher bisher leer war
-        Object[] params = {"Felix","Radermacher"};
+        Object[] params = {"Felix","Radermacher"};  
         Benutzer felix = (Benutzer) this.createObject(ClassType.BENUTZER,params);
+        Object [] ki1 = {"Felix", "FelixRad@gmail.com","+4689098"};
+        felix.addKontakt((Kontaktinformation) this.createObject(ClassType.KONTAKTINFORMATION, ki1));
         felix.setRolle(rv.getRolle(Rollen.A));
+        
         Object[] params1 = {"Sebastion","Adamois"};
         Benutzer sebastion = (Benutzer) this.createObject(ClassType.BENUTZER,params1);
         sebastion.setRolle(rv.getRolle(Rollen.B));
+        Object [] ki2 = {"Sebbie", "AdamMotors@gmail.com","+4685434598"};
+        sebastion.addKontakt((Kontaktinformation) this.createObject(ClassType.KONTAKTINFORMATION, ki2));
+
+        
         Object[] params2 = {"Aron","Nroa"};
         Benutzer aron = (Benutzer) this.createObject(ClassType.BENUTZER,params2);
         aron.setRolle(rv.getRolle(Rollen.B));
-        Object[] params3 = {"Potrs","nam"};
+        Object [] ki3 = {"Aron", "GNRon@gmail.com","+324234"};
+        aron.addKontakt((Kontaktinformation) this.createObject(ClassType.KONTAKTINFORMATION, ki3));
+        
+        Object[] params3 = {"Potrs","Nammendorf"};
         Benutzer piot = (Benutzer) this.createObject(ClassType.BENUTZER,params3);
         piot.setRolle(rv.getRolle(Rollen.B));
         
