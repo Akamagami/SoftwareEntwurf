@@ -5,6 +5,10 @@ import backend.benutzer.rollen.*;
 import constants.Rollen;
 
 public class RollenVerwaltung {
+	/*
+	 * Die Rollenverwaltung enthält die Rollen die Benutzern vergeben werden können
+	 * In Zukunft könnten über diese Klasse auch Berechtigungen an bestimmte rollen zugewiesen werden
+	 */
 	private Rolle administrator = new Administrator();
 	private Rolle beschaffungspersonal= new Beschaffungspersonal();
 	private Rolle leereRolle= new LeereRolle();

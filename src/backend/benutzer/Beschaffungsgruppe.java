@@ -26,7 +26,7 @@ public class Beschaffungsgruppe extends Gruppe{
 	}
 //------------------------------------------------------------------------------//
 	@Override
-	public boolean addMitarbeiter(Benutzer m)
+	public boolean addMitarbeiter(Benutzer m) //mitarbeiter muss teil des bschaffungspersonals sein
 	{
 		if(m.getRolle().getRollenName() == Rollen.B ) {
 			return super.addMitarbeiter(m);
@@ -35,7 +35,7 @@ public class Beschaffungsgruppe extends Gruppe{
 		}	
 	}
 //------------------------------------------------------------------------------//	
-	public boolean ernenneGruppenleiter(Benutzer m) {
+	public boolean ernenneGruppenleiter(Benutzer m) { //gruppenleiter ernennen über objekt
 		if(this.hatMitarbeiter(m)) {
 			Gruppenleiter = m;
 			return true;
@@ -43,7 +43,7 @@ public class Beschaffungsgruppe extends Gruppe{
 			return false;
 		}
 	}
-	public boolean ernenneGruppenleiter(int index) {
+	public boolean ernenneGruppenleiter(int index) {//gruppenleiter ernennen mit index
 		if(index < this.getAnzahl()) {
 			Gruppenleiter = this.getMitarbeiter(index);
 			return true;
@@ -53,7 +53,7 @@ public class Beschaffungsgruppe extends Gruppe{
 	}
 //------------------------------------------------------------------------------//	
 	@Override
-	public String toString() {
+	public String toString() { //to string methode für den speichervorgang
 		String d = ",";
 		String p = d + "%" + d;
 		

@@ -2,6 +2,10 @@ package backend.importExport;
 import constants.*;
 
 public class ObjectData {
+	
+	/*
+	 * Die gelesenen Strings werden vor dem aufruf der load() methode in ObjectData umgewandelt, Diese enthält immer den Class Type den der String beschreibt
+	 */
 	private ClassType type;
 	private String data;
 	

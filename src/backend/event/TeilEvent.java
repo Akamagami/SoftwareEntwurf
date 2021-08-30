@@ -10,7 +10,10 @@ import constants.ClassType;
 import constants.Status;
 
 public class TeilEvent {
-	
+	/*
+	 * Teilevent, werden Events hinzugefügt
+	 * enthältr immer ein Eventelement
+	 */
 	private String id;//gets assigned by element factory
 	private Date start,ende;
 	private String name;
@@ -28,25 +31,25 @@ public class TeilEvent {
 		status = Status.E;
 	}
 /*-----------------------------------------------------------------------------*/	
-	public void addGruppe(Gruppe g) {
+	public void addGruppe(Gruppe g) {//fügt gruppe hinzu
 		
 		GruppenList.add(g);
 	}
 
-	public void deleteGruppe(int index) {
+	public void deleteGruppe(int index) {//lösch gruppe
 		GruppenList.remove(index);
 	}
-	public Benutzer[] getBenutzer(){
+	public Benutzer[] getBenutzer(){ //gibt alle benutzer der standard gruppe zurück, welche an stellöe 0 liegt
 		return GruppenList.get(0).getMitarbeiterArray();
 	}
-	public boolean hatGruppe() {
+	public boolean hatGruppe() {//gibt zurück ob das teilevent mindestens ein gruppe hat
 		if(GruppenList.size() <=0) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-/*-----------------------------------------------------------------------------*/
+/*--------------------------In diesem bereich werden Gruppenfunktionen für de Gruppe an index m aufgerufen------------*/
 	public boolean addMitarbeiterToGruppe(int index,Benutzer m) {
 		return GruppenList.get(index).addMitarbeiter(m);
 	}
@@ -112,7 +115,7 @@ public class TeilEvent {
 	}
 /*-----------------------------------------------------------------------------*/
 	@Override
-	public String toString() {
+	public String toString() {//toSTring für Speicherfunktion
 		String d = ",";
 		String p = d + "%" + d;
 		

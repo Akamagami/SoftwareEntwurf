@@ -6,7 +6,9 @@ import backend.benutzer.Kontaktinformation;
 import constants.ClassType;
 
 public class KontaktInfoList {
-	
+	/*
+	 * Liste mit Kontaktinfoamtionen
+	 */
 	ArrayList<Kontaktinformation> kontaktInfoList = new ArrayList<Kontaktinformation>();
 	
 /*----------------------------------------------------------*/

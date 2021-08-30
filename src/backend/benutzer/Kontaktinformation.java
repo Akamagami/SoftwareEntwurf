@@ -5,6 +5,7 @@ import constants.ClassType;
 public class Kontaktinformation {
 /*------------------------------------------------------------------------------//
  * Kontaktinfos können, müssen aber nicht an Benutzer gebunden sein
+ * Kontaktinfos können auch an Events und Teilevents geknüpft werden
  /------------------------------------------------------------------------------*/
 	private String name;
 	private String email;
@@ -37,7 +38,7 @@ public class Kontaktinformation {
 	}
 /*------------------------------------------------------------------------------*/
 	@Override
-	public String toString() {
+	public String toString() { //to string für csv adapter
 		String d = ",";
 		String p = d + "%" + d;
 		

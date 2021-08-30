@@ -25,8 +25,8 @@ public class Event {
 	private Status status;
 
 	
-	PictureList pictureList = new PictureList();
-	KontaktInfoList kontaktInfoList = new KontaktInfoList();
+	PictureList pictureList = new PictureList();//objekt das Bilder verwaltet
+	KontaktInfoList kontaktInfoList = new KontaktInfoList(); //objekt das Kontaktinformationen verwaltet
 	ArrayList<TeilEvent> TeilEventList = new ArrayList<TeilEvent>();
 /*------------------------------------------------------------------*/	
 
@@ -153,7 +153,7 @@ public class Event {
 	}
 	/*------------------------------------------------------------------*/	
 	 @Override
-	public String toString() {
+	public String toString() {//toString fü´r speichervorgang
 		String d = ",";
 		String p = d + "%" + d;
 		

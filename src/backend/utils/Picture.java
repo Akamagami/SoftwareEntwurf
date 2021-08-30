@@ -1,6 +1,9 @@
 package backend.utils;
 
 public class Picture {
+	/*
+	 * Bild mit pfad und altText
+	 */
 	private String url,Name;
 
 	public Picture(String url, String name) {

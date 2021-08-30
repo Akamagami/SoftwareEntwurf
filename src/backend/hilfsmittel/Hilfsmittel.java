@@ -4,7 +4,9 @@ import backend.utils.PictureList;
 import constants.ClassType;
 
 public class Hilfsmittel {
-	
+	/*
+	 * EIn Hilfsmittel kann über eine Zuweisung einem Teilevent zugeordnet werden
+	 */
 	private String name;
 	private String beschreibung;
 	private int gesamtAnzahl;
@@ -47,7 +49,7 @@ public class Hilfsmittel {
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() {//toString fpr Speicher vorgang
 		String d = ",";
 		String p = d + "%" + d;
 		

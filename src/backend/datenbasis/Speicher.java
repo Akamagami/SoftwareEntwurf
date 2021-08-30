@@ -56,11 +56,15 @@ import constants.Rollen;
 import constants.Status;
 
 public class Speicher {
+	/*
+	 * Der Speicher ist die Schnittstelle für das UI um an alle Daten zu gelangen
+	 * Der Speicher enthält alle Factories und entity Manager und alle util klassen
+	 */
 
-	private HashMap<ClassType, EntityManager> managers = new HashMap<ClassType, EntityManager>();
-	private HashMap<ClassType, ElementFactory> factories = new HashMap<ClassType, ElementFactory>();
-	private HilfsmittelUtils hu = new HilfsmittelUtils(this);
-	private IReadWrite csv = new CSVAdapter();
+	private HashMap<ClassType, EntityManager> managers = new HashMap<ClassType, EntityManager>(); //Liste der ENtity Manager
+	private HashMap<ClassType, ElementFactory> factories = new HashMap<ClassType, ElementFactory>();//Lister der Factories
+	private HilfsmittelUtils hu = new HilfsmittelUtils(this); //hilfsmittel utils klasse
+	private IReadWrite csv = new CSVAdapter();//Speicher adapter
 	private RollenVerwaltung rv = new RollenVerwaltung();
 
 	public Speicher() {
@@ -70,14 +74,14 @@ public class Speicher {
 
 	@SuppressWarnings("unchecked")
 	private void init() {
-		// ---------------------------------Manager-------------------------------------------//
+		// ---------------------------------Manager-------------------------------------------// hier werden die Manager in die Hasmap eingefügt, der Key ist der entsprechende ClassType enum
 		EntityManager<Benutzer> userManager = new BenutzerManager();
 		managers.put(ClassType.BENUTZER, userManager);
 
 		EntityManager<Kontaktinformation> kontaktinformationManager = new KontaktinformationManager();
 		managers.put(ClassType.KONTAKTINFORMATION, kontaktinformationManager);
 
-		EntityManager<Gruppe> gruppeManager = new GruppeManager();
+		EntityManager<Gruppe> gruppeManager = new GruppeManager(); //Da Bescaffungsgruppen auch gruppen sind werden sie von einem Manager verwaltet
 		managers.put(ClassType.GRUPPE, gruppeManager);
 		managers.put(ClassType.BGRUPPE, gruppeManager);
 
@@ -107,17 +111,17 @@ public class Speicher {
 
 		EntityManager<Zuweisung> zuweisungManager = new ZuweisungManager();
 		managers.put(ClassType.ZUWEISUNG, zuweisungManager);
-		// ---------------------------------Factories-------------------------------------------//
+		// ---------------------------------Factories-------------------------------------------//hier werden die Factories in die Hasmap eingefügt, der Key ist der entsprechende ClassType enum
 		ElementFactory userFactory = new BenutzerFactory();
 		factories.put(ClassType.BENUTZER, userFactory);
 
 		ElementFactory kontaktInfoFactory = new KontaktInfoFactory();
 		factories.put(ClassType.KONTAKTINFORMATION, kontaktInfoFactory);
 
-		ElementFactory gruppeFactory = new GruppeFactory();
+		ElementFactory gruppeFactory = new GruppeFactory();//Gruppen haben gerade ids
 		factories.put(ClassType.GRUPPE, gruppeFactory);
 
-		ElementFactory bGruppeFactory = new BGruppeFactory();
+		ElementFactory bGruppeFactory = new BGruppeFactory();//BGruppen haben ungerade ids
 		factories.put(ClassType.BGRUPPE, bGruppeFactory);
 
 		ElementFactory eventFactory = new EventFactory();
@@ -149,36 +153,36 @@ public class Speicher {
 	}
 
 	/*--------------------------------------------------------------------------------------------------------------*/
-	public void save(ClassType type, Object o) {
+	public void save(ClassType type, Object o) {//Funktion um ein Objekt einer Klasse im Entity Manager zu speichern, wird typischerweise immer direkt von der Create methode aufgerufen
 		managers.get(type).save(o);
 	}
 
-	public void update(ClassType type, String id, Object[] params) {
+	public void update(ClassType type, String id, Object[] params) {//Funktion um die update methode eiunes Objekts aufzurufen
 		managers.get(type).update(id, params);
 	}
 
-	public Object getObject(ClassType type, String id) {
+	public Object getObject(ClassType type, String id) {//holt ein objekt je nach class type und id
 		Optional ret = managers.get(type).get(id);
 		return ret.get();
 	}
 
-	public List<Object> getAll(ClassType type) {
+	public List<Object> getAll(ClassType type) {//gibt alle object eines class types zurück
 		return managers.get(type).getAll();
 	}
 
-	public void delete(ClassType type, String id) {
+	public void delete(ClassType type, String id) {//löscht ein Objekt aus dem jeiligen entity manager
 		managers.get(type).delete(id);
 	}
 
 	/*--------------------------------------------------------------------------------------------------------------*/
-	private Object createObject(ClassType c, Object[] params, Optional<String> optId) {
+	private Object createObject(ClassType c, Object[] params, Optional<String> optId) {//interne create methode, wird entweder mit oder ohne id aufgerufen
 		Object ret = factories.get(c).create(params, optId);
 		this.save(c, ret);
 		return ret;
 	}
 
 	/*--------------------------------------------------------------------------------------------------------------*/
-	public void save() {
+	public void save() {//erstellt Array List mit allen toString werten -> gibt diese an Csv Adapter weiter
 		ArrayList<String> ret = new ArrayList<String>();
 		for (ClassType t : ClassType.values()) {
 			if (t != ClassType.BGRUPPE) {
@@ -190,7 +194,7 @@ public class Speicher {
 		csv.saveAll(ret);
 	}
 
-	public void load() {
+	public void load() {//erhält liste von csvAdapter, ruft basierend auf dem Class Type des zu erstellenden Objekted die richtige Methode auf
 		for (ObjectData o : csv.initRead()) {
 			String[] data = o.splitData();
 			switch (o.getType()) {
@@ -243,7 +247,11 @@ public class Speicher {
 		}
 	}
 
-	/*--------------------------------------------------------------------------------------------------------------*/
+	/*---------------------------------------------------------------
+	 * Hier folgen die einzelnen Methoden die Aus den gespeicherten Strings Objekte erstellen
+	 * WIchtig ist hier, dass für die enthaltenen Objekte eines Objekts nur die Ids gespeichert werden, daher müssen diese erstmal aus dem Speicher geholt werden
+	 * ein speicher STring sieht so aus CLASSTYPE,id,main,data,strings,%,ClassType eins Objeks,id,%,ClassType eins Objeks,id,.......
+	 * --------------------------------------------------------------*/
 	private void createFromDataBenutzer(String data[]) {
 		// create
 		String[] mainData = data[0].split(",");
@@ -447,7 +455,7 @@ public class Speicher {
 		}
 	}
 	/*---------------------------------test data---------------------------------------------------------------*/
-	public void createTestUserData() {
+	public void createTestUserData() {//Diese methode erstellt eine Reihe an Benutzern und Hilfsmittel wenn ser SPeicher bisher leer war
         Object[] params = {"Felix","Radermacher"};
         Benutzer felix = (Benutzer) this.createObject(ClassType.BENUTZER,params);
         felix.setRolle(rv.getRolle(Rollen.A));
@@ -468,28 +476,18 @@ public class Speicher {
         Object[] parrr2 = {"Kunstrasen", "Vrum Vrum", 666 };
         this.createObject(ClassType.HILFSMITTEL, parrr2);
 	}
-
 	/*--------------------------------------------------------------------------------------------------------------*/
 
-	public Object createObject(ClassType c, Object[] params) {
+	public Object createObject(ClassType c, Object[] params) {//Diese Methode erstellt ein Objekt ohne eine Id festulegen, die ID wird automatisch generiert
 		return this.createObject(c, params, Optional.empty());
 	}
 
-	private Object createObject(ClassType c, Object[] params, String id) {
+	private Object createObject(ClassType c, Object[] params, String id) {//Diese Methode erstellt ein Ojekt mit einer festgelegten id, kann nur vom speicher selbst aufgerufen werden
 		return this.createObject(c, params, Optional.of(id));
 	}
 
-	public void testzuweisung() {
-		
-		Hilfsmittel h = (Hilfsmittel) this.getObject(ClassType.HILFSMITTEL,"1");
-		Object[] params = {this.getObject(ClassType.TEILEVENT, "1"),h,10};
-		this.createObject(ClassType.ZUWEISUNG,params);
-		
-		System.out.println("Max: " + h.getGesamtAnzahl());
-		System.out.println("CUrrent: " + hu.getBestand(h.getId(), Date.valueOf("1010-10-14"),  Date.valueOf("1010-10-16")));
-		
-	}
-	public HilfsmittelUtils getHiflsmittelUtils() {
+	
+	public HilfsmittelUtils getHiflsmittelUtils() {//gibt die Hilfsmittelutils klasse zurück
 		return hu;
 	}
 }

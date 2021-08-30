@@ -4,6 +4,10 @@ import backend.event.EventElement;
 import constants.ClassType;
 
 public class Sonstiges extends EventElement {
+	/*
+	 * Eventelement Sonstiges (Standard typ)
+	 * ebthält 1 zusätzliches Feld
+	 */
 	private String Zustaendiger;
 	
 	public Sonstiges(String name, String beschreibung, double kosten, String Zustaendiger, String id) {

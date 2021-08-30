@@ -6,12 +6,15 @@ import constants.ClassType;
 import constants.Rollen;
 
 public class Gruppe {
-//normale Gruppe von MItarbeitern die Event hinzugefügt werden kann	
+//*
+/*	normale Gruppe von Mitarbeitern die TeilEvent hinzugefügt werden kann
+ * normalle gruppen sind im prinzip nur eine liste mit mitarbeitern
+		*/
 	private String name;
 	private String id;
 	private ArrayList<Benutzer> Mitarbeiter = new ArrayList<Benutzer>();//TODO
 /*------------------------------------------------------------*/	
-	public boolean addMitarbeiter(Benutzer m)
+	public boolean addMitarbeiter(Benutzer m) //hinzufügen von Mitarbeiter, wird nicht zweimal hinzugefügt
 	{
 		if(!Mitarbeiter.contains(m))
 		{
@@ -21,7 +24,7 @@ public class Gruppe {
 			return false;
 		}
 	}
-	public boolean deleteMitarbeiter(Benutzer m)
+	public boolean deleteMitarbeiter(Benutzer m)//löschen eines mitarbeiter über objekt
 	{
 		if(Mitarbeiter.contains(m))
 		{
@@ -31,7 +34,7 @@ public class Gruppe {
 			return false;
 		}
 	}
-	public boolean deleteMitarbeiter(int index)
+	public boolean deleteMitarbeiter(int index)//löschen eines mitarbeiter über index
 	{
 		if(index < Mitarbeiter.size())
 		{
@@ -55,7 +58,7 @@ public class Gruppe {
 		return id;
 	}
 /*------------------------------------------------------------*/
-	public Benutzer[] getMitarbeiterArray() {
+	public Benutzer[] getMitarbeiterArray() { //liefert array mit allen benutzers für UI
 		Benutzer[] ret = new Benutzer[Mitarbeiter.size()];
 		int cnt = 0;
 		for(Benutzer b : Mitarbeiter)
@@ -66,7 +69,7 @@ public class Gruppe {
 		return ret;
 	}
 /*------------------------------------------------------------*/
-	public Benutzer getMitarbeiter(int index) {
+	public Benutzer getMitarbeiter(int index) { //gibt einzelnen mitarbeiter zturück
 		return Mitarbeiter.get(index);
 	}
 	public int getAnzahl()
@@ -74,7 +77,7 @@ public class Gruppe {
 		return Mitarbeiter.size();
 	}
 /*------------------------------------------------------------*/
-	public boolean hatMitarbeiter(Benutzer m) {
+	public boolean hatMitarbeiter(Benutzer m) {//liefert boolean ob mitarbeiter vorhanden ist zurück
 		if(Mitarbeiter.contains(m))
 		{
 			return true;
@@ -84,7 +87,7 @@ public class Gruppe {
 	}
 /*------------------------------------------------------------*/
 	@Override
-	public String toString() {
+	public String toString() { //to string für csv adapter
 		String d = ",";
 		String p = d + "%" + d;
 		
