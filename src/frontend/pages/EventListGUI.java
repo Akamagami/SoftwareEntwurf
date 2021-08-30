@@ -1,7 +1,6 @@
 package frontend.pages;
 
 import backend.event.Event;
-import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
 import de.dhbwka.swe.utils.model.IDepictable;
 import frontend.UIData.EventUI;
@@ -10,9 +9,8 @@ import frontend.controller.GUIController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.EventListener;
 
-public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class EventListGUI extends JPanel {
 
     private SimpleListComponent simpleListComponent;
     private ButtonElement buttonElement;
@@ -49,7 +47,7 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         deleteButton.addObserver(controller);
     }
 
-
+    //Ausfuellen des SimpleListComponents mit Events
     public void displayEvents(ArrayList<Event> events) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Event event : events ) {
@@ -58,27 +56,8 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
         this.simpleListComponent.setListElements(elems);
     }
 
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
-    }
-
     public SimpleListComponent getSimpleListComponent() {
         return simpleListComponent;
-    }
-
-    public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
-        this.simpleListComponent = simpleListComponent;
     }
 
     public ButtonElement getButtonElement() {
@@ -87,14 +66,6 @@ public class EventListGUI extends JPanel implements IUpdateEventListener, IGUIEv
 
     public void setButtonElement(ButtonElement buttonElement) {
         this.buttonElement = buttonElement;
-    }
-
-    public ButtonElement getEditButton() {
-        return editButton;
-    }
-
-    public void setEditButton(ButtonElement editButton) {
-        this.editButton = editButton;
     }
 
     public GUIController getController() {

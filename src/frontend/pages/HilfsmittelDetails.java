@@ -3,7 +3,6 @@ package frontend.pages;
 
 import backend.datenbasis.Speicher;
 import backend.hilfsmittel.Hilfsmittel;
-import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import de.dhbwka.swe.utils.model.IDepictable;
@@ -14,9 +13,8 @@ import frontend.controller.GUIController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.EventListener;
 
-public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class HilfsmittelDetails extends JPanel {
 
     private GUIController controller;
     private ButtonElement addButton;
@@ -35,6 +33,7 @@ public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, 
         this.add(addButton, BorderLayout.SOUTH);
     }
 
+    //Darstellen der Hilfsmittel in SimpleListComponent
     public void displayHilfsmittel(ArrayList<Hilfsmittel> hilfsmittelArrayList, TeilEventUI currentTeilEventUI, Speicher speicher) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Hilfsmittel hilfsmittel : hilfsmittelArrayList ) {
@@ -50,42 +49,12 @@ public class HilfsmittelDetails extends JPanel implements IUpdateEventListener, 
         this.addButton.addObserver(controller);
     }
 
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
-    }
-
     public GUIController getController() {
         return controller;
     }
 
-    public ButtonElement getAddButton() {
-        return addButton;
-    }
-
-    public void setAddButton(ButtonElement returnButton) {
-        this.addButton = returnButton;
-    }
-
     public SimpleListComponent getSimpleListComponent() {
         return simpleListComponent;
-    }
-
-    public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
-        this.simpleListComponent = simpleListComponent;
-    }
-
-    public TeilEventUI getCurrentTeilEventUI() {
-        return currentTeilEventUI;
     }
 
     public void setCurrentTeilEventUI(TeilEventUI currentTeilEventUI) {

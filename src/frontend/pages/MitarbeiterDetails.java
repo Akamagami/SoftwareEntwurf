@@ -1,14 +1,9 @@
 package frontend.pages;
 
 import backend.benutzer.Benutzer;
-import backend.event.Event;
-import de.dhbwka.swe.utils.event.IGUIEventSender;
-import de.dhbwka.swe.utils.event.IUpdateEventListener;
-import de.dhbwka.swe.utils.event.UpdateEvent;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import de.dhbwka.swe.utils.model.IDepictable;
-import frontend.UIData.EventUI;
 import frontend.UIData.MitarbeiterUI;
 import frontend.UIData.TeilEventUI;
 import frontend.controller.GUIController;
@@ -16,9 +11,8 @@ import frontend.controller.GUIController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.EventListener;
 
-public class MitarbeiterDetails extends JPanel implements IGUIEventSender {
+public class MitarbeiterDetails extends JPanel {
 
     private GUIController controller;
     private ButtonElement addButton;
@@ -45,6 +39,7 @@ public class MitarbeiterDetails extends JPanel implements IGUIEventSender {
         this.addButton.addObserver(controller);
     }
 
+    //Ausfuellen des SimpleListComponents mit Mitarbeitern
     public void displayMitarbeiter(ArrayList<Benutzer> benutzer) {
         ArrayList<IDepictable> elems = new ArrayList();
         for (Benutzer nutzer : benutzer ) {
@@ -57,38 +52,12 @@ public class MitarbeiterDetails extends JPanel implements IGUIEventSender {
         return controller;
     }
 
-    public ButtonElement getAddButton() {
-        return addButton;
-    }
-
-    public void setAddButton(ButtonElement addButton) {
-        this.addButton = addButton;
-    }
-
     public SimpleListComponent getSimpleListComponent() {
         return simpleListComponent;
     }
 
-    public void setSimpleListComponent(SimpleListComponent simpleListComponent) {
-        this.simpleListComponent = simpleListComponent;
-    }
-
-    public TeilEventUI getCurrentTeilEventUI() {
-        return currentTeilEventUI;
-    }
-
     public void setCurrentTeilEventUI(TeilEventUI currentTeilEventUI) {
         this.currentTeilEventUI = currentTeilEventUI;
-    }
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
     }
 
 }

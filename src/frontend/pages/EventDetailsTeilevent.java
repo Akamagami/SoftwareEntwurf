@@ -1,7 +1,6 @@
 package frontend.pages;
 
 import backend.event.TeilEvent;
-import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.ButtonElement;
 import de.dhbwka.swe.utils.gui.SimpleListComponent;
 import de.dhbwka.swe.utils.model.IDepictable;
@@ -11,10 +10,10 @@ import frontend.controller.GUIController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.EventListener;
 
 
-public class EventDetailsTeilevent extends JPanel implements IUpdateEventListener, IGUIEventSender {
+
+public class EventDetailsTeilevent extends JPanel {
 
     private GUIController controller;
     private ButtonElement createButton;
@@ -52,26 +51,13 @@ public class EventDetailsTeilevent extends JPanel implements IUpdateEventListene
     	this.simpleListComponent.removeAllListElements();
     }
 
+    //Laden der Teilevents in SimpleListComponent
     public void displayEvents(ArrayList<TeilEvent> teilEvents) {
 	        ArrayList<IDepictable> elems = new ArrayList();
 	        for (TeilEvent teilEvent : teilEvents ) {
 	            elems.add(new TeilEventUI(teilEvent));
 	        }
 	        this.simpleListComponent.setListElements(elems);
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
-    }
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
     }
 
     public GUIController getController() {

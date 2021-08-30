@@ -1,27 +1,21 @@
 package frontend.pages;
 
 import backend.benutzer.Kontaktinformation;
-import backend.event.Event;
 import backend.event.TeilEvent;
 import backend.event.eventelement.Catering;
 import backend.event.eventelement.Location;
 import backend.event.eventelement.Musik;
 import backend.event.eventelement.Sonstiges;
 import constants.ClassType;
-import de.dhbwka.swe.utils.event.*;
 import de.dhbwka.swe.utils.gui.*;
-import de.dhbwka.swe.utils.model.IDepictable;
 import frontend.UIData.EventUI;
 import frontend.UIData.TeilEventUI;
 import frontend.controller.GUIController;
-import frontend.controller.MainGUIController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.EventListener;
 
-public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventListener, IGUIEventSender {
+public class TeilEventDetailsUebersicht extends JPanel {
 
     private GUIController controller;
     private ButtonElement saveButton;
@@ -48,13 +42,13 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                         .actionType(AttributeElement.ActionType.NONE)
                         .modificationType(AttributeElement.ModificationType.DIRECT)
                         .allowedChars(AttributeElement.CHARSET_DATE)
-                        .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                        .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD").build(),
 
                 AttributeElement.builder("AE-4").labelName("Bis")
                         .actionType(AttributeElement.ActionType.NONE)
                         .modificationType(AttributeElement.ModificationType.DIRECT)
                         .allowedChars(AttributeElement.CHARSET_DATE)
-                        .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY").build(),
+                        .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD").build(),
 
                 AttributeElement.builder("AE-5").labelName("Kosten")
                         .actionType(AttributeElement.ActionType.NONE)
@@ -110,7 +104,8 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         saveButton.addObserver(controller);
     }
 
-
+    //Verarbeitung der Kategorieauswahl für Teilevents;
+    //Je nach dem Wert des Identifiers wird ein auf die Kategorie zugeschnittener AttributeComponent erzeugt und dem Panel hinzugefuegt
     public void setTeilEventIdent(Object teilEventIdent) {
         this.teilEventIdent = teilEventIdent;
 
@@ -168,7 +163,7 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         specialComponent.setAttributeElements(elements);
     }
 
-
+    //Ausfuellen der Attributfelder mit Teilevent-Werten
     public void fillAttributes(TeilEventUI teilEventUI) {
         TeilEvent teilEvent = teilEventUI.getTeilEvent();
 
@@ -190,14 +185,14 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DATE)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD")
                                 .value(teilEvent.getStart()).build(),
 
                         AttributeElement.builder("AE-4").labelName("Bis")
                                 .actionType(AttributeElement.ActionType.NONE)
                                 .modificationType(AttributeElement.ModificationType.DIRECT)
                                 .allowedChars(AttributeElement.CHARSET_DATE)
-                                .mandatory(true).maxLength(100).toolTip("DD.MM.YYYY")
+                                .mandatory(true).maxLength(100).toolTip("YYYY-MM-DD")
                                 .value(teilEvent.getEnde()).build(),
 
                         AttributeElement.builder("AE-5").labelName("Kosten")
@@ -306,43 +301,14 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
                     }
             );
         }
-
-
-    }
-
-
-    @Override
-    public boolean addObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public boolean removeObserver(EventListener eventListener) {
-        return false;
-    }
-
-    @Override
-    public void processUpdateEvent(UpdateEvent updateEvent) {
     }
 
     public void setKontaktInformation(AttributeComponent kontaktInformation) {
         this.kontaktInformation = kontaktInformation;
     }
 
-    public void setAttributeComponent(AttributeComponent attributeComponent) {
-        this.attributeComponent = attributeComponent;
-    }
-
     public GUIController getController() {
         return controller;
-    }
-
-    public ButtonElement getSaveButton() {
-        return saveButton;
-    }
-
-    public void setSaveButton(ButtonElement saveButton) {
-        this.saveButton = saveButton;
     }
 
     public AttributeComponent getAttributeComponent() {
@@ -357,18 +323,6 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
         return specialComponent;
     }
 
-    public void setSpecialComponent(AttributeComponent specialComponent) {
-        this.specialComponent = specialComponent;
-    }
-
-    public AttributeElement[] getElements() {
-        return elements;
-    }
-
-    public void setElements(AttributeElement[] elements) {
-        this.elements = elements;
-    }
-
     public AttributeComponent getKontaktInformation() {
         return kontaktInformation;
     }
@@ -379,9 +333,5 @@ public class TeilEventDetailsUebersicht extends JPanel implements IUpdateEventLi
 
     public EventUI getCurrentEventUI() {
         return currentEventUI;
-    }
-
-    public void setCurrentEventUI(EventUI currentEventUI) {
-        this.currentEventUI = currentEventUI;
     }
 }

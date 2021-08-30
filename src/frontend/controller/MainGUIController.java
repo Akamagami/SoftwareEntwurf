@@ -14,7 +14,7 @@ public class MainGUIController extends GUIController {
     private MainGUI mainGUI;
     private Speicher speicher;
 
-
+    //Hauptcontroller für die Steuerung der Fenster, Aufruf neuer Fenster und Aktualisierung der Fenster
     public MainGUIController(MainGUI mainGUI, Speicher speicher) {
         this.mainGUI = mainGUI;
         this.speicher = speicher;
@@ -23,6 +23,7 @@ public class MainGUIController extends GUIController {
 
     @Override
     public void processGUIEvent(GUIEvent ge) {
+        //Oeffnen des Fensters, wenn ein neues Event erstellt wird
         if (ge.getCmd().equals(EventListGUIController.Commands.OPEN_EVENTPANE)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getEventpane());
@@ -33,6 +34,7 @@ public class MainGUIController extends GUIController {
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
         }
+        //Oeffnen des Fensters, wenn ein Teilevent erstellt werden soll
         else if (ge.getCmd().equals(EventDetailsController.Commands.CREATE_TEILEVENT)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getTeileventspane());
@@ -44,6 +46,7 @@ public class MainGUIController extends GUIController {
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.setSize(new Dimension(800, 600));
         }
+        //Oeffnen des Fensters, wenn ein Event editiert werden soll
         else if (ge.getCmd().equals(EventListGUIController.Commands.OPEN_EDIT_EVENTPANE)) {
             JFrame frame = new JFrame();
             EventUI event = (EventUI) ge.getData();
@@ -57,6 +60,7 @@ public class MainGUIController extends GUIController {
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
         }
+        //Oeffnen des Fensters, wenn ein Teilevent editiert werden soll
         else if (ge.getCmd().equals(EventDetailsController.Commands.OPEN_EDIT_TEILEVENTPANE)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getTeileventspane());
@@ -71,6 +75,7 @@ public class MainGUIController extends GUIController {
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
         }
+        //Neuladen der Fenster und der SimpleListComponents
         else if (ge.getCmd().equals(EventDetailsController.Commands.RELOAD_PAGE) || ge.getCmd().equals(EventListGUIController.Commands.RELOAD_PAGE)) {
             mainGUI.getEventListGUIController().loadElements();
             mainGUI.getTeilEventDetailsController().loadElements();
@@ -78,6 +83,7 @@ public class MainGUIController extends GUIController {
             mainGUI.getTeilEventDetailsController().loadHilfsmittel();
             mainGUI.getTeilEventDetailsController().loadAllHilfsmittel();
         }
+        //Oeffnen des Fensters zum Hinzufuegen von Mitarbeitern
         else if (ge.getCmd().equals(TeilEventDetailsController.Commands.ADD_MITARBEITER)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getMitarbeiterDetails());
@@ -87,6 +93,7 @@ public class MainGUIController extends GUIController {
             frame.setVisible(true);frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             frame.pack();
         }
+        //Oeffnen des Fensters zum Hinzufuegen von Hilfsmitteln
         else if (ge.getCmd().equals(TeilEventDetailsController.Commands.ADD_HILFSMITTEL)) {
             JFrame frame = new JFrame();
             frame.add(mainGUI.getHilfsmittelDetails());
@@ -122,17 +129,5 @@ public class MainGUIController extends GUIController {
 
     public MainGUI getMainGUI() {
         return mainGUI;
-    }
-
-    public void setMainGUI(MainGUI mainGUI) {
-        this.mainGUI = mainGUI;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
     }
 }

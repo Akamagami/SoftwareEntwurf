@@ -81,10 +81,13 @@ public class EventDetailsController extends GUIController {
                         }
 
                     }
+
                     //Befehl an den MainGUIController die Seiten der Anwendung zu aktualisieren
                     mainGUIController.processGUIEvent(new GUIEvent(this, Commands.RELOAD_PAGE, null));
                 }
                 else {
+
+                    //Auslesen der AttributeComponents
                     String[] params = Uebersicht.getAttributeComponent().getAttributeValuesAsArray();
                     String[] kontaktParams = Uebersicht.getKontaktBeschreibungComponent().getAttributeValuesAsArray();
                     for (EventKategorie kategorie : EventKategorie.values()
@@ -94,6 +97,7 @@ public class EventDetailsController extends GUIController {
                             for (Status status1: Status.values()
                                  ) {
                                 if (status1.getDisplayName().equals(params[8])){
+                                    //Update-Funktion von Events wird aufgerufen. Neue Werte eingetragen
                                     currentEventUI.getEvent().update((String) params[0], (String) params[1], (Date) Date.valueOf(params[3]),
                                     (Date) Date.valueOf(params[4]), Integer.parseInt(params[5]), (String) params[2], (double) Double.parseDouble(params[6]),
                                     (EventKategorie) kategorie, (Status) status1);
@@ -144,12 +148,12 @@ public class EventDetailsController extends GUIController {
         mainGUIController.getMainGUI().getEventListGUIController().loadElements();
         mainGUIController.getMainGUI().getTeilEventDetailsController().getTeilEventDetailsUebersicht().getEvent(currentEventUI);
     }
+
+    //Erneuert die CurrentEventUI im TeilEventDetailsController
     public void refreshTeilevents(EventUI event) {
    	 mainGUIController.getMainGUI().getTeilEventDetailsController().setCurrentEventUI(event);
    	 mainGUIController.getMainGUI().getTeilEventDetailsController().loadElements();
    }
-
-
 
 
     public enum Commands implements EventCommand {
@@ -180,32 +184,12 @@ public class EventDetailsController extends GUIController {
         return Uebersicht;
     }
 
-    public void setUebersicht(EventDetailsUebersicht Uebersicht) {
-        this.Uebersicht = Uebersicht;
-    }
-
     public EventDetailsTeilevent getTeilevent() {
         return teilevent;
     }
 
     public void setTeilevent(EventDetailsTeilevent teilevent) {
         this.teilevent = teilevent;
-    }
-
-    public MainGUIController getMainGUIController() {
-        return mainGUIController;
-    }
-
-    public void setMainGUIController(MainGUIController mainGUIController) {
-        this.mainGUIController = mainGUIController;
-    }
-
-    public Speicher getSpeicher() {
-        return speicher;
-    }
-
-    public void setSpeicher(Speicher speicher) {
-        this.speicher = speicher;
     }
 
     public EventUI getCurrentEventUI() {
